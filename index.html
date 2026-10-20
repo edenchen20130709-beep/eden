@@ -144,67 +144,64 @@
   <!-- teacher's desk -->
   <g id="tDesk">
     <rect x="560" y="385" width="200" height="14" fill="#a9743f"/>
+     rendering space...
     <rect x="570" y="399" width="10" height="70" fill="#8a5c30"/>
     <rect x="740" y="399" width="10" height="70" fill="#8a5c30"/>
   </g>
 
-  <!-- Teacher character -->
-  <g id="teacher" transform="translate(630,310)">
-    <circle cx="30" cy="30" r="20" fill="#ffdbac"/>
-    <rect x="10" y="50" width="40" height="60" fill="#4a69bd"/>
+  <!-- Teacher character framework -->
+  <g id="teacher" transform="translate(640,240)">
+    <circle cx="40" cy="40" r="24" fill="#fcd0a1"/>
+    <rect x="15" y="64" width="50" height="90" fill="#333a42"/>
   </g>
 </svg>
 
 <script>
-  // Game state variables
+  // Complete Interactive Game Logic Engine
   let score = 0;
   let strikes = 0;
-  let isTeacherTurned = false;
+  let hummusCount = 0;
+  let poopCount = 0;
+  let cowDungCount = 0;
+  let isTeacherLooking = false;
+  let playerState = "sitting"; // sitting, standing, crouching
 
-  // Simple game loop placeholder to ensure rendering works
-  function gameLoop() {
-    if (Math.random() < 0.02) {
-      isTeacherTurned = !isTeacherTurned;
-      const teacherEl = document.getElementById('teacher');
-      if (teacherEl) {
-        teacherEl.style.fill = isTeacherTurned ? '#e74c3c' : '#4a69bd';
-      }
-      const wbTextEl = document.getElementById('wbText');
-      if (wbTextEl) {
-        wbTextEl.textContent = isTeacherTurned ? "WATCHING!" : "Writing...";
-      }
+  // Automating the teacher's AI behaviors
+  function loopTeacherBehavior() {
+    isTeacherLooking = !isTeacherLooking;
+    const tElement = document.getElementById("teacher");
+    const boardText = document.getElementById("wbText");
+    
+    if (isTeacherLooking) {
+      if (tElement) tElement.style.fill = "#c1403d"; // Angry red alert state
+      if (boardText) boardText.textContent = "WATCHING YOU!";
+    } else {
+      if (tElement) tElement.style.fill = "#333a42"; // Turned away state
+      if (boardText) boardText.textContent = "Writing rules...";
     }
-    requestAnimationFrame(gameLoop);
+    
+    // Set a random timing offset for unpredictable teacher movement
+    setTimeout(loopTeacherBehavior, 2000 + Math.random() * 3000);
   }
 
-  // Keyboard event listeners
-  window.addEventListener('keydown', (e) => {
-    if (e.key.toLowerCase() === 'q') {
-      if (isTeacherTurned) {
+  // Keyboard Game Inputs System Listener
+  window.addEventListener("keydown", (event) => {
+    const key = event.key.toLowerCase();
+    
+    // Action: Throw Hummus projectile
+    if (key === 'q') {
+      if (isTeacherLooking) {
         strikes++;
-        if (strikes <= 3) {
-          const strikeEl = document.getElementById(`st${strikes}`);
-          if (strikeEl) strikeEl.style.fill = '#e74c3c';
-        }
-        if (strikes >= 3) {
-          alert('Caught! Game Over.');
-          score = 0;
-          strikes = 0;
-          for(let i=1; i<=3; i++) {
-            const el = document.getElementById(`st${i}`);
-            if (el) el.style.fill = 'none';
-          }
-        }
+        updateStrikesDisplay();
       } else {
-        score += 10;
+        score += 25;
+        hummusCount++;
+        document.getElementById("scoreBase").textContent = "Score: " + score;
+        document.getElementById("count").textContent = `Hummus: ${hummusCount} | Poop: ${poopCount}`;
       }
-      const scoreBaseEl = document.getElementById('scoreBase');
-      if (scoreBaseEl) scoreBaseEl.textContent = `Score: ${score}`;
     }
-  });
 
-  // Start the game mechanics automatically when page loads
-  gameLoop();
-</script>
-</body>
-</html>
+    // Action: Generate poop hazard 
+    if (key === 'e') {
+      poopCount++;
+      score += 5;
