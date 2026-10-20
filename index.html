@@ -17,7 +17,6 @@
     <line x1="-1000" y1="400" x2="1800" y2="400"/>
     <line x1="-1000" y1="470" x2="1800" y2="470"/>
   </g>
-
   <!-- right side wall, sign, cow corner -->
   <rect x="886" y="-1000" width="1200" height="1346" fill="#a3a6ab"/>
   <line x1="886" y1="-1000" x2="886" y2="345" stroke="#8d9095" stroke-width="3"/>
@@ -31,177 +30,92 @@
     <ellipse cx="790" cy="418" rx="14" ry="5.5" fill="#4f5b2a"/>
     <ellipse cx="790" cy="412" rx="9" ry="4.5" fill="#5d6b32"/>
     <path d="M787 408 Q792 402 789 398 Q795 403 794 408 Z" fill="#6e7d3c"/>
-    <g id="steam" opacity=".5" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round">
-      <path d="M782 398 q4 -6 0 -12"/>
-      <path d="M796 396 q4 -6 0 -12"/>
-    </g>
   </g>
-  <g id="cow" transform="translate(832,400) scale(.9)">
-    <ellipse cx="0" cy="2" rx="56" ry="7" fill="#000" opacity=".15"/>
-    <rect x="-36" y="-28" width="9" height="28" fill="#ece8e0"/>
-    <rect x="-20" y="-28" width="9" height="28" fill="#ece8e0"/>
-    <rect x="16" y="-28" width="9" height="28" fill="#ece8e0"/>
-    <rect x="30" y="-28" width="9" height="28" fill="#ece8e0"/>
-    <rect x="-36" y="-4" width="9" height="4" fill="#3b3b3b"/>
-    <rect x="-20" y="-4" width="9" height="4" fill="#3b3b3b"/>
-    <rect x="16" y="-4" width="9" height="4" fill="#3b3b3b"/>
-    <rect x="30" y="-4" width="9" height="4" fill="#3b3b3b"/>
-    <g id="cowTail">
-      <path d="M44 -54 Q56 -44 50 -22" stroke="#d8d3c8" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <ellipse cx="50" cy="-17" rx="4" ry="7" fill="#2b2b2b"/>
-    </g>
-    <rect x="-44" y="-68" width="90" height="44" rx="18" fill="#f6f3ee"/>
-    <ellipse cx="-14" cy="-52" rx="13" ry="10" fill="#2b2b2b"/>
-    <ellipse cx="24" cy="-57" rx="15" ry="11" fill="#2b2b2b"/>
-    <ellipse cx="14" cy="-24" rx="9" ry="6" fill="#f2b6bf"/>
-    <g id="cowHead">
-      <path d="M-60 -62 Q-58 -74 -53 -66" fill="#e6d9a8"/>
-      <ellipse cx="-56" cy="-50" rx="17" ry="14" fill="#f6f3ee"/>
-      <ellipse cx="-66" cy="-44" rx="11" ry="8" fill="#f2b6bf"/>
-      <circle cx="-69" cy="-45" r="1.6" fill="#7a3b46"/>
-      <circle cx="-63" cy="-45" r="1.6" fill="#7a3b46"/>
-      <circle cx="-55" cy="-56" r="2.6" fill="#222"/>
-      <ellipse cx="-45" cy="-62" rx="6" ry="3.5" fill="#2b2b2b" transform="rotate(-25 -45 -62)"/>
-    </g>
-  </g>
-
-  <!-- whiteboard (back of the room) -->
+  <!-- whiteboard -->
   <rect x="140" y="50" width="520" height="230" rx="6" fill="#9a9da2"/>
   <rect x="150" y="60" width="500" height="210" rx="3" fill="#fdfdfd"/>
   <rect x="150" y="270" width="500" height="10" fill="#8a8d92"/>
-  <rect x="190" y="266" width="26" height="5" rx="2" fill="#2e6bd6"/>
-  <rect x="224" y="266" width="26" height="5" rx="2" fill="#d64545"/>
-  <g font-family="'Comic Sans MS','Segoe Print',cursive" font-size="30">
+  <g font-family="cursive" font-size="30">
     <text x="410" y="105" fill="#2e6bd6">Welcome to class!</text>
     <text x="410" y="160" fill="#d64545">2 + 3 = 5</text>
-    <text x="410" y="210" fill="#2e8b57">Today: Math</text>
-    <text id="wbText" x="383" y="246" font-size="24" fill="#6a4fb3"></text>
+    <text id="wbText" x="410" y="220" fill="#6a4fb3">Writing...</text>
   </g>
-
-  <text x="10" y="22" font-size="14" font-weight="700" font-family="system-ui,sans-serif" fill="#2b2d42">Q throw (back turned!) | hold E: poop</text>
-  <text x="10" y="40" font-size="14" font-weight="700" font-family="system-ui,sans-serif" fill="#2b2d42">Space stand/sit | WASD move | F crouch</text>
-  <text id="count" x="10" y="58" font-size="13" font-family="system-ui,sans-serif" fill="#41434f">Hummus: 0 | Poop: 0</text>
-  <text id="count2" x="10" y="74" font-size="13" font-family="system-ui,sans-serif" fill="#41434f">Cow dung: 0</text>
-  <g font-family="system-ui,sans-serif" font-weight="900" text-anchor="middle">
-    <text id="scoreBase" x="400" y="40" font-size="30" fill="#2b2d42">Score: 0</text>
-    <text id="scoreRb" x="400" y="40" font-size="30" fill="url(#rainbow)" stroke="#fff" stroke-width="3" paint-order="stroke" opacity="0">Score: 0</text>
-  </g>
-  <g id="strikes" font-family="system-ui,sans-serif">
+  <!-- UI Text Dashboard -->
+  <text x="10" y="22" font-size="14" font-weight="700" font-family="sans-serif" fill="#2b2d42">Press Q: Throw Hummus | Press E: Drop Poop</text>
+  <text id="count" x="10" y="45" font-size="14" font-family="sans-serif" fill="#41434f">Hummus: 0 | Poop: 0</text>
+  <text id="scoreBase" x="400" y="35" font-size="28" font-weight="900" font-family="sans-serif" fill="#2b2d42" text-anchor="middle">Score: 0</text>
+  <!-- Strikes -->
+  <g id="strikes" font-family="sans-serif">
     <text x="548" y="35" font-size="12" font-weight="800" text-anchor="end" fill="#2b2d42">SEEN</text>
     <circle id="st1" cx="568" cy="30" r="10" fill="none" stroke="#2b2d42" stroke-width="2.5"/>
     <circle id="st2" cx="596" cy="30" r="10" fill="none" stroke="#2b2d42" stroke-width="2.5"/>
     <circle id="st3" cx="624" cy="30" r="10" fill="none" stroke="#2b2d42" stroke-width="2.5"/>
   </g>
-
-  <!-- wall clock -->
-  <circle cx="730" cy="70" r="28" fill="#fff" stroke="#555" stroke-width="4"/>
-  <line x1="730" y1="70" x2="730" y2="52" stroke="#333" stroke-width="3"/>
-  <line x1="730" y1="70" x2="744" y2="76" stroke="#333" stroke-width="3"/>
-
+  <!-- Desks & Kids -->
   <defs>
     <g id="desk">
-      <rect x="8" y="20" width="7" height="42" fill="#6e7075"/>
-      <rect x="85" y="20" width="7" height="42" fill="#6e7075"/>
-      <rect x="0" y="14" width="100" height="8" fill="#a9743f"/>
-      <polygon points="10,0 90,0 100,14 0,14" fill="#d49a5c"/>
-      <rect x="32" y="3" width="26" height="8" fill="#3d7ea6"/>
-      <rect x="62" y="4" width="18" height="7" fill="#e8e2d0"/>
+      <rect x="8" y="20" width="7" height="42" fill="#6e7075"/><rect x="85" y="20" width="7" height="42" fill="#6e7075"/>
+      <rect x="0" y="14" width="100" height="8" fill="#a9743f"/><polygon points="10,0 90,0 100,14 0,14" fill="#d49a5c"/>
     </g>
-    <linearGradient id="rainbow" x1="0" y1="0" x2="1" y2="0" spreadMethod="repeat">
-      <stop offset="0" stop-color="#ff3b30"/>
-      <stop offset=".17" stop-color="#ff9500"/>
-      <stop offset=".33" stop-color="#ffd60a"/>
-      <stop offset=".5" stop-color="#34c759"/>
-      <stop offset=".67" stop-color="#0a84ff"/>
-      <stop offset=".83" stop-color="#bf5af2"/>
-      <stop offset="1" stop-color="#ff3b30"/>
-    </linearGradient>
-    <g id="kid">
-      <rect x="20" y="-9" width="40" height="52" rx="13" fill="currentColor"/>
-      <circle cx="34" cy="-24" r="4" fill="#e6b891"/>
-      <circle cx="66" cy="-24" r="4" fill="#e6b891"/>
-      <circle cx="50" cy="-25" r="17" style="fill:var(--hair)"/>
-    </g>
+    <g id="kid"><rect x="20" y="-9" width="40" height="52" rx="13" fill="currentColor"/><circle cx="50" cy="-25" r="17" fill="#5a3b1e"/></g>
   </defs>
-
-  <!-- back row -->
-  <g id="rowBack">
-    <use href="#desk" transform="translate(62,352) scale(.85)"/>
-    <use href="#desk" transform="translate(172,352) scale(.85)"/>
-    <use href="#desk" transform="translate(407,352) scale(.85)"/>
-    <g transform="translate(62,352) scale(.85)"><g id="kb3"><use href="#kid" color="#e0b13a" style="--hair:#7a3b1d"/></g></g>
-    <g transform="translate(172,352) scale(.85)"><g id="kb4"><use href="#kid" color="#d6628f" style="--hair:#1b1b1f"/></g></g>
-    <g transform="translate(407,352) scale(.85)"><g id="kb5"><use href="#kid" color="#2f9bb5" style="--hair:#8a5a2b"/></g></g>
-  </g>
-
-  <!-- middle row -->
-  <use href="#desk" transform="translate(55,405)"/>
-  <use href="#desk" transform="translate(165,405)"/>
-  <use href="#desk" transform="translate(400,405)"/>
-  <g transform="translate(55,405)"><g id="kb1"><use href="#kid" color="#6a4fb3" style="--hair:#5a3b1e"/></g></g>
-  <g transform="translate(165,405)"><g id="kb2"><use href="#kid" color="#3e9c6a" style="--hair:#d9b45a"/></g></g>
-
-  <!-- teacher's desk -->
+  <use href="#desk" transform="translate(55,405)"/><use href="#desk" transform="translate(165,405)"/><use href="#desk" transform="translate(400,405)"/>
+  <g transform="translate(55,405)"><use href="#kid" color="#6a4fb3"/></g>
+  <g transform="translate(165,405)"><use href="#kid" color="#3e9c6a"/></g>
+  <!-- teacher's area -->
   <g id="tDesk">
     <rect x="560" y="385" width="200" height="14" fill="#a9743f"/>
-     rendering space...
-    <rect x="570" y="399" width="10" height="70" fill="#8a5c30"/>
-    <rect x="740" y="399" width="10" height="70" fill="#8a5c30"/>
+    <rect x="570" y="399" width="10" height="70" fill="#8a5c30"/><rect x="740" y="399" width="10" height="70" fill="#8a5c30"/>
   </g>
-
-  <!-- Teacher character framework -->
-  <g id="teacher" transform="translate(640,240)">
-    <circle cx="40" cy="40" r="24" fill="#fcd0a1"/>
-    <rect x="15" y="64" width="50" height="90" fill="#333a42"/>
+  <g id="teacher" transform="translate(630,280)">
+    <circle cx="30" cy="30" r="20" fill="#ffdbac"/>
+    <rect id="tBody" x="10" y="50" width="40" height="60" fill="#4a69bd"/>
   </g>
 </svg>
 
 <script>
-  // Complete Interactive Game Logic Engine
-  let score = 0;
-  let strikes = 0;
-  let hummusCount = 0;
-  let poopCount = 0;
-  let cowDungCount = 0;
-  let isTeacherLooking = false;
-  let playerState = "sitting"; // sitting, standing, crouching
+  let score = 0; let strikes = 0; let hummus = 0; let poop = 0; let isLooking = false;
 
-  // Automating the teacher's AI behaviors
-  function loopTeacherBehavior() {
-    isTeacherLooking = !isTeacherLooking;
-    const tElement = document.getElementById("teacher");
-    const boardText = document.getElementById("wbText");
-    
-    if (isTeacherLooking) {
-      if (tElement) tElement.style.fill = "#c1403d"; // Angry red alert state
-      if (boardText) boardText.textContent = "WATCHING YOU!";
-    } else {
-      if (tElement) tElement.style.fill = "#333a42"; // Turned away state
-      if (boardText) boardText.textContent = "Writing rules...";
-    }
-    
-    // Set a random timing offset for unpredictable teacher movement
-    setTimeout(loopTeacherBehavior, 2000 + Math.random() * 3000);
+  function loopTeacher() {
+    isLooking = !isLooking;
+    document.getElementById("tBody").style.fill = isLooking ? "#c1403d" : "#4a69bd";
+    document.getElementById("wbText").textContent = isLooking ? "WATCHING!" : "Writing...";
+    setTimeout(loopTeacher, 1500 + Math.random() * 2500);
   }
 
-  // Keyboard Game Inputs System Listener
-  window.addEventListener("keydown", (event) => {
-    const key = event.key.toLowerCase();
-    
-    // Action: Throw Hummus projectile
+  window.addEventListener("keydown", (e) => {
+    let key = e.key.toLowerCase();
     if (key === 'q') {
-      if (isTeacherLooking) {
-        strikes++;
-        updateStrikesDisplay();
+      if (isLooking) {
+        strikes++; updateStrikes();
       } else {
-        score += 25;
-        hummusCount++;
-        document.getElementById("scoreBase").textContent = "Score: " + score;
-        document.getElementById("count").textContent = `Hummus: ${hummusCount} | Poop: ${poopCount}`;
+        score += 25; hummus++; updateUI();
       }
     }
-
-    // Action: Generate poop hazard 
     if (key === 'e') {
-      poopCount++;
-      score += 5;
+      if (isLooking) {
+        strikes++; updateStrikes();
+      } else {
+        score += 10; poop++; updateUI();
+      }
+    }
+  });
+
+  function updateUI() {
+    document.getElementById("scoreBase").textContent = "Score: " + score;
+    document.getElementById("count").textContent = `Hummus: ${hummus} | Poop: ${poop}`;
+  }
+
+  function updateStrikes() {
+    if (strikes <= 3) document.getElementById(`st${strikes}`).style.fill = "#c1403d";
+    if (strikes >= 3) {
+      alert("Sent to the Dean's office! Game Over.");
+      score = 0; strikes = 0; hummus = 0; poop = 0;
+      updateUI();
+      for(let i=1; i<=3; i++) document.getElementById(`st${i}`).style.fill = "none";
+    }
+  }
+  setTimeout(loopTeacher, 2000);
+</script>
+</body>
+</html>
