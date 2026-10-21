@@ -65,43 +65,14 @@
       <ellipse cx="-45" cy="-62" rx="6" ry="3.5" fill="#2b2b2b" transform="rotate(-25 -45 -62)"/>
     </g>
   </g>
-  </g>
   <g id="cowPolish" visibility="hidden">
-    <ellipse cx="0" cy="2" rx="44" ry="7" fill="#000" opacity=".15"/>
-    <g id="pcBody">
-      <g id="pcLegL"><rect x="-20" y="-36" width="13" height="36" rx="5" fill="#f6f3ee"/><rect x="-23" y="-6" width="19" height="7" rx="3" fill="#2b2b2b"/></g>
-      <g id="pcLegR"><rect x="7" y="-36" width="13" height="36" rx="5" fill="#f6f3ee"/><rect x="4" y="-6" width="19" height="7" rx="3" fill="#2b2b2b"/></g>
-      <path id="pcTail" d="M26 -60 Q44 -52 40 -34" stroke="#d8d3c8" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <ellipse cx="0" cy="-60" rx="31" ry="34" fill="#f6f3ee"/>
-      <ellipse cx="-11" cy="-66" rx="11" ry="10" fill="#2b2b2b"/>
-      <ellipse cx="15" cy="-52" rx="10" ry="11" fill="#2b2b2b"/>
-      <ellipse cx="0" cy="-42" rx="13" ry="8" fill="#f2b6bf"/>
-      <g id="pcArmL"><rect x="-47" y="-78" width="22" height="10" rx="5" fill="#f6f3ee"/><circle cx="-48" cy="-73" r="6" fill="#2b2b2b"/></g>
-      <g id="pcArmR"><rect x="25" y="-78" width="22" height="10" rx="5" fill="#f6f3ee"/><circle cx="48" cy="-73" r="6" fill="#2b2b2b"/></g>
-      <g id="pcHead">
-        <path d="M-17 -118 Q-22 -132 -10 -127" fill="#e6d9a8"/>
-        <path d="M17 -118 Q22 -132 10 -127" fill="#e6d9a8"/>
-        <ellipse cx="-24" cy="-108" rx="8" ry="5" fill="#2b2b2b" transform="rotate(-25 -24 -108)"/>
-        <ellipse cx="24" cy="-108" rx="8" ry="5" fill="#2b2b2b" transform="rotate(25 24 -108)"/>
-        <ellipse cx="0" cy="-104" rx="22" ry="19" fill="#f6f3ee"/>
-        <ellipse cx="0" cy="-95" rx="14" ry="9" fill="#f2b6bf"/>
-        <circle cx="-5" cy="-96" r="1.8" fill="#7a3b46"/><circle cx="5" cy="-96" r="1.8" fill="#7a3b46"/>
-        <rect x="-18" y="-113" width="36" height="9" rx="4" fill="#111"/>
-        <rect x="-15" y="-111" width="9" height="2.5" fill="#fff" opacity=".6"/>
-        <path d="M-9 -88 Q0 -80 9 -88" stroke="#7a1f2b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <rect x="-22" y="-124" width="44" height="5" fill="#fff"/>
-        <rect x="-22" y="-119" width="44" height="5" fill="#dc143c"/>
-      </g>
-    </g>
-    <g font-family="system-ui,sans-serif" font-weight="900" text-anchor="middle" fill="#dc143c" stroke="#fff" stroke-width="3" paint-order="stroke">
-      <text id="pn1" x="-52" y="-120" font-size="22">♪</text>
-      <text id="pn2" x="54" y="-110" font-size="22">♫</text>
-      <text id="pn3" x="0" y="-150" font-size="20">♪</text>
-    </g>
+    <ellipse cx="0" cy="2" rx="46" ry="6" fill="#000" opacity=".15"/>
+    <image href="__COW_GIF__" x="-58" y="-96" width="116" height="95" preserveAspectRatio="none" style="image-rendering:pixelated"/>
   </g>
   </g>
-  <g id="tinyCow" transform="translate(862,452) scale(.34)" style="cursor:pointer">
+  <g id="tinyCow" transform="translate(850,452) scale(.34)" style="cursor:pointer">
     <rect x="-75" y="-110" width="150" height="120" fill="#000" fill-opacity="0"/>
+    <g id="tinyNormal">
     <ellipse cx="0" cy="2" rx="50" ry="6" fill="#000" opacity=".15"/>
     <rect x="-30" y="-28" width="9" height="28" fill="#ece8e0"/>
     <rect x="-16" y="-28" width="9" height="28" fill="#ece8e0"/>
@@ -116,6 +87,11 @@
     <line x1="10" y1="-68" x2="10" y2="-108" stroke="#8a6b3f" stroke-width="3"/>
     <rect x="10" y="-108" width="30" height="11" fill="#fff" stroke="#bbb" stroke-width="1"/>
     <rect x="10" y="-97" width="30" height="11" fill="#dc143c"/>
+    </g>
+    <g id="tinyPolish" visibility="hidden">
+      <ellipse cx="0" cy="2" rx="46" ry="6" fill="#000" opacity=".15"/>
+      <image href="__COW_GIF__" x="-58" y="-96" width="116" height="95" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    </g>
   </g>
 
   <!-- whiteboard (back of the room) -->
@@ -398,8 +374,7 @@
   var mini=false,miniT0=0,miniRedX=380,miniImmune=0,miniG=$('mini'),miniRed=$('miniRed'),miniMark=$('miniMark'),miniTime=$('miniTime'),miniTitle=$('miniTitle'),miniMX=250,miniType='poop';
   var riding=false,cowRun=false,cowX=832,cowY=400,cowFlip=false,ramCD=0,stunUntil=0,stunStart=0;
   var cowEl=$('cow'),cowNext=cowEl.nextSibling,starsG=$('stars'),sA=$('sa'),sB=$('sb'),sC=$('sc');
-  var polish=false,cowNormal=$('cowNormal'),cowPolish=$('cowPolish'),tinyCow=$('tinyCow');
-  var pcBody=$('pcBody'),pcLegL=$('pcLegL'),pcLegR=$('pcLegR'),pcArmL=$('pcArmL'),pcArmR=$('pcArmR'),pcHead=$('pcHead'),pcTail=$('pcTail'),pn=[$('pn1'),$('pn2'),$('pn3')];
+  var polish=false,cowNormal=$('cowNormal'),cowPolish=$('cowPolish'),tinyCow=$('tinyCow'),tinyNormal=$('tinyNormal'),tinyPolish=$('tinyPolish');
   var dmBg=mk('rect',{rx:4,fill:'#000',opacity:.35,visibility:'hidden',width:60,height:8},fx);
   var dmFill=mk('rect',{rx:4,fill:'#7d9a3c',visibility:'hidden',height:8},fx);
   var dmTxt=mk('text',{'font-size':12,'font-weight':800,'font-family':'system-ui,sans-serif','text-anchor':'middle',fill:'#222',stroke:'#fff','stroke-width':3,'paint-order':'stroke',visibility:'hidden'},fx);
@@ -571,32 +546,65 @@
     else if(Math.sqrt((pX-450)*(pX-450)+(pY-462)*(pY-462))<90){standGoal=0;}
     else{pop('Sit at your own desk!',pX,pY-150*pS);}
   }
+  /* original synthesized dance beat (stand-in for a song; not a copy of any track) */
+  var AC=null,beatTimer=null,nextT=0,step16=0,noiseBuf=null;
+  var BASS=[55,55,82.4,55,65.4,65.4,98,65.4],LEAD=[440,0,523.3,0,587.3,0,523.3,0,440,0,392,0,440,0,329.6,0];
+  function tone(f,t,dur,type,vol){
+    var o=AC.createOscillator(),g=AC.createGain();
+    o.type=type;o.frequency.value=f;
+    g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+    o.connect(g);g.connect(AC.destination);o.start(t);o.stop(t+dur+0.02);
+  }
+  function kick(t){
+    var o=AC.createOscillator(),g=AC.createGain();
+    o.frequency.setValueAtTime(150,t);o.frequency.exponentialRampToValueAtTime(40,t+0.12);
+    g.gain.setValueAtTime(0.8,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.18);
+    o.connect(g);g.connect(AC.destination);o.start(t);o.stop(t+0.2);
+  }
+  function hat(t){
+    var n=AC.createBufferSource(),g=AC.createGain(),hp=AC.createBiquadFilter();
+    n.buffer=noiseBuf;hp.type='highpass';hp.frequency.value=7000;
+    g.gain.setValueAtTime(0.12,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.05);
+    n.connect(hp);hp.connect(g);g.connect(AC.destination);n.start(t);n.stop(t+0.06);
+  }
+  function playStep(i,t){
+    if(i%4===0){kick(t);}
+    if(i%4===2){hat(t);}
+    if(i%2===0){tone(BASS[(i/2)%8],t,0.16,'sawtooth',0.13);}
+    var lf=LEAD[i%16];
+    if(lf){tone(lf,t,0.12,'square',0.05);}
+  }
+  function sched(){
+    while(nextT<AC.currentTime+0.12){playStep(step16,nextT);nextT+=60/150/4;step16=(step16+1)%32;}
+  }
+  function startMusic(){
+    try{
+      if(!AC){
+        AC=new (window.AudioContext||window.webkitAudioContext)();
+        noiseBuf=AC.createBuffer(1,AC.sampleRate*0.06,AC.sampleRate);
+        var dd=noiseBuf.getChannelData(0);for(var i=0;i<dd.length;i++){dd[i]=Math.random()*2-1;}
+      }
+      if(AC.resume){AC.resume();}
+      nextT=AC.currentTime+0.05;step16=0;
+      if(!beatTimer){beatTimer=setInterval(sched,25);}
+    }catch(e){}
+  }
+  function stopMusic(){if(beatTimer){clearInterval(beatTimer);beatTimer=null;}}
   function setPolish(on){
     polish=on;
     cowNormal.setAttribute('visibility',on?'hidden':'visible');
     cowPolish.setAttribute('visibility',on?'visible':'hidden');
-    if(on){pop('KROWA!',832,320);}
+    tinyNormal.setAttribute('visibility',on?'hidden':'visible');
+    tinyPolish.setAttribute('visibility',on?'visible':'hidden');
+    if(on){pop('KROWA!',832,300);startMusic();}else{stopMusic();}
   }
-  tinyCow.addEventListener('pointerdown',function(e){e.stopPropagation();if(deanState||over){return;}setPolish(!polish);});
+  function togglePolish(e){e.stopPropagation();if(deanState||over){return;}setPolish(!polish);}
+  tinyCow.addEventListener('pointerdown',togglePolish);
+  cowEl.addEventListener('pointerdown',togglePolish);
   function updatePolish(now){
-    tinyCow.setAttribute('transform','translate(862,452) scale(.34) rotate('+(Math.sin(now*0.004)*5)+' 0 0)');
-    if(!polish){return;}
-    var s=now*0.012;
-    pcBody.setAttribute('transform','translate(0 '+(-Math.abs(Math.sin(s))*10)+') rotate('+(Math.sin(s*0.5)*7)+' 0 0)');
-    pcLegL.setAttribute('transform','rotate('+(Math.sin(s)*28)+' -13 -34)');
-    pcLegR.setAttribute('transform','rotate('+(-Math.sin(s)*28)+' 13 -34)');
-    pcArmL.setAttribute('transform','rotate('+(Math.sin(s+1)*35-25)+' -28 -72)');
-    pcArmR.setAttribute('transform','rotate('+(-Math.sin(s+1)*35+25)+' 28 -72)');
-    pcHead.setAttribute('transform','rotate('+(Math.sin(s*2)*9)+' 0 -95)');
-    pcTail.setAttribute('transform','rotate('+(Math.sin(s*3)*18)+' 26 -60)');
-    for(var i=0;i<3;i++){
-      var f=((now*0.04+i*20)%60)/60;
-      pn[i].setAttribute('transform','translate(0 '+(-f*45)+')');
-      pn[i].setAttribute('opacity',1-f);
-    }
+    tinyCow.setAttribute('transform','translate(850,452) scale(.34) rotate('+(polish?0:Math.sin(now*0.004)*5)+' 0 0)');
   }
   function mount(){
-    if(polish){setPolish(false);}
     riding=true;cowRun=false;pX=832;pY=400;cowX=832;cowY=400;cowFlip=false;
     teacher.parentNode.insertBefore(cowEl,player);
     pop('Yeehaw!',pX,pY-150*pS);
@@ -662,7 +670,8 @@
     }
     if(riding||cowRun){
       var ccs=0.9*(1+(cowY-462)*0.0037)/0.7706;
-      cowEl.setAttribute('transform','translate('+cowX+' '+cowY+') scale('+(cowFlip?-ccs:ccs)+' '+ccs+')');
+      var sg=polish?(cowFlip?1:-1):(cowFlip?-1:1);
+      cowEl.setAttribute('transform','translate('+cowX+' '+cowY+') scale('+(sg*ccs)+' '+ccs+')');
     }
     var deskHide=pX>=585&&pX<=740&&pY>=418&&pY<=466;
     var dm=(crouchT>0.05&&deskHide)?2:(pY>466?0:1);
