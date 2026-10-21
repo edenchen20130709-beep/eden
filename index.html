@@ -116,6 +116,7 @@
       <stop offset=".83" stop-color="#bf5af2"/>
       <stop offset="1" stop-color="#ff3b30"/>
     </linearGradient>
+    <clipPath id="alertClip"><rect id="alertRect" x="260" y="198" width="60" height="0"/></clipPath>
     <g id="kid">
       <rect x="20" y="-9" width="40" height="52" rx="13" fill="currentColor"/>
       <circle cx="34" cy="-24" r="4" fill="#e6b891"/>
@@ -123,15 +124,14 @@
       <circle cx="50" cy="-25" r="17" style="fill:var(--hair)"/>
     </g>
   </defs>
-  
-  <!-- back row -->
+  <!-- back row (columns run front to back) -->
   <g id="rowBack">
-    <use href="#desk" transform="translate(62,352) scale(.85)"/>
-    <use href="#desk" transform="translate(172,352) scale(.85)"/>
-    <use href="#desk" transform="translate(407,352) scale(.85)"/>
-    <g transform="translate(62,352) scale(.85)"><g id="kb3"><use href="#kid" color="#e0b13a" style="--hair:#7a3b1d"/></g></g>
-    <g transform="translate(172,352) scale(.85)"><g id="kb4"><use href="#kid" color="#d6628f" style="--hair:#1b1b1f"/></g></g>
-    <g transform="translate(407,352) scale(.85)"><g id="kb5"><use href="#kid" color="#2f9bb5" style="--hair:#8a5a2b"/></g></g>
+  <use href="#desk" transform="translate(62,352) scale(.85)"/>
+  <use href="#desk" transform="translate(172,352) scale(.85)"/>
+  <use href="#desk" transform="translate(407,352) scale(.85)"/>
+  <g transform="translate(62,352) scale(.85)"><g id="kb3"><use href="#kid" color="#e0b13a" style="--hair:#7a3b1d"/></g></g>
+  <g transform="translate(172,352) scale(.85)"><g id="kb4"><use href="#kid" color="#d6628f" style="--hair:#1b1b1f"/></g></g>
+  <g transform="translate(407,352) scale(.85)"><g id="kb5"><use href="#kid" color="#2f9bb5" style="--hair:#8a5a2b"/></g></g>
   </g>
 
   <!-- middle row of student desks -->
@@ -143,65 +143,833 @@
 
   <!-- teacher's desk -->
   <g id="tDesk">
-    <rect x="560" y="385" width="200" height="14" fill="#a9743f"/>
-    <rect x="570" y="399" width="10" height="70" fill="#8a5c30"/>
-    <rect x="740" y="399" width="10" height="70" fill="#8a5c30"/>
-    <rect x="560" y="399" width="10" height="70" fill="#6e421f"/>
+  <rect x="560" y="385" width="200" height="14" fill="#a9743f"/>
+  <rect x="570" y="399" width="10" height="70" fill="#8a5c30"/>
+  <rect x="740" y="399" width="10" height="70" fill="#8a5c30"/>
+  <rect x="566" y="399" width="188" height="56" fill="#9a6a38"/>
+  <circle cx="600" cy="375" r="10" fill="#d64545"/>
+  <rect x="598" y="361" width="4" height="6" fill="#4a7c3a"/>
   </g>
 
-  <!-- Teacher Character Model (Turned Away Initially) -->
-  <g id="teacher" transform="translate(630,240)">
-    <circle cx="30" cy="30" r="24" fill="#ffdbac"/>
-    <rect id="tBody" x="10" y="54" width="40" height="90" fill="#3b3d42"/>
+  <!-- student (seen from behind) -->
+  <ellipse cx="486" cy="411" rx="12" ry="5" fill="#d9dbde"/>
+  <ellipse cx="486" cy="409" rx="9" ry="3.2" fill="#e3c38a"/>
+  <g id="player">
+  <g id="pLegs" visibility="hidden">
+    <rect x="436" y="404" width="13" height="55" fill="#3a4a6b"/>
+    <rect x="452" y="404" width="13" height="55" fill="#3a4a6b"/>
+    <ellipse cx="442" cy="460" rx="10" ry="4" fill="#1a1a1a"/>
+    <ellipse cx="459" cy="460" rx="10" ry="4" fill="#1a1a1a"/>
+  </g>
+  <g id="pBody">
+  <line x1="434" y1="410" x2="426" y2="426" stroke="#e07a3f" stroke-width="11" stroke-linecap="round"/>
+  <rect x="430" y="396" width="40" height="52" rx="13" fill="#e07a3f"/>
+  <circle cx="434" cy="381" r="4" fill="#e6b891"/>
+  <circle cx="466" cy="381" r="4" fill="#e6b891"/>
+  <circle cx="450" cy="380" r="17" fill="#2a1d14"/>
+  <path d="M433 376 Q450 354 467 376 Z" fill="#2e6bd6"/>
+  <line id="sArm" x1="466" y1="406" x2="460" y2="439" stroke="#e07a3f" stroke-width="11" stroke-linecap="round"/>
+  <circle id="sHand" cx="460" cy="439" r="6" fill="#e6b891"/>
+  <circle id="sHeld" cx="460" cy="433" r="8" fill="#e3c38a" stroke="#c9a063" stroke-width="2" visibility="hidden"/>
+  </g>
+  </g>
+
+  <g id="aT"></g>
+  <!-- teacher (front of the room) -->
+  <g id="teacher">
+  <ellipse cx="290" cy="468" rx="60" ry="9" fill="#000" opacity=".18"/>
+  <!-- legs and shoes -->
+  <rect x="265" y="385" width="22" height="75" fill="#2b2d42"/>
+  <rect x="293" y="385" width="22" height="75" fill="#2b2d42"/>
+  <ellipse cx="272" cy="462" rx="18" ry="7" fill="#1a1a1a"/>
+  <ellipse cx="310" cy="462" rx="18" ry="7" fill="#1a1a1a"/>
+  <g id="tFront">
+  <!-- arm down (viewer left) -->
+  <line x1="255" y1="300" x2="243" y2="372" stroke="#3d5a80" stroke-width="17" stroke-linecap="round"/>
+  <circle cx="242" cy="378" r="9" fill="#f1c9a5"/>
+  <!-- body / blazer -->
+  <rect x="255" y="280" width="70" height="115" rx="14" fill="#3d5a80"/>
+  <polygon points="278,282 302,282 290,325" fill="#fff"/>
+  <polygon points="286,300 294,300 297,350 290,358 283,350" fill="#c1403d"/>
+  <!-- neck + head -->
+  <rect x="282" y="264" width="16" height="20" fill="#e6b891"/>
+  <circle cx="290" cy="240" r="28" fill="#f1c9a5"/>
+  <path d="M261 240 Q258 202 290 202 Q322 202 319 240 Q305 222 290 222 Q275 222 261 240Z" fill="#3b2a20"/>
+  <g fill="none" stroke="#222" stroke-width="2">
+    <circle cx="279" cy="243" r="7"/>
+    <circle cx="301" cy="243" r="7"/>
+    <line x1="286" y1="243" x2="294" y2="243"/>
+  </g>
+  <circle cx="279" cy="243" r="2" fill="#222"/>
+  <circle cx="301" cy="243" r="2" fill="#222"/>
+  <path d="M280 256 Q290 264 300 256" fill="none" stroke="#8a3b2f" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- arm pointing at the board -->
+  <line x1="322" y1="298" x2="372" y2="262" stroke="#3d5a80" stroke-width="17" stroke-linecap="round"/>
+  <circle cx="376" cy="259" r="9" fill="#f1c9a5"/>
+  <line x1="376" y1="259" x2="440" y2="195" stroke="#c9a227" stroke-width="4" stroke-linecap="round"/>
+  <rect id="tRedBody" x="255" y="280" width="70" height="115" rx="14" fill="#e0312b" opacity="0"/>
+  <circle id="tRed" cx="290" cy="240" r="28" fill="#e0312b" opacity="0"/>
+  <g id="tAngry" opacity="0">
+    <line x1="270" y1="231" x2="285" y2="238" stroke="#222" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="310" y1="231" x2="295" y2="238" stroke="#222" stroke-width="3.5" stroke-linecap="round"/>
+    <ellipse id="tMouth" cx="290" cy="258" rx="9" ry="2" fill="#5a1010"/>
+  </g>
+  </g>
+  <g id="tBack" visibility="hidden">
+    <line x1="255" y1="300" x2="243" y2="372" stroke="#3d5a80" stroke-width="17" stroke-linecap="round"/>
+    <circle cx="242" cy="378" r="9" fill="#f1c9a5"/>
+    <rect x="255" y="280" width="70" height="115" rx="14" fill="#34506f"/>
+    <line x1="290" y1="292" x2="290" y2="392" stroke="#2a4260" stroke-width="2"/>
+    <rect x="282" y="264" width="16" height="20" fill="#e6b891"/>
+    <circle cx="262" cy="245" r="5" fill="#f1c9a5"/>
+    <circle cx="318" cy="245" r="5" fill="#f1c9a5"/>
+    <circle cx="290" cy="240" r="28" fill="#3b2a20"/>
+    <line id="wArm" x1="322" y1="298" x2="350" y2="250" stroke="#34506f" stroke-width="17" stroke-linecap="round"/>
+    <circle id="wHand" cx="350" cy="250" r="9" fill="#f1c9a5"/>
+  </g>
+  <g id="splats"></g>
+  </g>
+  <g id="aF"></g>
+  <g id="alert" visibility="hidden" font-family="system-ui,sans-serif" font-size="56" font-weight="900" text-anchor="middle">
+    <text x="290" y="196" fill="#fff" stroke="#222" stroke-width="5" paint-order="stroke">!</text>
+    <text x="290" y="196" fill="#e0312b" clip-path="url(#alertClip)">!</text>
+  </g>
+  <text id="yell" x="400" y="125" text-anchor="middle" font-size="44" font-weight="900" font-family="system-ui,sans-serif" fill="#e0312b" stroke="#fff" stroke-width="7" paint-order="stroke" visibility="hidden">WHO THREW THAT?!</text>
+  <text id="bubble" x="290" y="150" text-anchor="middle" font-size="22" font-weight="700" font-family="system-ui,sans-serif" fill="#222" stroke="#fff" stroke-width="6" paint-order="stroke" visibility="hidden">Hey!</text>
+  <g id="fx"></g>
+  <g font-size="15" font-weight="800" font-family="system-ui,sans-serif" text-anchor="middle" fill="#222" stroke="#fff" stroke-width="4" paint-order="stroke">
+    <text id="h1" x="105" y="355" visibility="hidden">HA HA!</text>
+    <text id="h2" x="215" y="355" visibility="hidden">HA HA!</text>
+    <text id="h3" x="105" y="308" visibility="hidden">HA HA!</text>
+    <text id="h4" x="215" y="308" visibility="hidden">HA HA!</text>
+    <text id="h5" x="450" y="308" visibility="hidden">HA HA!</text>
+  </g>
+
+  <g id="mini" visibility="hidden" font-family="system-ui,sans-serif" text-anchor="middle">
+    <rect x="150" y="190" width="500" height="130" rx="14" fill="#101418" opacity=".9" stroke="#fff" stroke-width="2"/>
+    <text id="miniTitle" x="400" y="222" font-size="17" font-weight="800" fill="#fff">HE SEES IT! HIT SPACE IN THE RED!</text>
+    <rect x="250" y="240" width="300" height="24" rx="6" fill="#3a3f47"/>
+    <rect id="miniRed" x="380" y="240" width="54" height="24" rx="4" fill="#e0312b"/>
+    <rect id="miniMark" x="250" y="234" width="6" height="36" rx="3" fill="#fff"/>
+    <rect x="250" y="288" width="300" height="8" rx="4" fill="#3a3f47"/>
+    <rect id="miniTime" x="250" y="288" width="300" height="8" rx="4" fill="#ffd60a"/>
+    <text x="400" y="314" font-size="13" fill="#cfd2d6">Miss it or run out of time and you’re busted</text>
+  </g>
+  <g id="over" visibility="hidden" font-family="system-ui,sans-serif" text-anchor="middle">
+    <rect x="-1000" y="-1000" width="2800" height="2800" fill="#000" opacity=".6"/>
+    <text x="400" y="250" font-size="68" font-weight="900" fill="#fff">GAME OVER</text>
+    <text x="400" y="300" font-size="26" fill="#ffd0cc">The teacher caught you!</text>
+    <text id="overScore" x="400" y="342" font-size="20" fill="#fff"></text>
+    <text x="400" y="395" font-size="18" fill="#cfd2d6">Press R or tap anywhere to play again</text>
+  </g>
+  <g id="dean" visibility="hidden" font-family="system-ui,sans-serif">
+    <rect x="-1000" y="-1000" width="2900" height="2900" fill="#1a110b"/>
+    <rect x="0" y="0" width="900" height="410" fill="#4b3626"/>
+    <g stroke="#3a2a1d" stroke-width="3"><line x1="150" y1="0" x2="150" y2="410"/><line x1="300" y1="0" x2="300" y2="410"/><line x1="450" y1="0" x2="450" y2="410"/><line x1="600" y1="0" x2="600" y2="410"/><line x1="750" y1="0" x2="750" y2="410"/></g>
+    <rect x="0" y="410" width="900" height="165" fill="#2d2018"/>
+    <rect x="60" y="190" width="90" height="64" fill="#e9e2cf" stroke="#8a6b3f" stroke-width="5"/>
+    <text x="105" y="228" text-anchor="middle" font-size="14" font-weight="700" fill="#6b5a3a">DIPLOMA</text>
+    <rect x="750" y="190" width="90" height="64" fill="#e9e2cf" stroke="#8a6b3f" stroke-width="5"/>
+    <text x="795" y="228" text-anchor="middle" font-size="14" font-weight="700" fill="#6b5a3a">PhD</text>
+    <rect x="395" y="272" width="110" height="130" rx="20" fill="#1f2430"/>
+    <polygon points="428,274 472,274 450,322" fill="#fff"/>
+    <polygon points="444,292 456,292 460,332 450,344 440,332" fill="#8a1c1c"/>
+    <circle cx="450" cy="232" r="38" fill="#e8b996"/>
+    <path d="M412 234 Q406 208 420 204 L420 234Z" fill="#c8c8c8"/>
+    <path d="M488 234 Q494 208 480 204 L480 234Z" fill="#c8c8c8"/>
+    <g fill="none" stroke="#222" stroke-width="3"><circle cx="436" cy="232" r="10"/><circle cx="464" cy="232" r="10"/><line x1="446" y1="232" x2="454" y2="232"/></g>
+    <circle cx="436" cy="232" r="3" fill="#222"/><circle cx="464" cy="232" r="3" fill="#222"/>
+    <line id="deanBrowL" x1="424" y1="216" x2="444" y2="214" stroke="#555" stroke-width="4" stroke-linecap="round"/>
+    <line id="deanBrowR" x1="476" y1="216" x2="456" y2="214" stroke="#555" stroke-width="4" stroke-linecap="round"/>
+    <ellipse id="deanMouth" cx="450" cy="258" rx="10" ry="2" fill="#5a1010"/>
+    <rect x="230" y="318" width="440" height="26" rx="6" fill="#7a4e2c"/>
+    <rect x="245" y="344" width="410" height="72" fill="#63401f"/>
+    <rect x="410" y="362" width="80" height="24" rx="4" fill="#d9b44a"/>
+    <text x="450" y="379" text-anchor="middle" font-size="14" font-weight="800" fill="#4a3510">DEAN</text>
+    <rect x="150" y="22" width="600" height="126" rx="18" fill="#fff"/>
+    <polygon points="428,147 472,147 450,176" fill="#fff"/>
+    <text id="deanTxt" x="450" y="72" text-anchor="middle" font-size="26" font-weight="700" fill="#1c1b19"></text>
+    <g id="dBtns" visibility="hidden">
+      <g id="dBtn1" style="cursor:pointer"><rect id="dBR1" x="32" y="430" width="200" height="115" rx="12" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="54" cy="452" r="13" fill="#8fa8e0"/><text x="54" y="458" text-anchor="middle" font-size="16" font-weight="800" fill="#10131c">1</text><text id="dBT1" font-size="15" font-weight="700" fill="#fff" text-anchor="middle"></text></g>
+      <g id="dBtn2" style="cursor:pointer"><rect id="dBR2" x="244" y="430" width="200" height="115" rx="12" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="266" cy="452" r="13" fill="#8fa8e0"/><text x="266" y="458" text-anchor="middle" font-size="16" font-weight="800" fill="#10131c">2</text><text id="dBT2" font-size="15" font-weight="700" fill="#fff" text-anchor="middle"></text></g>
+      <g id="dBtn3" style="cursor:pointer"><rect id="dBR3" x="456" y="430" width="200" height="115" rx="12" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="478" cy="452" r="13" fill="#8fa8e0"/><text x="478" y="458" text-anchor="middle" font-size="16" font-weight="800" fill="#10131c">3</text><text id="dBT3" font-size="15" font-weight="700" fill="#fff" text-anchor="middle"></text></g>
+      <g id="dBtn4" style="cursor:pointer"><rect id="dBR4" x="668" y="430" width="200" height="115" rx="12" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="690" cy="452" r="13" fill="#8fa8e0"/><text x="690" y="458" text-anchor="middle" font-size="16" font-weight="800" fill="#10131c">4</text><text id="dBT4" font-size="15" font-weight="700" fill="#fff" text-anchor="middle"></text></g>
+    </g>
+  </g>
+  <g id="deanSplash" visibility="hidden" font-family="system-ui,sans-serif" text-anchor="middle">
+    <rect x="-1000" y="-1000" width="2900" height="2900" fill="#000" opacity=".92"/>
+    <text x="450" y="270" font-size="64" font-weight="900" fill="#e0312b">THREE STRIKES!</text>
+    <text x="450" y="320" font-size="24" fill="#ddd">You’re being sent to the dean’s office…</text>
+  </g>
+  <g id="deanTut" visibility="hidden" font-family="system-ui,sans-serif" text-anchor="middle">
+    <rect x="-1000" y="-1000" width="2900" height="2900" fill="#000" opacity=".8"/>
+    <rect x="110" y="95" width="680" height="330" rx="18" fill="#161b26" stroke="#8fa8e0" stroke-width="3"/>
+    <text x="450" y="148" font-size="30" font-weight="900" fill="#fff">HOW THE DEAN’S OFFICE WORKS</text>
+    <text id="tl1" x="450" y="205" font-size="19" fill="#e6ecff" opacity="0">The dean asks: “Why did you get out of your seat?”</text>
+    <text id="tl2" x="450" y="250" font-size="19" fill="#e6ecff" opacity="0">Four ridiculous excuses appear. Only ONE will fool him.</text>
+    <text id="tl3" x="450" y="295" font-size="19" fill="#e6ecff" opacity="0">Click it (or press 1 – 4) to go back to class.</text>
+    <text id="tl4" x="450" y="340" font-size="19" fill="#ffb4ae" opacity="0">Right: back to class with ONE strike left. Wrong: expelled.</text>
+    <text id="tSkip" x="450" y="397" font-size="18" font-weight="800" fill="#ffd60a">Press SPACE to skip</text>
+  </g>
+  <g id="deanOver" visibility="hidden" font-family="system-ui,sans-serif" text-anchor="middle">
+    <rect x="-1000" y="-1000" width="2900" height="2900" fill="#000" opacity=".97"/>
+    <text x="450" y="235" font-size="84" font-weight="900" fill="#8a0f0f">EXPELLED</text>
+    <text x="450" y="290" font-size="26" fill="#b9a5a5">The dean has had enough of you.</text>
+    <text id="deanOverScore" x="450" y="335" font-size="20" fill="#8d7f7f"></text>
+    <text x="450" y="395" font-size="18" fill="#6f6565">Press R or tap anywhere to play again</text>
   </g>
 </svg>
-
 <script>
-  // Restoring Your Original State Variables
-  let score = 0; let strikes = 0; let hummusCount = 0; let poopCount = 0; let cowDungCount = 0;
-  let isTeacherLooking = false;
-  let playerState = "sitting"; 
-
-  // Restoring Teacher Turn loop
-  function handleTeacherAI() {
-    isTeacherLooking = !isTeacherLooking;
-    const body = document.getElementById("tBody");
-    const text = document.getElementById("wbText");
-
-    if (isTeacherLooking) {
-      if (body) body.style.fill = "#c1403d"; 
-      if (text) text.textContent = "WATCHING YOU!";
-    } else {
-      if (body) body.style.fill = "#3b3d42"; 
-      if (text) text.textContent = "Writing math rules...";
-    }
-    setTimeout(handleTeacherAI, 2000 + Math.random() * 2500);
+(function(){
+  var NS='http://www.w3.org/2000/svg';
+  var $=function(id){return document.getElementById(id);};
+  var arm=$('sArm'),hand=$('sHand'),held=$('sHeld'),teacher=$('teacher'),splats=$('splats'),fx=$('fx'),bubble=$('bubble'),countEl=$('count');
+  var SX=466,SY=406,L=34,count=0,throwT0=-1,released=false,flights=[],floaters=[],flinchT0=-1,bubbleUntil=0;
+  var lines=['Hey!','Who did that?!','My blazer!','Detention!','Not the hummus!'];
+  var ha=['HA HA!','LOL!','hehehe','HAHA!','OMG!'];
+  var hasPoop=false,kind='hummus',poopCount=0;
+  var slips=[];
+  var tState='front',isBack=false,tT0=0,nextTurn=performance.now()+1500+Math.random()*1500,writeEnd=0;
+  var tFront=$('tFront'),tBack=$('tBack'),wArm=$('wArm'),wHand=$('wHand'),wbText=$('wbText'),alertG=$('alert'),alertRect=$('alertRect');
+  var phrases=['x = 7','2+2=4','Quiet!','E=mc2','HW p.4','Shh!','No fun!'];
+  var phrase='',typed=0,lastType=0;
+  var tx=45,ty=0,tsc=1,wbob=0,route=[],rIdx=0,wPhase=0,waitUntil=0,playerHidden=false;
+  var tBehind=false,rowBack=$('rowBack'),aT=$('aT'),aF=$('aF');
+  var strikes=0,sight=0,sightCD=0,hold=0,dungHoldStart=0,meltK=0,lastS=performance.now(),stEls=[$('st1'),$('st2'),$('st3')];
+  var mini=false,miniT0=0,miniRedX=380,miniImmune=0,miniG=$('mini'),miniRed=$('miniRed'),miniMark=$('miniMark'),miniTime=$('miniTime'),miniTitle=$('miniTitle'),miniMX=250,miniType='poop';
+  var dmBg=mk('rect',{rx:4,fill:'#000',opacity:.35,visibility:'hidden',width:60,height:8},fx);
+  var dmFill=mk('rect',{rx:4,fill:'#7d9a3c',visibility:'hidden',height:8},fx);
+  var dmTxt=mk('text',{'font-size':12,'font-weight':800,'font-family':'system-ui,sans-serif','text-anchor':'middle',fill:'#222',stroke:'#fff','stroke-width':3,'paint-order':'stroke',visibility:'hidden'},fx);
+  dmTxt.textContent='melting…';
+  var over=false,caught=false;
+  var pooping=false,poopT0=0;
+  var score=0,scoreT0=-99999,scoreDur=1000;
+  var scoreBase=$('scoreBase'),scoreRb=$('scoreRb'),rbGrad=$('rainbow');
+  var pbBg=mk('rect',{rx:4,fill:'#000',opacity:.35,visibility:'hidden'},fx);
+  var pbFill=mk('rect',{rx:4,fill:'#8a5632',visibility:'hidden'},fx);
+  var pbTxt=mk('text',{'font-size':12,'font-weight':800,'font-family':'system-ui,sans-serif','text-anchor':'middle',fill:'#222',stroke:'#fff','stroke-width':3,'paint-order':'stroke',visibility:'hidden'},fx);
+  pbTxt.textContent='pushing…';
+  var player=$('player'),pLegs=$('pLegs'),pBodyG=$('pBody');
+  var pX=450,pY=462,pS=1,standT=0,standGoal=0,inFront=false,depthMode=1,keys={},lastT=performance.now(),bob=0;
+  var crouching=false,crouchT=0,crouchStart=0,crouchCD=0,tDesk=$('tDesk');
+  var cbBg=mk('rect',{rx:4,fill:'#000',opacity:.35,visibility:'hidden',width:60,height:8},fx);
+  var cbFill=mk('rect',{rx:4,fill:'#2e6bd6',visibility:'hidden',height:8},fx);
+  var cbTxt=mk('text',{'font-size':12,'font-weight':800,'font-family':'system-ui,sans-serif','text-anchor':'middle',fill:'#222',stroke:'#fff','stroke-width':3,'paint-order':'stroke',visibility:'hidden'},fx);
+  cbTxt.textContent='hiding…';
+  var cowCount=0,cowHeld=false,dungReady=true,dungAt=0,seen=0,inCorner=false,lastE=performance.now();
+  var cowTail=$('cowTail'),cowHead=$('cowHead'),dungEl=$('dung'),steamEl=$('steam'),count2=$('count2');
+  var cowLines=['COW DUNG?!','IS THAT A COW?!','MY BLAZER!!','WHAT IS THAT SMELL?!'];
+  var tRed=$('tRed'),tRedBody=$('tRedBody'),tAngry=$('tAngry'),tMouth=$('tMouth'),yellEl=$('yell'),overG=$('over'),overScore=$('overScore');
+  var poopLines=['EW!!','WHAT IS THAT?!','DISGUSTING!','MY FACE!!','Detention!!'];
+  var poopHa=['EWWW!','HA HA!!','NOOO!','LOL!!'];
+  var kids=[1,2,3,4,5].map(function(n){return {b:$('kb'+n),t:$('h'+n),s:0,e:0,p:Math.random()*6};});
+  function mk(tag,attrs,parent){var e=document.createElementNS(NS,tag);for(var k in attrs){e.setAttribute(k,attrs[k]);}parent.appendChild(e);return e;}
+  function ease(t){return t*t*(3-2*t);}
+  function mkPoop(parent,cow){
+    var g=mk('g',{},parent);
+    mk('ellipse',{cx:0,cy:5,rx:9,ry:4,fill:cow?'#3f4a1f':'#6b4226'},g);
+    mk('ellipse',{cx:0,cy:0,rx:6.5,ry:3.6,fill:cow?'#4f5b2a':'#7a4b2a'},g);
+    mk('ellipse',{cx:0,cy:-4,rx:4,ry:3,fill:cow?'#5d6b32':'#8a5632'},g);
+    mk('path',{d:'M-1 -7 Q2 -10 1 -12 Q3 -9 3.5 -7 Z',fill:cow?'#6e7d3c':'#8a5632'},g);
+    return g;
   }
-
-  // Restoring Your Complete Key Bindings Array
-  window.addEventListener("keydown", (e) => {
-    let key = e.key.toLowerCase();
-    
-    // Q - Throw Hummus Projectile
-    if (key === 'q') {
-      if (isTeacherLooking) {
-        strikes++; updateStrikesDisplay();
-      } else {
-        score += 25; hummusCount++; updateUIDashboards();
+  function updateCount(){countEl.textContent='Hummus: '+count+' | Poop: '+poopCount;count2.textContent='Cow dung: '+cowCount;}
+  var heldPoop=mkPoop(fx);
+  heldPoop.setAttribute('visibility','hidden');
+  var heldDung=mkPoop(fx,true);
+  heldDung.setAttribute('visibility','hidden');
+  function angleAt(ms){
+    if(ms<180)return 100+(-55-100)*ease(ms/180);
+    if(ms<320)return -55+(-170+55)*ease((ms-180)/140);
+    if(ms<700)return -170+(-260+170)*ease((ms-320)/380);
+    return -260;
+  }
+  function throwIt(){
+    var now=performance.now();
+    if(over||caught){return;}
+    if(!isBack){
+      caught=true;tState='spotted';tT0=now;
+      yellEl.textContent='WHO THREW THAT?!';
+      alertRect.setAttribute('y',152);alertRect.setAttribute('height',46);alertG.setAttribute('visibility','visible');
+      return;
+    }
+    if(throwT0>=0&&!released&&now-throwT0<300){return;}
+    throwT0=now;released=false;
+    kind=hasPoop?(cowHeld?'cow':'poop'):'hummus';hasPoop=false;cowHeld=false;
+    var pool=kind!=='hummus'?poopHa:ha;
+    for(var i=0;i<kids.length;i++){
+      var k=kids[i];
+      if(now>=k.s&&now<k.e){k.e=now+1500;}
+      else{k.s=now+80+Math.random()*350;k.e=k.s+1500;}
+      k.t.textContent=pool[Math.floor(Math.random()*pool.length)];
+    }
+  }
+  function tScene(lx,ly){return {x:290+tx+tsc*(lx-290),y:465+ty+wbob+tsc*(ly-465)};}
+  function launch(x,y,now){
+    var face=Math.random()<0.5;
+    flights.push({x0:x,y0:y,lx:290+(Math.random()*16-8),ly:face?242:305+Math.random()*20,x1:290,y1:300,t0:now,dur:520,face:face,kind:kind,
+      el:kind==='hummus'?mk('circle',{r:8,fill:'#e3c38a',stroke:'#c9a063','stroke-width':2},fx):mkPoop(fx,kind==='cow')});
+  }
+  function addSplat(x,y,face,c,dot){
+    var g=mk('g',{},splats);
+    mk('circle',{cx:x,cy:y,r:9+Math.random()*4,fill:c},g);
+    for(var k=0;k<4;k++){var a=Math.random()*6.28,d=9+Math.random()*7;mk('circle',{cx:x+Math.cos(a)*d,cy:y+Math.sin(a)*d,r:2+Math.random()*3,fill:c},g);}
+    if(!face){mk('rect',{x:x-1.5,y:y,width:3,height:10+Math.random()*14,rx:1.5,fill:c},g);}
+    mk('circle',{cx:x+2,cy:y-2,r:2,fill:dot},g);
+    slips.push({g:g,t0:performance.now()});
+    while(splats.childNodes.length>14){slips.shift();splats.removeChild(splats.firstChild);}
+  }
+  function impact(f,now){
+    var p=f.kind!=='hummus',cw=f.kind==='cow';
+    if(cw){cowCount++;}else if(p){poopCount++;}else{count++;}
+    updateCount();
+    addScore(cw?20:(p?5:1),f.x1-45,f.y1-10);
+    addSplat(f.lx,f.ly,f.face,cw?'#566b2c':(p?'#6b4226':'#e3c38a'),cw?'#2f3d16':(p?'#3f2614':'#b5532a'));
+    flinchT0=now;
+    var pool=cw?cowLines:(p?poopLines:lines);
+    bubble.textContent=pool[Math.floor(Math.random()*pool.length)];
+    bubbleUntil=now+1000;
+    floaters.push({t0:now,x:f.x1+14,y:f.y1-18,el:mk('text',{x:f.x1+14,y:f.y1-18,'font-size':20,'font-weight':800,'font-family':'system-ui,sans-serif',fill:'#c1403d',stroke:'#fff','stroke-width':4,'paint-order':'stroke'},fx)});
+    floaters[floaters.length-1].el.textContent=p?'SPLORCH!':'SPLAT!';
+  }
+  function loop(){
+    var now=performance.now();
+    if(deanState){updateDean(now);requestAnimationFrame(loop);return;}
+    updatePlayer(now);
+    updatePoop(now);
+    updateScore(now);
+    var ms=throwT0<0?1000:now-throwT0;
+    var a=angleAt(ms)*Math.PI/180;
+    var hx=SX+L*Math.cos(a),hy=SY+L*Math.sin(a);
+    arm.setAttribute('x2',hx);arm.setAttribute('y2',hy);
+    hand.setAttribute('cx',hx);hand.setAttribute('cy',hy);
+    held.setAttribute('cx',hx);held.setAttribute('cy',hy-6);
+    var winding=throwT0>=0&&ms<300;
+    var cur=winding?kind:(hasPoop?(cowHeld?'cow':'poop'):'hummus');
+    held.setAttribute('visibility',(winding&&kind==='hummus')?'visible':'hidden');
+    var hgp=hg(hx,hy-6);
+    heldPoop.setAttribute('transform','translate('+hgp.x+' '+hgp.y+') scale('+pS+')');
+    heldPoop.setAttribute('visibility',cur==='poop'?'visible':'hidden');
+    heldDung.setAttribute('transform','translate('+hgp.x+' '+hgp.y+') scale('+(pS*1.5*(1-0.5*meltK))+')');
+    heldDung.setAttribute('opacity',1-0.4*meltK);
+    heldDung.setAttribute('visibility',cur==='cow'?'visible':'hidden');
+    if(throwT0>=0&&!released&&ms>=300){released=true;var hgl=hg(hx,hy);launch(hgl.x,hgl.y,now);}
+    for(var i=flights.length-1;i>=0;i--){
+      var f=flights[i],t=Math.min(1,Math.max(0,(now-f.t0)/f.dur));
+      var tp=tScene(f.lx,f.ly);f.x1=tp.x;f.y1=tp.y;
+      var fxp=f.x0+(f.x1-f.x0)*t,fyp=f.y0+(f.y1-f.y0)*t-280*t*(1-t);
+      if(f.kind!=='hummus'){f.el.setAttribute('transform','translate('+fxp+' '+fyp+') rotate('+(t*600)+') scale('+((f.kind==='cow'?1.7:1.1)-0.35*t)+')');}
+      else{f.el.setAttribute('cx',fxp);f.el.setAttribute('cy',fyp);f.el.setAttribute('r',9-3*t);}
+      if(t>=1){fx.removeChild(f.el);flights.splice(i,1);impact(f,now);}
+    }
+    for(var j=floaters.length-1;j>=0;j--){
+      var u=(now-floaters[j].t0)/700;
+      if(u>=1){fx.removeChild(floaters[j].el);floaters.splice(j,1);continue;}
+      floaters[j].el.setAttribute('y',floaters[j].y-30*u);
+      floaters[j].el.setAttribute('opacity',1-u);
+    }
+    for(var s=slips.length-1;s>=0;s--){
+      var sa=now-slips[s].t0-3000;
+      if(sa<=0){continue;}
+      var su=sa/900;
+      if(su>=1){splats.removeChild(slips[s].g);slips.splice(s,1);continue;}
+      slips[s].g.setAttribute('transform','translate(0 '+(su*su*80)+')');
+      slips[s].g.setAttribute('opacity',1-su*su);
+    }
+    updateTeacher(now);
+    updateSight(now);
+    updateMini(now);
+    bubble.setAttribute('visibility',now<bubbleUntil?'visible':'hidden');
+    for(var q=0;q<kids.length;q++){
+      var kd=kids[q];
+      if(now>=kd.s&&now<kd.e){
+        var tt=now-kd.s,amp=Math.min(1,(kd.e-now)/300);
+        var dy=-Math.abs(Math.sin(tt*0.02+kd.p))*5*amp;
+        var rt=(Math.sin(tt*0.035+kd.p)*5-3)*amp;
+        kd.b.setAttribute('transform','translate(0 '+dy+') rotate('+rt+' 50 30)');
+        kd.t.setAttribute('visibility','visible');
+      }else{
+        kd.b.removeAttribute('transform');
+        kd.t.setAttribute('visibility','hidden');
       }
     }
-    
-    // E - Drop Poop Mechanic
-    if (key === 'e') {
-      if (isTeacherLooking) {
-        strikes++; updateStrikesDisplay();
-      } else {
-        score += 10; poopCount++; updateUIDashboards();
+    requestAnimationFrame(loop);
+  }
+  function pop(txt,x,y){
+    var p=mk('text',{x:x,y:y,'font-size':16,'font-weight':800,'font-family':'system-ui,sans-serif',fill:'#222',stroke:'#fff','stroke-width':4,'paint-order':'stroke','text-anchor':'middle'},fx);
+    p.textContent=txt;
+    floaters.push({t0:performance.now(),x:x,y:y,el:p});
+  }
+  function hg(hx,hy){return {x:pX+pS*(hx-450),y:pY+pS*((hy-40*standT+bob-462)*(1-0.5*crouchT))};}
+  function toggleStand(){
+    if(over||caught){return;}
+    if(standGoal===0){standGoal=1;}
+    else if(Math.sqrt((pX-450)*(pX-450)+(pY-462)*(pY-462))<90){standGoal=0;}
+    else{pop('Sit at your own desk!',pX,pY-150*pS);}
+  }
+  function toggleCrouch(){
+    var now=performance.now();
+    if(over||caught||standT<1){return;}
+    if(crouching){crouching=false;return;}
+    if(now<crouchCD){pop('Too soon!',pX,pY-150*pS);return;}
+    if(!(pX>=585&&pX<=740&&pY>=418&&pY<=466)){pop('Hide behind the teacher’s desk!',pX,pY-150*pS);return;}
+    crouching=true;crouchStart=now;
+  }
+  function updatePlayer(now){
+    var dt=Math.min(0.05,(now-lastT)/1000);lastT=now;
+    if(standT<standGoal){standT=Math.min(standGoal,standT+dt*4);}
+    else if(standT>standGoal){standT=Math.max(standGoal,standT-dt*4);}
+    if(crouching&&(standGoal===0||over||caught||now-crouchStart>=4000)){
+      if(now-crouchStart>=4000&&!over&&!caught){crouchCD=now+2000;pop('Time’s up!',pX,pY-150*pS);}
+      crouching=false;
+    }
+    if(crouchT<(crouching?1:0)){crouchT=Math.min(1,crouchT+dt*5);}else if(crouchT>(crouching?1:0)){crouchT=Math.max(0,crouchT-dt*5);}
+    var moving=false;
+    if(standGoal===0&&standT===0){pX=450;pY=462;}
+    else if(standT>=1&&!over&&!caught&&!crouching){
+      var vx=(keys.d?1:0)-(keys.a?1:0),vy=(keys.s?1:0)-(keys.w?1:0);
+      if(vx||vy){var ln=Math.sqrt(vx*vx+vy*vy);pX+=vx/ln*170*dt;pY+=vy/ln*120*dt;moving=true;}
+      pX=Math.max(20,Math.min(880,pX));pY=Math.max(350,Math.min(505,pY));
+    }
+    bob=moving?-Math.abs(Math.sin(now*0.02))*3:0;
+    pS=1+(pY-462)*0.0037;
+    player.setAttribute('transform','translate('+pX+' '+pY+') scale('+pS+') translate(-450 -462)');
+    var ck=1-0.5*crouchT;
+    pBodyG.setAttribute('transform','translate(0 462) scale(1 '+ck+') translate(0 -462) translate(0 '+(-40*standT+bob)+')');
+    pLegs.setAttribute('transform','translate(0 462) scale(1 '+ck+') translate(0 -462)');
+    pLegs.setAttribute('visibility',standT>0.05?'visible':'hidden');
+    var deskHide=pX>=585&&pX<=740&&pY>=418&&pY<=466;
+    var dm=(crouchT>0.05&&deskHide)?2:(pY>466?0:1);
+    if(dm!==depthMode){depthMode=dm;teacher.parentNode.insertBefore(player,dm===0?aF:(dm===1?aT:tDesk));}
+    var cv=crouching?'visible':'hidden';
+    cbBg.setAttribute('visibility',cv);cbFill.setAttribute('visibility',cv);cbTxt.setAttribute('visibility',cv);
+    if(crouching){
+      var fr=Math.max(0,1-(now-crouchStart)/4000);
+      cbBg.setAttribute('x',pX-30);cbBg.setAttribute('y',362);
+      cbFill.setAttribute('x',pX-30);cbFill.setAttribute('y',362);cbFill.setAttribute('width',60*fr);
+      cbTxt.setAttribute('x',pX);cbTxt.setAttribute('y',358);
+    }
+    var hid=crouchT>0.6&&deskHide;playerHidden=hid;
+    var ic=pX>715&&pY<470&&standT>=1&&!hid;
+    if(ic&&!inCorner){pop('Moo!',832,320);}
+    inCorner=ic;
+    if(!dungReady&&now>=dungAt){dungReady=true;pop('*plop*',790,392);}
+    dungEl.setAttribute('visibility',dungReady?'visible':'hidden');
+    steamEl.setAttribute('opacity',0.35+0.3*Math.sin(now*0.005));
+    cowTail.setAttribute('transform','rotate('+(Math.sin(now*0.004)*14)+' 44 -54)');
+    cowHead.setAttribute('transform','translate(0 '+(Math.sin(now*0.003)*1.5)+')');
+  }
+  function addScore(n,x,y){
+    score+=n;scoreT0=performance.now();scoreDur=900+Math.min(20,n)*90;
+    scoreBase.textContent='Score: '+score;scoreRb.textContent='Score: '+score;
+    var big=n>=20?34:(n>=5?26:20);
+    var p=mk('text',{x:x,y:y,'font-size':big,'font-weight':900,'font-family':'system-ui,sans-serif','text-anchor':'middle',fill:'url(#rainbow)',stroke:'#fff','stroke-width':5,'paint-order':'stroke'},fx);
+    p.textContent='+'+n;
+    floaters.push({t0:performance.now(),x:x,y:y,el:p});
+  }
+  function updateScore(now){
+    var off=(now/1000*0.6)%1;
+    rbGrad.setAttribute('x1',off);rbGrad.setAttribute('x2',off+1);
+    var sf=Math.max(0,1-(now-scoreT0)/scoreDur);
+    scoreRb.setAttribute('opacity',sf);
+    var fs=30+8*sf;
+    scoreBase.setAttribute('font-size',fs);scoreRb.setAttribute('font-size',fs);
+  }
+  function startMini(now,type){
+    mini=true;miniT0=now;miniType=type;
+    miniRedX=250+Math.random()*246;
+    miniRed.setAttribute('x',miniRedX);
+    miniTitle.textContent=type==='desk'?'HE SEES YOU BEHIND HIS DESK! HIT SPACE IN THE RED!':(cowHeld?'HE SEES THE COW DUNG! HIT SPACE IN THE RED!':'HE SEES THE POOP! HIT SPACE IN THE RED!');
+    miniG.setAttribute('visibility','visible');
+  }
+  function endMini(){mini=false;miniG.setAttribute('visibility','hidden');}
+  function failMini(now){
+    var msg=miniType==='desk'?'WHO’S HIDING BEHIND MY DESK?!':(cowHeld?'WHAT IS THAT SMELL?!':'POOP IN MY CLASS?!');
+    endMini();catchPlayer(msg,now);
+  }
+  function updateMini(now){
+    if(!mini){return;}
+    if(over||caught||(miniType==='poop'&&!hasPoop)){endMini();return;}
+    var el=now-miniT0;
+    var ph=(el/800)%2,p=ph<1?ph:2-ph;
+    miniMX=250+p*294;
+    miniMark.setAttribute('x',miniMX);
+    miniTime.setAttribute('width',Math.max(0,300*(1-el/3000)));
+    if(el>=3000){failMini(now);}
+  }
+  function pressMini(now){
+    if(miniMX+3>=miniRedX&&miniMX+3<=miniRedX+54){
+      endMini();miniImmune=now+4000;hold=0;
+      pop(miniType==='desk'?'Phew! Not seen!':'Phew! He bought it!',pX,pY-150*pS);
+    }else{failMini(now);}
+  }
+  function spaceKey(){if(mini){pressMini(performance.now());}else{toggleStand();}}
+  var deanG=$('dean'),deanSplash=$('deanSplash'),deanTut=$('deanTut'),deanOverG=$('deanOver'),deanTxt=$('deanTxt'),deanMouth=$('deanMouth'),deanBrowL=$('deanBrowL'),deanBrowR=$('deanBrowR'),dBtns=$('dBtns'),deanOverScore=$('deanOverScore'),tSkip=$('tSkip');
+  var dBR=[],dBT=[],tl=[];
+  for(var di=1;di<=4;di++){dBR.push($('dBR'+di));dBT.push($('dBT'+di));tl.push($('tl'+di));}
+  var deanState='',deanT0=0,deanAns=[],deanOK=0,deanFull='',deanTyped=0,deanReady=false;
+  var DEAN_Q=['Explain why your bottom abandoned its chair!','What possessed you to become vertical?!','Why have you left the sitting position, you scoundrel?!','Three strikes! Why did your legs betray the chair?!'];
+  var BANK=[
+    {c:'I was sharpening my pencil with a tiny guillotine.',w:['A pigeon hired me as its lawyer.','My shadow wanted to meet the cow.','I was invited to a hummus summit.']},
+    {c:'I dropped my eraser and it ran away.',w:['My chair needed some alone time.','I was escaping from a wizard named Gary.','I wanted to high-five the cow.']},
+    {c:'I had a very important question about my pet rock.',w:['My legs voted to leave without me.','The poop whispered my name.','I was auditioning for the cow’s band.']},
+    {c:'The clock started spinning backwards and I got dizzy.',w:['I had an appointment with a banana.','I was scouting spots for my hummus museum.','The floor was lava, but only for me.']},
+    {c:'I was looking for the bathroom but got lost in the classroom.',w:['I was ghost-writing the teacher’s diary.','My cape needed some fresh air.','A spider asked me to hold its tiny hand.']},
+    {c:'My desk started whispering, so I left to investigate.',w:['I was training for the Chair Olympics.','I thought it was Taco Tuesday. It was Thursday.','The cow owed me eleven dollars.']}
+  ];
+  for(var bi=1;bi<=4;bi++){(function(i){$('dBtn'+i).addEventListener('pointerdown',function(e){e.stopPropagation();answerDean(i-1,performance.now());});})(bi);}
+  function wrapLines(s,n){
+    var w=s.split(' '),lines=[],cur='';
+    for(var i=0;i<w.length;i++){
+      if(cur&&(cur+' '+w[i]).length>n){lines.push(cur);cur=w[i];}else{cur=cur?cur+' '+w[i]:w[i];}
+    }
+    if(cur){lines.push(cur);}
+    return lines;
+  }
+  function setLines(el,lines,x,y0,lh){
+    el.textContent='';
+    for(var i=0;i<lines.length;i++){var t=mk('tspan',{x:x,y:y0+i*lh},el);t.textContent=lines[i];}
+  }
+  function revealLines(full,n,typed){
+    var lines=wrapLines(full,n),out=[],left=typed;
+    for(var i=0;i<lines.length;i++){
+      if(left<=0){break;}
+      out.push(lines[i].slice(0,left));left-=lines[i].length+1;
+    }
+    return out;
+  }
+  function showDean(on){deanG.setAttribute('visibility',on?'visible':'hidden');if(!on){dBtns.setAttribute('visibility','hidden');}}
+  function startDean(now){
+    endMini();
+    deanState='splash';deanT0=now;
+    deanSplash.setAttribute('visibility','visible');
+    showDean(false);deanTut.setAttribute('visibility','hidden');deanOverG.setAttribute('visibility','hidden');
+    alertG.setAttribute('visibility','hidden');
+  }
+  function endTut(now){
+    deanTut.setAttribute('visibility','hidden');
+    var set=BANK[Math.floor(Math.random()*BANK.length)];
+    var a=[set.c].concat(set.w);
+    for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+    deanAns=a;deanOK=a.indexOf(set.c);
+    for(var k=0;k<4;k++){
+      var ls=wrapLines(a[k],17);
+      setLines(dBT[k],ls,32+212*k+100,500-(ls.length-1)*10,20);
+      dBR[k].setAttribute('fill','#2e3a55');
+    }
+    deanFull=DEAN_Q[Math.floor(Math.random()*DEAN_Q.length)];
+    deanTyped=0;deanReady=false;deanState='ask';deanT0=now;
+    deanTxt.setAttribute('fill','#1c1b19');deanTxt.setAttribute('font-size',26);
+    deanBrowL.setAttribute('y1',216);deanBrowL.setAttribute('y2',214);deanBrowR.setAttribute('y1',216);deanBrowR.setAttribute('y2',214);
+    dBtns.setAttribute('visibility','visible');
+  }
+  function answerDean(i,now){
+    if(deanState!=='ask'||!deanReady){return;}
+    deanTyped=0;deanT0=now;
+    if(i===deanOK){
+      deanState='right';
+      deanFull='Hmm. Yes. That makes perfect sense. Back to class. One more strike and you’re done.';
+      dBR[i].setAttribute('fill','#2e7d46');
+    }else{
+      deanState='wrong';
+      deanFull='UNACCEPTABLE!!';
+      dBR[i].setAttribute('fill','#b3261e');dBR[deanOK].setAttribute('fill','#2e7d46');
+      deanTxt.setAttribute('fill','#b3261e');deanTxt.setAttribute('font-size',40);
+      deanBrowL.setAttribute('y1',208);deanBrowL.setAttribute('y2',224);deanBrowR.setAttribute('y1',208);deanBrowR.setAttribute('y2',224);
+    }
+  }
+  function returnToClass(now){
+    deanState='';
+    showDean(false);deanSplash.setAttribute('visibility','hidden');deanTut.setAttribute('visibility','hidden');
+    strikes=2;updateStrikes();sight=0;sightCD=now+4000;hold=0;
+    tState='front';tT0=now;nextTurn=now+2500+Math.random()*2000;seen=0;
+    alertG.setAttribute('visibility','hidden');
+    tx=45;ty=0;wbob=0;route=[];setFacing(false);
+    caught=false;pooping=false;hasPoop=false;cowHeld=false;
+    standGoal=0;standT=0;pX=450;pY=462;crouching=false;crouchT=0;crouchCD=0;keys={};
+    throwT0=-1;released=false;flinchT0=-1;bubbleUntil=0;
+    endMini();miniImmune=0;
+    for(var i=0;i<flights.length;i++){fx.removeChild(flights[i].el);}
+    flights.length=0;
+    while(splats.firstChild){splats.removeChild(splats.firstChild);}
+    slips.length=0;
+    for(var q=0;q<kids.length;q++){kids[q].s=0;kids[q].e=0;}
+    lastT=now;lastE=now;lastS=now;
+  }
+  function deanDead(now){
+    deanState='dead';over=true;
+    deanG.removeAttribute('transform');showDean(false);
+    deanOverScore.textContent='Score: '+score;
+    deanOverG.setAttribute('visibility','visible');
+  }
+  function updateDean(now){
+    var el=now-deanT0;
+    if(deanState==='splash'){
+      if(el>=1800){
+        deanSplash.setAttribute('visibility','hidden');showDean(true);dBtns.setAttribute('visibility','hidden');
+        deanTxt.textContent='';deanTut.setAttribute('visibility','visible');
+        deanState='tut';deanT0=now;
+        for(var i=0;i<4;i++){tl[i].setAttribute('opacity',0);}
+      }
+    }else if(deanState==='tut'){
+      var n=Math.floor(el/1300);
+      for(var i2=0;i2<4;i2++){tl[i2].setAttribute('opacity',i2<n?1:0);}
+      tSkip.setAttribute('opacity',0.55+0.45*Math.sin(now*0.008));
+      if(el>=7000){endTut(now);}
+    }else if(deanState==='ask'||deanState==='right'||deanState==='wrong'){
+      var len=deanFull.length;
+      deanTyped=Math.min(len,Math.floor(el/(deanState==='wrong'?25:35)));
+      setLines(deanTxt,revealLines(deanFull,36,deanTyped),450,70,34);
+      var talking=deanTyped<len||deanState==='wrong';
+      deanMouth.setAttribute('ry',talking?(3+7*Math.abs(Math.sin(el*0.03))):2);
+      if(deanState==='ask'&&deanTyped>=len){deanReady=true;}
+      if(deanState==='right'&&el>=3800){returnToClass(now);}
+      if(deanState==='wrong'){
+        deanG.setAttribute('transform','translate('+(Math.sin(now*0.09)*6)+' 0)');
+        if(el>=2300){deanDead(now);}
       }
     }
-
-    // Space / W / A / S / D / F State Placeholders
-    if (key === ' ') { playerState = playerState === "sitting" ? "standing" : "sitting"; }
-    if (key === 'f') { playerState = "crouching"; }
+  }
+  function deanKey(k){
+    if(deanState==='tut'&&k===' '){endTut(performance.now());}
+    else if(deanState==='ask'&&k.length===1&&'1234'.indexOf(k)>=0){answerDean(+k-1,performance.now());}
+    else if(deanState==='dead'&&k==='r'){restart();}
+  }
+  function updateStrikes(){for(var i=0;i<3;i++){stEls[i].setAttribute('fill',i<strikes?'#e0312b':'none');}}
+  function updateSight(now){
+    var dt=Math.min(0.05,(now-lastS)/1000);lastS=now;
+    var seeing=!isBack&&!over&&!caught&&tState!=='yelling'&&tState!=='spotted';
+    if(hasPoop&&cowHeld){
+      meltK=Math.min(1,(now-dungHoldStart)/5000);
+      if(meltK>=1){hasPoop=false;cowHeld=false;meltK=0;pop('It melted!',pX+10,pY-150*pS);}
+    }else{meltK=0;}
+    var mv=(hasPoop&&cowHeld)?'visible':'hidden';
+    dmBg.setAttribute('visibility',mv);dmFill.setAttribute('visibility',mv);dmTxt.setAttribute('visibility',mv);
+    if(mv==='visible'){
+      var bw=60*pS,bh=8*pS,bx=pX-bw/2,by=pY-(standT>0.5?175:130)*pS;
+      dmBg.setAttribute('x',bx);dmBg.setAttribute('y',by);dmBg.setAttribute('width',bw);dmBg.setAttribute('height',bh);
+      dmFill.setAttribute('x',bx);dmFill.setAttribute('y',by);dmFill.setAttribute('width',bw*(1-meltK));dmFill.setAttribute('height',bh);
+      dmTxt.setAttribute('x',pX);dmTxt.setAttribute('y',by-4);
+    }
+    if(seeing&&standT>0.5&&!playerHidden&&now>=sightCD){
+      sight+=dt;
+      if(sight>=0.6){
+        sight=0;sightCD=now+3000;strikes++;updateStrikes();
+        bubble.textContent='SIT DOWN!';bubbleUntil=now+1200;
+        if(strikes>=3){startDean(now);return;}
+      }
+    }else{sight=Math.max(0,sight-dt);}
+    if(seeing&&hasPoop&&!playerHidden){
+      hold+=dt;
+      if(hold>=0.6){
+        if(now<miniImmune){hold=0;}
+        else if(!mini){startMini(now,'poop');}
+      }
+    }else{hold=0;}
+  }
+  function catchPlayer(msg,now){
+    caught=true;pooping=false;tState='spotted';tT0=now;
+    yellEl.textContent=msg;
+    alertRect.setAttribute('y',152);alertRect.setAttribute('height',46);alertG.setAttribute('visibility','visible');
+  }
+  function updatePoop(now){
+    if(pooping&&(!keys.e||over||caught||hasPoop)){pooping=false;}
+    if(pooping){
+      if(!isBack){catchPlayer('POOPING IN MY CLASS?!',now);}
+      else if(now-poopT0>=2300){pooping=false;hasPoop=true;cowHeld=false;pop('*plop*',pX+20,pY-(standT>0.5?150:100)*pS);}
+    }
+    var prog=pooping?Math.min(1,(now-poopT0)/2300):0;
+    var vis=pooping?'visible':'hidden';
+    pbBg.setAttribute('visibility',vis);pbFill.setAttribute('visibility',vis);pbTxt.setAttribute('visibility',vis);
+    if(pooping){
+      var bw=60*pS,bh=8*pS,bx=pX-bw/2,by=pY-(standT>0.5?175:130)*pS;
+      pbBg.setAttribute('x',bx);pbBg.setAttribute('y',by);pbBg.setAttribute('width',bw);pbBg.setAttribute('height',bh);
+      pbFill.setAttribute('x',bx);pbFill.setAttribute('y',by);pbFill.setAttribute('width',bw*prog);pbFill.setAttribute('height',bh);
+      pbTxt.setAttribute('x',pX);pbTxt.setAttribute('y',by-4);
+    }
+  }
+  function gameOver(){
+    over=true;tState='over';
+    overScore.textContent='Score: '+score+'  |  Hummus: '+count+' | Poop: '+poopCount+' | Cow dung: '+cowCount;
+    overG.setAttribute('visibility','visible');
+    yellEl.setAttribute('visibility','hidden');
+    for(var i=0;i<kids.length;i++){kids[i].s=0;kids[i].e=0;}
+  }
+  function restart(){
+    over=false;caught=false;tState='front';tT0=0;nextTurn=performance.now()+1500+Math.random()*1500;
+    setFacing(false);
+    tRed.setAttribute('opacity',0);tRedBody.setAttribute('opacity',0);tAngry.setAttribute('opacity',0);
+    yellEl.setAttribute('visibility','hidden');alertG.setAttribute('visibility','hidden');overG.setAttribute('visibility','hidden');
+    while(splats.firstChild){splats.removeChild(splats.firstChild);}
+    slips.length=0;
+    for(var i=0;i<flights.length;i++){fx.removeChild(flights[i].el);}
+    flights.length=0;
+    count=0;poopCount=0;cowCount=0;updateCount();hasPoop=false;cowHeld=false;dungReady=true;seen=0;inCorner=false;kind='hummus';
+    wbText.textContent='';throwT0=-1;released=false;flinchT0=-1;
+    standGoal=0;standT=0;pX=450;pY=462;keys={};
+    score=0;scoreT0=-99999;scoreBase.textContent='Score: 0';scoreRb.textContent='Score: 0';
+    crouching=false;crouchT=0;crouchCD=0;
+    tx=45;ty=0;tsc=1;wbob=0;route=[];
+    strikes=0;sight=0;sightCD=0;hold=0;meltK=0;updateStrikes();
+    mini=false;miniG.setAttribute('visibility','hidden');miniImmune=0;
+    deanState='';deanG.setAttribute('visibility','hidden');dBtns.setAttribute('visibility','hidden');deanG.removeAttribute('transform');deanSplash.setAttribute('visibility','hidden');deanTut.setAttribute('visibility','hidden');deanOverG.setAttribute('visibility','hidden');
+  }
+  var NODES={H:[335,465],F1:[30,495],F2:[335,495],F3:[530,495],R1:[530,440],R2:[530,346],Cb:[335,346],L2:[30,346],L1:[30,440],C1n:[335,385],C2n:[335,425],M:[335,448]};
+  var EDGES=[['F1','F2'],['F2','F3'],['F3','R1'],['R1','R2'],['R2','Cb'],['Cb','L2'],['L2','L1'],['L1','F1'],['Cb','C1n'],['C1n','C2n'],['C2n','M'],['M','H'],['H','F2']];
+  function pathTo(a,b){
+    var prev={},q=[a],vis={};vis[a]=true;
+    while(q.length){
+      var c=q.shift();if(c===b){break;}
+      for(var i=0;i<EDGES.length;i++){
+        var e=EDGES[i],o=e[0]===c?e[1]:(e[1]===c?e[0]:null);
+        if(o&&!vis[o]){vis[o]=true;prev[o]=c;q.push(o);}
+      }
+    }
+    var p=[b];while(p[0]!==a){p.unshift(prev[p[0]]);}
+    return p;
+  }
+  function addPath(r,from,to,wait,me){
+    var p=pathTo(from,to);
+    for(var i=1;i<p.length;i++){var n=NODES[p[i]],last=(i===p.length-1);r.push({x:n[0],y:n[1],wait:last?wait:0,me:last&&!!me,desk:last&&to==='R1'&&wait>0});}
+    return to;
+  }
+  function startActivity(now){
+    if(Math.random()>=0.45){tState='front';nextTurn=now+1500+Math.random()*2000;return;}
+    var r=[],cur='H';
+    if(Math.random()<0.75){
+      var stops=['L1','C1n','M','R1'];
+      stops.sort(function(){return Math.random()-0.5;});
+      var n=2+(Math.random()<0.5?1:0);
+      for(var i=0;i<n;i++){cur=addPath(r,cur,stops[i],1300,stops[i]==='M');}
+    }else{
+      var ring=['F2','F3','R1','R2','Cb','L2','L1','F1','F2'];
+      if(Math.random()<0.5){ring=['F2','F1','L1','L2','Cb','R2','R1','F3','F2'];}
+      for(var j=0;j<ring.length;j++){cur=addPath(r,cur,ring[j],0,false);}
+    }
+    addPath(r,cur,'H',0,false);
+    route=r;rIdx=0;wPhase=0;tState='walk';tT0=now;
+  }
+  function nextWp(now){
+    rIdx++;wPhase=0;
+    if(rIdx>=route.length){tState='front';nextTurn=now+1500+Math.random()*2000;tx=45;ty=0;wbob=0;}
+  }
+  function setFacing(back){
+    isBack=back;
+    tFront.setAttribute('visibility',back?'hidden':'visible');
+    tBack.setAttribute('visibility',back?'visible':'hidden');
+  }
+  function updateTeacher(now){
+    var el=now-tT0,scx=1,dx=0,rt=0;
+    var edt=Math.min(0.05,(now-lastE)/1000);lastE=now;
+    if(tState==='front'){
+      seen=Math.max(0,Math.min(1.2,seen+((inCorner&&!over)?edt:-edt*1.5)));
+      if(seen>0){alertRect.setAttribute('y',198-46*seen/1.2);alertRect.setAttribute('height',46*seen/1.2);alertG.setAttribute('visibility','visible');}
+      else{alertG.setAttribute('visibility','hidden');}
+      if(seen>=1.2){tState='spotted';tT0=now;caught=true;yellEl.textContent='GET OUT OF THE COW CORNER!';}
+      else if(now>=nextTurn){tState='warnBoard';tT0=now;seen=0;}
+    }else if(tState==='spotted'){
+      if(el>=500){alertG.setAttribute('visibility','hidden');tState='yelling';tT0=now;}
+    }else if(tState==='warnBoard'||tState==='warnFront'){
+      var wv=Math.min(1,el/900);
+      alertRect.setAttribute('y',198-46*wv);alertRect.setAttribute('height',46*wv);
+      alertG.setAttribute('visibility','visible');
+      if(el>=1000){alertG.setAttribute('visibility','hidden');tState=(tState==='warnBoard')?'toBoard':'toFront';tT0=now;}
+    }else if(tState==='toBoard'){
+      var u=el/450;
+      if(u>=1){
+        tState='writing';tT0=now;setFacing(true);
+        phrase=phrases[Math.floor(Math.random()*phrases.length)];
+        typed=0;lastType=now;wbText.textContent='';writeEnd=now+2200+Math.random()*2300;
+      }else{scx=Math.max(0.04,Math.abs(Math.cos(Math.PI*u)));setFacing(u>=0.5);}
+    }else if(tState==='writing'){
+      if(typed<phrase.length&&now-lastType>180){typed++;lastType=now;wbText.textContent=phrase.slice(0,typed);}
+      var wx=Math.min(395,340+typed*13)+Math.sin(now*0.03)*3,wy=238+Math.sin(now*0.05)*4;
+      wArm.setAttribute('x2',wx);wArm.setAttribute('y2',wy);
+      wHand.setAttribute('cx',wx);wHand.setAttribute('cy',wy);
+      if(now>=writeEnd){tState='warnFront';tT0=now;}
+    }else if(tState==='noticing'){
+      var h=46*Math.min(1,el/900);
+      alertRect.setAttribute('y',198-h);alertRect.setAttribute('height',h);
+      alertG.setAttribute('visibility','visible');
+      if(el>=1100){tState='toFront';tT0=now;alertG.setAttribute('visibility','hidden');}
+    }else if(tState==='toFront'){
+      var v=el/450;
+      if(v>=1){setFacing(false);if(caught){tState='yelling';tT0=now;}else{startActivity(now);}}
+      else{scx=Math.max(0.04,Math.abs(Math.cos(Math.PI*v)));setFacing(v<0.5);}
+    }else if(tState==='walk'){
+      seen=Math.max(0,Math.min(1.2,seen+((inCorner&&!over)?edt:-edt*1.5)));
+      if(seen>0){alertRect.setAttribute('y',198-46*seen/1.2);alertRect.setAttribute('height',46*seen/1.2);alertG.setAttribute('visibility','visible');}
+      else{alertG.setAttribute('visibility','hidden');}
+      var fxT=290+tx,fyT=465+ty;
+      if(seen>=1.2){tState='spotted';tT0=now;caught=true;yellEl.textContent='GET OUT OF THE COW CORNER!';}
+      else{
+        var wp=route[rIdx];
+        if(wPhase===0){
+          var ddx=wp.x-fxT,ddy=wp.y-fyT,dd=Math.sqrt(ddx*ddx+ddy*ddy),sp=100*edt;
+          if(dd<=sp){
+            tx=wp.x-290;ty=wp.y-465;wbob=0;
+            if(wp.desk&&playerHidden&&!mini&&now>=miniImmune){startMini(now,'desk');}
+            if(wp.wait>0){wPhase=1;waitUntil=now+wp.wait;bubble.textContent='Hmm…';bubbleUntil=waitUntil;}
+            else{nextWp(now);}
+          }else{tx+=ddx/dd*sp;ty+=ddy/dd*sp;wbob=-Math.abs(Math.sin(now*0.012))*3;}
+        }else if(now>=waitUntil){nextWp(now);}
+      }
+    }else if(tState==='yelling'){
+      var rd=Math.min(1,el/500);
+      tRed.setAttribute('opacity',0.6*rd);tRedBody.setAttribute('opacity',0.4*rd);tAngry.setAttribute('opacity',rd);
+      tMouth.setAttribute('ry',4+5*Math.abs(Math.sin(el*0.02)));
+      yellEl.setAttribute('visibility','visible');
+      yellEl.setAttribute('font-size',44+4*Math.sin(el*0.05));
+      dx=Math.sin(now*0.09)*4;
+      if(el>=1800){gameOver();}
+    }
+    if(flinchT0>=0){
+      var w=(now-flinchT0)/450;
+      if(w>=1){flinchT0=-1;}else{dx=Math.sin(w*38)*6*(1-w);rt=-9*Math.sin(w*Math.PI);}
+    }
+    if(tState!=='walk'){wbob=0;}
+    var behind=(465+ty+wbob)<392;
+    if(behind!==tBehind){tBehind=behind;teacher.parentNode.insertBefore(teacher,behind?rowBack:aF);}
+    tsc=1+ty*0.0037;
+    var base='translate('+(290+tx)+' '+(465+ty+wbob)+') scale('+tsc+') translate(-290 -465)';
+    teacher.setAttribute('transform',base+' translate('+dx+' 0) rotate('+rt+' 290 465) translate(290 0) scale('+scx+' 1) translate(-290 0)');
+    alertG.setAttribute('transform',base);bubble.setAttribute('transform',base);
+  }
+  function makePoop(){
+    if(hasPoop||over||caught){return;}
+    if(standT>=1&&dungReady&&Math.abs(pX-790)<(crouching?75:55)&&Math.abs(pY-418)<(crouching?48:40)){
+      hasPoop=true;cowHeld=true;dungReady=false;dungAt=performance.now()+8000;dungHoldStart=performance.now();
+      pop('Cow dung!',pX,pY-150*pS);return;
+    }
+    if(pooping){return;}
+    pooping=true;poopT0=performance.now();keys.e=true;
+  }
+  window.addEventListener('keydown',function(e){
+    if(e.key===' '){e.preventDefault();}
+    if(e.repeat){return;}
+    var k=e.key.toLowerCase();
+    if(deanState){deanKey(k);return;}
+    if(k==='q'){throwIt();}else if(k==='e'){makePoop();}else if(k==='r'&&over){restart();}else if(k==='f'){toggleCrouch();}
+    else if(k===' '){spaceKey();}
+    else if(k==='w'||k==='a'||k==='s'||k==='d'){keys[k]=true;}
   });
-
+  window.addEventListener('keyup',function(e){keys[e.key.toLowerCase()]=false;});
+  window.addEventListener('message',function(e){
+    var d=e.data;
+    if(deanState){
+      if(d==='space'){deanKey(' ');}
+      else if(d==='restart'){deanKey('r');}
+      else if(typeof d==='string'&&d.indexOf('ans:')===0){deanKey(d.slice(4));}
+      return;
+    }
+    if(d==='throw'){throwIt();}else if(d==='poop'){makePoop();}else if(d==='restart'&&over){restart();}
+    else if(d==='space'){spaceKey();}else if(d==='crouch'){toggleCrouch();}
+    else if(typeof d==='string'&&d.indexOf('kd:')===0){keys[d.slice(3)]=true;}
+    else if(typeof d==='string'&&d.indexOf('ku:')===0){keys[d.slice(3)]=false;}
+  });
+  window.addEventListener('pointerdown',function(){window.focus();if(over){restart();}});
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
