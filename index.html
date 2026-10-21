@@ -37,6 +37,7 @@
     </g>
   </g>
   <g id="cow" transform="translate(832,400) scale(.9)">
+  <g id="cowNormal">
     <ellipse cx="0" cy="2" rx="56" ry="7" fill="#000" opacity=".15"/>
     <rect x="-36" y="-28" width="9" height="28" fill="#ece8e0"/>
     <rect x="-20" y="-28" width="9" height="28" fill="#ece8e0"/>
@@ -63,6 +64,58 @@
       <circle cx="-55" cy="-56" r="2.6" fill="#222"/>
       <ellipse cx="-45" cy="-62" rx="6" ry="3.5" fill="#2b2b2b" transform="rotate(-25 -45 -62)"/>
     </g>
+  </g>
+  </g>
+  <g id="cowPolish" visibility="hidden">
+    <ellipse cx="0" cy="2" rx="44" ry="7" fill="#000" opacity=".15"/>
+    <g id="pcBody">
+      <g id="pcLegL"><rect x="-20" y="-36" width="13" height="36" rx="5" fill="#f6f3ee"/><rect x="-23" y="-6" width="19" height="7" rx="3" fill="#2b2b2b"/></g>
+      <g id="pcLegR"><rect x="7" y="-36" width="13" height="36" rx="5" fill="#f6f3ee"/><rect x="4" y="-6" width="19" height="7" rx="3" fill="#2b2b2b"/></g>
+      <path id="pcTail" d="M26 -60 Q44 -52 40 -34" stroke="#d8d3c8" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="0" cy="-60" rx="31" ry="34" fill="#f6f3ee"/>
+      <ellipse cx="-11" cy="-66" rx="11" ry="10" fill="#2b2b2b"/>
+      <ellipse cx="15" cy="-52" rx="10" ry="11" fill="#2b2b2b"/>
+      <ellipse cx="0" cy="-42" rx="13" ry="8" fill="#f2b6bf"/>
+      <g id="pcArmL"><rect x="-47" y="-78" width="22" height="10" rx="5" fill="#f6f3ee"/><circle cx="-48" cy="-73" r="6" fill="#2b2b2b"/></g>
+      <g id="pcArmR"><rect x="25" y="-78" width="22" height="10" rx="5" fill="#f6f3ee"/><circle cx="48" cy="-73" r="6" fill="#2b2b2b"/></g>
+      <g id="pcHead">
+        <path d="M-17 -118 Q-22 -132 -10 -127" fill="#e6d9a8"/>
+        <path d="M17 -118 Q22 -132 10 -127" fill="#e6d9a8"/>
+        <ellipse cx="-24" cy="-108" rx="8" ry="5" fill="#2b2b2b" transform="rotate(-25 -24 -108)"/>
+        <ellipse cx="24" cy="-108" rx="8" ry="5" fill="#2b2b2b" transform="rotate(25 24 -108)"/>
+        <ellipse cx="0" cy="-104" rx="22" ry="19" fill="#f6f3ee"/>
+        <ellipse cx="0" cy="-95" rx="14" ry="9" fill="#f2b6bf"/>
+        <circle cx="-5" cy="-96" r="1.8" fill="#7a3b46"/><circle cx="5" cy="-96" r="1.8" fill="#7a3b46"/>
+        <rect x="-18" y="-113" width="36" height="9" rx="4" fill="#111"/>
+        <rect x="-15" y="-111" width="9" height="2.5" fill="#fff" opacity=".6"/>
+        <path d="M-9 -88 Q0 -80 9 -88" stroke="#7a1f2b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <rect x="-22" y="-124" width="44" height="5" fill="#fff"/>
+        <rect x="-22" y="-119" width="44" height="5" fill="#dc143c"/>
+      </g>
+    </g>
+    <g font-family="system-ui,sans-serif" font-weight="900" text-anchor="middle" fill="#dc143c" stroke="#fff" stroke-width="3" paint-order="stroke">
+      <text id="pn1" x="-52" y="-120" font-size="22">♪</text>
+      <text id="pn2" x="54" y="-110" font-size="22">♫</text>
+      <text id="pn3" x="0" y="-150" font-size="20">♪</text>
+    </g>
+  </g>
+  </g>
+  <g id="tinyCow" transform="translate(862,452) scale(.34)" style="cursor:pointer">
+    <rect x="-75" y="-110" width="150" height="120" fill="#000" fill-opacity="0"/>
+    <ellipse cx="0" cy="2" rx="50" ry="6" fill="#000" opacity=".15"/>
+    <rect x="-30" y="-28" width="9" height="28" fill="#ece8e0"/>
+    <rect x="-16" y="-28" width="9" height="28" fill="#ece8e0"/>
+    <rect x="14" y="-28" width="9" height="28" fill="#ece8e0"/>
+    <rect x="28" y="-28" width="9" height="28" fill="#ece8e0"/>
+    <rect x="-44" y="-68" width="90" height="44" rx="18" fill="#f6f3ee"/>
+    <ellipse cx="-14" cy="-52" rx="13" ry="10" fill="#2b2b2b"/>
+    <ellipse cx="24" cy="-57" rx="15" ry="11" fill="#2b2b2b"/>
+    <ellipse cx="-56" cy="-50" rx="17" ry="14" fill="#f6f3ee"/>
+    <ellipse cx="-66" cy="-44" rx="11" ry="8" fill="#f2b6bf"/>
+    <circle cx="-55" cy="-56" r="2.6" fill="#222"/>
+    <line x1="10" y1="-68" x2="10" y2="-108" stroke="#8a6b3f" stroke-width="3"/>
+    <rect x="10" y="-108" width="30" height="11" fill="#fff" stroke="#bbb" stroke-width="1"/>
+    <rect x="10" y="-97" width="30" height="11" fill="#dc143c"/>
   </g>
 
   <!-- whiteboard (back of the room) -->
@@ -93,6 +146,7 @@
     <circle id="st3" cx="624" cy="30" r="10" fill="none" stroke="#2b2d42" stroke-width="2.5"/>
   </g>
 
+  <text x="880" y="22" text-anchor="end" font-size="14" font-weight="700" font-family="system-ui,sans-serif" fill="#2b2d42">F at the cow: ride + ram</text>
   <!-- wall clock -->
   <circle cx="730" cy="70" r="28" fill="#fff" stroke="#555" stroke-width="4"/>
   <line x1="730" y1="70" x2="730" y2="52" stroke="#333" stroke-width="3"/>
@@ -234,6 +288,11 @@
     <text x="290" y="196" fill="#fff" stroke="#222" stroke-width="5" paint-order="stroke">!</text>
     <text x="290" y="196" fill="#e0312b" clip-path="url(#alertClip)">!</text>
   </g>
+  <g id="stars" visibility="hidden" font-family="system-ui,sans-serif" font-size="20" fill="#ffd60a" stroke="#b58a00" stroke-width="1" text-anchor="middle">
+    <text id="sa" x="290" y="204">★</text>
+    <text id="sb" x="290" y="204">★</text>
+    <text id="sc" x="290" y="204">★</text>
+  </g>
   <text id="yell" x="400" y="125" text-anchor="middle" font-size="44" font-weight="900" font-family="system-ui,sans-serif" fill="#e0312b" stroke="#fff" stroke-width="7" paint-order="stroke" visibility="hidden">WHO THREW THAT?!</text>
   <text id="bubble" x="290" y="150" text-anchor="middle" font-size="22" font-weight="700" font-family="system-ui,sans-serif" fill="#222" stroke="#fff" stroke-width="6" paint-order="stroke" visibility="hidden">Hey!</text>
   <g id="fx"></g>
@@ -337,6 +396,10 @@
   var tBehind=false,rowBack=$('rowBack'),aT=$('aT'),aF=$('aF');
   var strikes=0,sight=0,sightCD=0,hold=0,dungHoldStart=0,meltK=0,lastS=performance.now(),stEls=[$('st1'),$('st2'),$('st3')];
   var mini=false,miniT0=0,miniRedX=380,miniImmune=0,miniG=$('mini'),miniRed=$('miniRed'),miniMark=$('miniMark'),miniTime=$('miniTime'),miniTitle=$('miniTitle'),miniMX=250,miniType='poop';
+  var riding=false,cowRun=false,cowX=832,cowY=400,cowFlip=false,ramCD=0,stunUntil=0,stunStart=0;
+  var cowEl=$('cow'),cowNext=cowEl.nextSibling,starsG=$('stars'),sA=$('sa'),sB=$('sb'),sC=$('sc');
+  var polish=false,cowNormal=$('cowNormal'),cowPolish=$('cowPolish'),tinyCow=$('tinyCow');
+  var pcBody=$('pcBody'),pcLegL=$('pcLegL'),pcLegR=$('pcLegR'),pcArmL=$('pcArmL'),pcArmR=$('pcArmR'),pcHead=$('pcHead'),pcTail=$('pcTail'),pn=[$('pn1'),$('pn2'),$('pn3')];
   var dmBg=mk('rect',{rx:4,fill:'#000',opacity:.35,visibility:'hidden',width:60,height:8},fx);
   var dmFill=mk('rect',{rx:4,fill:'#7d9a3c',visibility:'hidden',height:8},fx);
   var dmTxt=mk('text',{'font-size':12,'font-weight':800,'font-family':'system-ui,sans-serif','text-anchor':'middle',fill:'#222',stroke:'#fff','stroke-width':3,'paint-order':'stroke',visibility:'hidden'},fx);
@@ -386,8 +449,8 @@
   }
   function throwIt(){
     var now=performance.now();
-    if(over||caught){return;}
-    if(!isBack){
+    if(over||caught||riding){return;}
+    if(!isBack&&now>=stunUntil){
       caught=true;tState='spotted';tT0=now;
       yellEl.textContent='WHO THREW THAT?!';
       alertRect.setAttribute('y',152);alertRect.setAttribute('height',46);alertG.setAttribute('visibility','visible');
@@ -427,8 +490,8 @@
     addSplat(f.lx,f.ly,f.face,cw?'#566b2c':(p?'#6b4226':'#e3c38a'),cw?'#2f3d16':(p?'#3f2614':'#b5532a'));
     flinchT0=now;
     var pool=cw?cowLines:(p?poopLines:lines);
-    bubble.textContent=pool[Math.floor(Math.random()*pool.length)];
-    bubbleUntil=now+1000;
+    if(now>=stunUntil){bubble.textContent=pool[Math.floor(Math.random()*pool.length)];
+    bubbleUntil=now+1000;}
     floaters.push({t0:now,x:f.x1+14,y:f.y1-18,el:mk('text',{x:f.x1+14,y:f.y1-18,'font-size':20,'font-weight':800,'font-family':'system-ui,sans-serif',fill:'#c1403d',stroke:'#fff','stroke-width':4,'paint-order':'stroke'},fx)});
     floaters[floaters.length-1].el.textContent=p?'SPLORCH!':'SPLAT!';
   }
@@ -479,6 +542,7 @@
     updateTeacher(now);
     updateSight(now);
     updateMini(now);
+    updatePolish(now);
     bubble.setAttribute('visibility',now<bubbleUntil?'visible':'hidden');
     for(var q=0;q<kids.length;q++){
       var kd=kids[q];
@@ -502,14 +566,65 @@
   }
   function hg(hx,hy){return {x:pX+pS*(hx-450),y:pY+pS*((hy-40*standT+bob-462)*(1-0.5*crouchT))};}
   function toggleStand(){
-    if(over||caught){return;}
+    if(over||caught||riding){return;}
     if(standGoal===0){standGoal=1;}
     else if(Math.sqrt((pX-450)*(pX-450)+(pY-462)*(pY-462))<90){standGoal=0;}
     else{pop('Sit at your own desk!',pX,pY-150*pS);}
   }
+  function setPolish(on){
+    polish=on;
+    cowNormal.setAttribute('visibility',on?'hidden':'visible');
+    cowPolish.setAttribute('visibility',on?'visible':'hidden');
+    if(on){pop('KROWA!',832,320);}
+  }
+  tinyCow.addEventListener('pointerdown',function(e){e.stopPropagation();if(deanState||over){return;}setPolish(!polish);});
+  function updatePolish(now){
+    tinyCow.setAttribute('transform','translate(862,452) scale(.34) rotate('+(Math.sin(now*0.004)*5)+' 0 0)');
+    if(!polish){return;}
+    var s=now*0.012;
+    pcBody.setAttribute('transform','translate(0 '+(-Math.abs(Math.sin(s))*10)+') rotate('+(Math.sin(s*0.5)*7)+' 0 0)');
+    pcLegL.setAttribute('transform','rotate('+(Math.sin(s)*28)+' -13 -34)');
+    pcLegR.setAttribute('transform','rotate('+(-Math.sin(s)*28)+' 13 -34)');
+    pcArmL.setAttribute('transform','rotate('+(Math.sin(s+1)*35-25)+' -28 -72)');
+    pcArmR.setAttribute('transform','rotate('+(-Math.sin(s+1)*35+25)+' 28 -72)');
+    pcHead.setAttribute('transform','rotate('+(Math.sin(s*2)*9)+' 0 -95)');
+    pcTail.setAttribute('transform','rotate('+(Math.sin(s*3)*18)+' 26 -60)');
+    for(var i=0;i<3;i++){
+      var f=((now*0.04+i*20)%60)/60;
+      pn[i].setAttribute('transform','translate(0 '+(-f*45)+')');
+      pn[i].setAttribute('opacity',1-f);
+    }
+  }
+  function mount(){
+    if(polish){setPolish(false);}
+    riding=true;cowRun=false;pX=832;pY=400;cowX=832;cowY=400;cowFlip=false;
+    teacher.parentNode.insertBefore(cowEl,player);
+    pop('Yeehaw!',pX,pY-150*pS);
+  }
+  function dismount(){riding=false;cowRun=true;}
+  function resetCow(){
+    riding=false;cowRun=false;cowX=832;cowY=400;
+    cowEl.setAttribute('transform','translate(832,400) scale(.9)');
+    cowEl.parentNode.insertBefore(cowEl,cowNext);
+  }
+  function ram(now){
+    stunUntil=now+5000;stunStart=now;ramCD=now+5500;
+    endMini();bubbleUntil=0;
+    pop('RAMMED! STUNNED!',290+tx,465+ty+wbob-270*tsc);
+    riding=false;cowRun=true;
+  }
+  function endStun(now){
+    var d=now-stunStart;
+    tT0+=d;nextTurn+=d;writeEnd+=d;waitUntil+=d;lastType+=d;
+    stunUntil=0;
+    starsG.setAttribute('visibility','hidden');
+  }
   function toggleCrouch(){
     var now=performance.now();
-    if(over||caught||standT<1){return;}
+    if(over||caught){return;}
+    if(riding){dismount();return;}
+    if(standT>=1&&!crouching&&!cowRun&&Math.abs(pX-832)<85&&Math.abs(pY-400)<55){mount();return;}
+    if(standT<1){return;}
     if(crouching){crouching=false;return;}
     if(now<crouchCD){pop('Too soon!',pX,pY-150*pS);return;}
     if(!(pX>=585&&pX<=740&&pY>=418&&pY<=466)){pop('Hide behind the teacher’s desk!',pX,pY-150*pS);return;}
@@ -524,11 +639,12 @@
       crouching=false;
     }
     if(crouchT<(crouching?1:0)){crouchT=Math.min(1,crouchT+dt*5);}else if(crouchT>(crouching?1:0)){crouchT=Math.max(0,crouchT-dt*5);}
+    if(riding&&(standGoal===0||over||caught)){riding=false;cowRun=true;}
     var moving=false;
     if(standGoal===0&&standT===0){pX=450;pY=462;}
     else if(standT>=1&&!over&&!caught&&!crouching){
       var vx=(keys.d?1:0)-(keys.a?1:0),vy=(keys.s?1:0)-(keys.w?1:0);
-      if(vx||vy){var ln=Math.sqrt(vx*vx+vy*vy);pX+=vx/ln*170*dt;pY+=vy/ln*120*dt;moving=true;}
+      if(vx||vy){var ln=Math.sqrt(vx*vx+vy*vy),sp=riding?1.6:1;pX+=vx/ln*170*sp*dt;pY+=vy/ln*120*sp*dt;moving=true;if(vx){cowFlip=vx>0;}}
       pX=Math.max(20,Math.min(880,pX));pY=Math.max(350,Math.min(505,pY));
     }
     bob=moving?-Math.abs(Math.sin(now*0.02))*3:0;
@@ -537,10 +653,20 @@
     var ck=1-0.5*crouchT;
     pBodyG.setAttribute('transform','translate(0 462) scale(1 '+ck+') translate(0 -462) translate(0 '+(-40*standT+bob)+')');
     pLegs.setAttribute('transform','translate(0 462) scale(1 '+ck+') translate(0 -462)');
-    pLegs.setAttribute('visibility',standT>0.05?'visible':'hidden');
+    pLegs.setAttribute('visibility',(standT>0.05&&!riding)?'visible':'hidden');
+    if(riding){cowX=pX;cowY=pY;}
+    else if(cowRun){
+      var cdx=832-cowX,cdy=400-cowY,cdd=Math.sqrt(cdx*cdx+cdy*cdy),cst=380*dt;
+      if(cdd<=cst){resetCow();}
+      else{cowX+=cdx/cdd*cst;cowY+=cdy/cdd*cst;cowFlip=cdx>0;}
+    }
+    if(riding||cowRun){
+      var ccs=0.9*(1+(cowY-462)*0.0037)/0.7706;
+      cowEl.setAttribute('transform','translate('+cowX+' '+cowY+') scale('+(cowFlip?-ccs:ccs)+' '+ccs+')');
+    }
     var deskHide=pX>=585&&pX<=740&&pY>=418&&pY<=466;
     var dm=(crouchT>0.05&&deskHide)?2:(pY>466?0:1);
-    if(dm!==depthMode){depthMode=dm;teacher.parentNode.insertBefore(player,dm===0?aF:(dm===1?aT:tDesk));}
+    if(dm!==depthMode){depthMode=dm;teacher.parentNode.insertBefore(player,dm===0?aF:(dm===1?aT:tDesk));if(riding||cowRun){teacher.parentNode.insertBefore(cowEl,player);}}
     var cv=crouching?'visible':'hidden';
     cbBg.setAttribute('visibility',cv);cbFill.setAttribute('visibility',cv);cbTxt.setAttribute('visibility',cv);
     if(crouching){
@@ -687,6 +813,7 @@
     tx=45;ty=0;wbob=0;route=[];setFacing(false);
     caught=false;pooping=false;hasPoop=false;cowHeld=false;
     standGoal=0;standT=0;pX=450;pY=462;crouching=false;crouchT=0;crouchCD=0;keys={};
+    resetCow();stunUntil=0;starsG.setAttribute('visibility','hidden');
     throwT0=-1;released=false;flinchT0=-1;bubbleUntil=0;
     endMini();miniImmune=0;
     for(var i=0;i<flights.length;i++){fx.removeChild(flights[i].el);}
@@ -738,7 +865,11 @@
   function updateStrikes(){for(var i=0;i<3;i++){stEls[i].setAttribute('fill',i<strikes?'#e0312b':'none');}}
   function updateSight(now){
     var dt=Math.min(0.05,(now-lastS)/1000);lastS=now;
-    var seeing=!isBack&&!over&&!caught&&tState!=='yelling'&&tState!=='spotted';
+    var seeing=!isBack&&!over&&!caught&&tState!=='yelling'&&tState!=='spotted'&&now>=stunUntil;
+    if(riding&&!over&&!caught&&now>=stunUntil&&now>=ramCD){
+      var rfx=290+tx,rfy=465+ty+wbob;
+      if(Math.abs(pX-rfx)<70&&Math.abs(pY-rfy)<38){ram(now);}
+    }
     if(hasPoop&&cowHeld){
       meltK=Math.min(1,(now-dungHoldStart)/5000);
       if(meltK>=1){hasPoop=false;cowHeld=false;meltK=0;pop('It melted!',pX+10,pY-150*pS);}
@@ -768,6 +899,7 @@
     }else{hold=0;}
   }
   function catchPlayer(msg,now){
+    if(now<stunUntil){return;}
     caught=true;pooping=false;tState='spotted';tT0=now;
     yellEl.textContent=msg;
     alertRect.setAttribute('y',152);alertRect.setAttribute('height',46);alertG.setAttribute('visibility','visible');
@@ -775,7 +907,7 @@
   function updatePoop(now){
     if(pooping&&(!keys.e||over||caught||hasPoop)){pooping=false;}
     if(pooping){
-      if(!isBack){catchPlayer('POOPING IN MY CLASS?!',now);}
+      if(!isBack&&now>=stunUntil){catchPlayer('POOPING IN MY CLASS?!',now);}
       else if(now-poopT0>=2300){pooping=false;hasPoop=true;cowHeld=false;pop('*plop*',pX+20,pY-(standT>0.5?150:100)*pS);}
     }
     var prog=pooping?Math.min(1,(now-poopT0)/2300):0;
@@ -809,6 +941,7 @@
     standGoal=0;standT=0;pX=450;pY=462;keys={};
     score=0;scoreT0=-99999;scoreBase.textContent='Score: 0';scoreRb.textContent='Score: 0';
     crouching=false;crouchT=0;crouchCD=0;
+    resetCow();stunUntil=0;starsG.setAttribute('visibility','hidden');
     tx=45;ty=0;tsc=1;wbob=0;route=[];
     strikes=0;sight=0;sightCD=0;hold=0;meltK=0;updateStrikes();
     mini=false;miniG.setAttribute('visibility','hidden');miniImmune=0;
@@ -861,6 +994,20 @@
   function updateTeacher(now){
     var el=now-tT0,scx=1,dx=0,rt=0;
     var edt=Math.min(0.05,(now-lastE)/1000);lastE=now;
+    if(stunUntil>0){
+      if(now<stunUntil){
+        alertG.setAttribute('visibility','hidden');seen=0;
+        tsc=1+ty*0.0037;
+        var b0='translate('+(290+tx)+' '+(465+ty+wbob)+') scale('+tsc+') translate(-290 -465)';
+        teacher.setAttribute('transform',b0+' rotate('+(Math.sin(now*0.012)*10)+' 290 465)');
+        alertG.setAttribute('transform',b0);bubble.setAttribute('transform',b0);
+        starsG.setAttribute('transform',b0);starsG.setAttribute('visibility','visible');
+        var sAng=now*0.007,sl=[sA,sB,sC];
+        for(var si=0;si<3;si++){var an=sAng+si*2.094;sl[si].setAttribute('x',290+Math.cos(an)*34);sl[si].setAttribute('y',204+Math.sin(an)*9);}
+        return;
+      }
+      endStun(now);
+    }
     if(tState==='front'){
       seen=Math.max(0,Math.min(1.2,seen+((inCorner&&!over)?edt:-edt*1.5)));
       if(seen>0){alertRect.setAttribute('y',198-46*seen/1.2);alertRect.setAttribute('height',46*seen/1.2);alertG.setAttribute('visibility','visible');}
@@ -936,7 +1083,7 @@
     alertG.setAttribute('transform',base);bubble.setAttribute('transform',base);
   }
   function makePoop(){
-    if(hasPoop||over||caught){return;}
+    if(hasPoop||over||caught||riding){return;}
     if(standT>=1&&dungReady&&Math.abs(pX-790)<(crouching?75:55)&&Math.abs(pY-418)<(crouching?48:40)){
       hasPoop=true;cowHeld=true;dungReady=false;dungAt=performance.now()+8000;dungHoldStart=performance.now();
       pop('Cow dung!',pX,pY-150*pS);return;
