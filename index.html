@@ -123,6 +123,9 @@
   </g>
 
   <text x="880" y="22" text-anchor="end" font-size="14" font-weight="700" font-family="system-ui,sans-serif" fill="#2b2d42">F at the cow: ride + ram</text>
+  <rect x="540" y="46" width="110" height="7" rx="3" fill="#3a3f47" opacity=".6"/>
+  <rect id="susFill" x="540" y="46" width="0" height="7" rx="3" fill="#e0312b"/>
+  <text x="595" y="64" text-anchor="middle" font-size="11" font-weight="800" font-family="system-ui,sans-serif" fill="#2b2d42">TEACHER SUSPICION</text>
   <!-- wall clock -->
   <circle cx="730" cy="70" r="28" fill="#fff" stroke="#555" stroke-width="4"/>
   <line x1="730" y1="70" x2="730" y2="52" stroke="#333" stroke-width="3"/>
@@ -297,6 +300,50 @@
     <text id="overScore" x="400" y="342" font-size="20" fill="#fff"></text>
     <text x="400" y="395" font-size="18" fill="#cfd2d6">Press R or tap anywhere to play again</text>
   </g>
+  <g id="blame" visibility="hidden" font-family="system-ui,sans-serif" text-anchor="middle">
+    <rect x="-1000" y="-1000" width="2900" height="2900" fill="#000" opacity=".75"/>
+    <rect x="70" y="115" width="760" height="345" rx="18" fill="#161b26" stroke="#8fa8e0" stroke-width="3"/>
+    <text x="450" y="162" font-size="30" font-weight="900" fill="#ffd60a">BLAME SOMEONE ELSE!</text>
+    <text id="blLine" x="450" y="203" font-size="19" font-weight="700" fill="#ffb4ae"></text>
+    <g id="blBtn1" style="cursor:pointer"><rect id="blR1" x="95" y="228" width="130" height="135" rx="12" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="109" cy="242" r="11" fill="#8fa8e0"/><text x="109" y="247" font-size="13" font-weight="800" fill="#10131c">1</text><circle cx="160" cy="282" r="24" fill="#6a4fb3"/><circle cx="160" cy="276" r="14" fill="#e6b891"/><text x="160" y="332" font-size="14" font-weight="800" fill="#fff">Purple</text><text x="160" y="349" font-size="15" font-weight="800" fill="#fff">Pete</text><text x="160" y="360" font-size="10" fill="#9fb0d8">front left</text></g>
+    <g id="blBtn2" style="cursor:pointer"><rect id="blR2" x="240" y="228" width="130" height="135" rx="12" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="254" cy="242" r="11" fill="#8fa8e0"/><text x="254" y="247" font-size="13" font-weight="800" fill="#10131c">2</text><circle cx="305" cy="282" r="24" fill="#3e9c6a"/><circle cx="305" cy="276" r="14" fill="#e6b891"/><text x="305" y="332" font-size="14" font-weight="800" fill="#fff">Green</text><text x="305" y="349" font-size="15" font-weight="800" fill="#fff">Gina</text><text x="305" y="360" font-size="10" fill="#9fb0d8">front left</text></g>
+    <g id="blBtn3" style="cursor:pointer"><rect id="blR3" x="385" y="228" width="130" height="135" rx="12" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="399" cy="242" r="11" fill="#8fa8e0"/><text x="399" y="247" font-size="13" font-weight="800" fill="#10131c">3</text><circle cx="450" cy="282" r="24" fill="#e0b13a"/><circle cx="450" cy="276" r="14" fill="#e6b891"/><text x="450" y="332" font-size="14" font-weight="800" fill="#fff">Yellow</text><text x="450" y="349" font-size="15" font-weight="800" fill="#fff">Yuri</text><text x="450" y="360" font-size="10" fill="#9fb0d8">back left</text></g>
+    <g id="blBtn4" style="cursor:pointer"><rect id="blR4" x="530" y="228" width="130" height="135" rx="12" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="544" cy="242" r="11" fill="#8fa8e0"/><text x="544" y="247" font-size="13" font-weight="800" fill="#10131c">4</text><circle cx="595" cy="282" r="24" fill="#d6628f"/><circle cx="595" cy="276" r="14" fill="#e6b891"/><text x="595" y="332" font-size="14" font-weight="800" fill="#fff">Pink</text><text x="595" y="349" font-size="15" font-weight="800" fill="#fff">Penny</text><text x="595" y="360" font-size="10" fill="#9fb0d8">back left</text></g>
+    <g id="blBtn5" style="cursor:pointer"><rect id="blR5" x="675" y="228" width="130" height="135" rx="12" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="689" cy="242" r="11" fill="#8fa8e0"/><text x="689" y="247" font-size="13" font-weight="800" fill="#10131c">5</text><circle cx="740" cy="282" r="24" fill="#2f9bb5"/><circle cx="740" cy="276" r="14" fill="#e6b891"/><text x="740" y="332" font-size="14" font-weight="800" fill="#fff">Teal</text><text x="740" y="349" font-size="15" font-weight="800" fill="#fff">Theo</text><text x="740" y="360" font-size="10" fill="#9fb0d8">behind you</text></g>
+    <rect x="95" y="385" width="710" height="9" rx="4" fill="#3a3f47"/>
+    <rect id="blTime" x="95" y="385" width="710" height="9" rx="4" fill="#ffd60a"/>
+    <text id="blNote" x="450" y="425" font-size="15" fill="#cfd2d6"></text>
+  </g>
+  <g id="fight" visibility="hidden" font-family="system-ui,sans-serif" text-anchor="middle">
+    <rect x="-1000" y="-1000" width="2900" height="2900" fill="#1a0000" opacity=".7"/>
+    <rect x="70" y="100" width="760" height="360" rx="18" fill="#1c1118" stroke="#ff6b5c" stroke-width="3"/>
+    <text id="fTitle" x="450" y="150" font-size="30" font-weight="900" fill="#ff6b5c">SWINGS AT YOU!</text>
+    <circle id="fHeadC" cx="140" cy="240" r="32" fill="#6a4fb3"/>
+    <circle cx="140" cy="234" r="19" fill="#e6b891"/>
+    <line x1="128" y1="226" x2="139" y2="231" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+    <line x1="152" y1="226" x2="141" y2="231" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="760" cy="240" r="32" fill="#e07a3f"/>
+    <circle cx="760" cy="234" r="19" fill="#2a1d14"/>
+    <rect id="fFist" x="190" y="226" width="44" height="30" rx="12" fill="#e6b891" stroke="#b58a6a" stroke-width="3"/>
+    <g id="fT1" style="cursor:pointer"><rect id="fTR1" x="97" y="300" width="76" height="76" rx="10" fill="#3a2630" stroke="#ff9d8f" stroke-width="3"/><text id="fTL1" x="135" y="352" font-size="40" font-weight="900" fill="#fff"></text></g>
+    <g id="fT2" style="cursor:pointer"><rect id="fTR2" x="187" y="300" width="76" height="76" rx="10" fill="#3a2630" stroke="#ff9d8f" stroke-width="3"/><text id="fTL2" x="225" y="352" font-size="40" font-weight="900" fill="#fff"></text></g>
+    <g id="fT3" style="cursor:pointer"><rect id="fTR3" x="277" y="300" width="76" height="76" rx="10" fill="#3a2630" stroke="#ff9d8f" stroke-width="3"/><text id="fTL3" x="315" y="352" font-size="40" font-weight="900" fill="#fff"></text></g>
+    <g id="fT4" style="cursor:pointer"><rect id="fTR4" x="367" y="300" width="76" height="76" rx="10" fill="#3a2630" stroke="#ff9d8f" stroke-width="3"/><text id="fTL4" x="405" y="352" font-size="40" font-weight="900" fill="#fff"></text></g>
+    <g id="fT5" style="cursor:pointer"><rect id="fTR5" x="457" y="300" width="76" height="76" rx="10" fill="#3a2630" stroke="#ff9d8f" stroke-width="3"/><text id="fTL5" x="495" y="352" font-size="40" font-weight="900" fill="#fff"></text></g>
+    <g id="fT6" style="cursor:pointer"><rect id="fTR6" x="547" y="300" width="76" height="76" rx="10" fill="#3a2630" stroke="#ff9d8f" stroke-width="3"/><text id="fTL6" x="585" y="352" font-size="40" font-weight="900" fill="#fff"></text></g>
+    <g id="fT7" style="cursor:pointer"><rect id="fTR7" x="637" y="300" width="76" height="76" rx="10" fill="#3a2630" stroke="#ff9d8f" stroke-width="3"/><text id="fTL7" x="675" y="352" font-size="40" font-weight="900" fill="#fff"></text></g>
+    <g id="fT8" style="cursor:pointer"><rect id="fTR8" x="727" y="300" width="76" height="76" rx="10" fill="#3a2630" stroke="#ff9d8f" stroke-width="3"/><text id="fTL8" x="765" y="352" font-size="40" font-weight="900" fill="#fff"></text></g>
+    <rect x="95" y="400" width="710" height="9" rx="4" fill="#3a3f47"/>
+    <rect id="fTime" x="95" y="400" width="710" height="9" rx="4" fill="#ff6b5c"/>
+    <text id="fNote" x="450" y="437" font-size="15" fill="#ffd0c8"></text>
+  </g>
+  <g id="ko" visibility="hidden" font-family="system-ui,sans-serif" text-anchor="middle">
+    <rect x="-1000" y="-1000" width="2900" height="2900" fill="#000" opacity=".97"/>
+    <text x="450" y="260" font-size="130" font-weight="900" fill="#8a0f0f">K.O.!</text>
+    <text id="koTxt" x="450" y="320" font-size="26" fill="#b9a5a5"></text>
+    <text id="koScore" x="450" y="362" font-size="20" fill="#8d7f7f"></text>
+    <text x="450" y="415" font-size="18" fill="#6f6565">Press R or tap anywhere to play again</text>
+  </g>
   <g id="dean" visibility="hidden" font-family="system-ui,sans-serif">
     <rect x="-1000" y="-1000" width="2900" height="2900" fill="#1a110b"/>
     <rect x="0" y="0" width="900" height="410" fill="#4b3626"/>
@@ -425,18 +472,14 @@
   function throwIt(){
     var now=performance.now();
     if(over||caught||riding){return;}
-    if(!isBack&&now>=stunUntil){
-      caught=true;tState='spotted';tT0=now;
-      yellEl.textContent='WHO THREW THAT?!';
-      alertRect.setAttribute('y',152);alertRect.setAttribute('height',46);alertG.setAttribute('visibility','visible');
-      return;
-    }
+    if(!isBack&&now>=stunUntil&&now>=graceUntil){catchPlayer('WHO THREW THAT?!',now);return;}
     if(throwT0>=0&&!released&&now-throwT0<300){return;}
     throwT0=now;released=false;
     kind=hasPoop?(cowHeld?'cow':'poop'):'hummus';hasPoop=false;cowHeld=false;
     var pool=kind!=='hummus'?poopHa:ha;
     for(var i=0;i<kids.length;i++){
       var k=kids[i];
+      if(k.muted){continue;}
       if(now>=k.s&&now<k.e){k.e=now+1500;}
       else{k.s=now+80+Math.random()*350;k.e=k.s+1500;}
       k.t.textContent=pool[Math.floor(Math.random()*pool.length)];
@@ -464,6 +507,8 @@
     addScore(cw?20:(p?5:1),f.x1-45,f.y1-10);
     addSplat(f.lx,f.ly,f.face,cw?'#566b2c':(p?'#6b4226':'#e3c38a'),cw?'#2f3d16':(p?'#3f2614':'#b5532a'));
     flinchT0=now;
+    addSus(0.1);
+    if(isBack&&now>=stunUntil&&now>=graceUntil){addSus(0.2);if(tState==='writing'){writeEnd=Math.min(writeEnd,now+500);}}
     var pool=cw?cowLines:(p?poopLines:lines);
     if(now>=stunUntil){bubble.textContent=pool[Math.floor(Math.random()*pool.length)];
     bubbleUntil=now+1000;}
@@ -473,6 +518,8 @@
   function loop(){
     var now=performance.now();
     if(deanState){updateDean(now);requestAnimationFrame(loop);return;}
+    if(blameState){updateBlame(now);requestAnimationFrame(loop);return;}
+    if(fightState){updateFight(now);requestAnimationFrame(loop);return;}
     updatePlayer(now);
     updatePoop(now);
     updateScore(now);
@@ -816,7 +863,7 @@
   function returnToClass(now){
     deanState='';
     showDean(false);deanSplash.setAttribute('visibility','hidden');deanTut.setAttribute('visibility','hidden');
-    strikes=2;updateStrikes();sight=0;sightCD=now+4000;hold=0;
+    strikes=2;updateStrikes();sight=0;sightCD=now+4000;hold=0;blameTried=false;graceUntil=0;
     tState='front';tT0=now;nextTurn=now+2500+Math.random()*2000;seen=0;
     alertG.setAttribute('visibility','hidden');
     tx=45;ty=0;wbob=0;route=[];setFacing(false);
@@ -874,7 +921,11 @@
   function updateStrikes(){for(var i=0;i<3;i++){stEls[i].setAttribute('fill',i<strikes?'#e0312b':'none');}}
   function updateSight(now){
     var dt=Math.min(0.05,(now-lastS)/1000);lastS=now;
-    var seeing=!isBack&&!over&&!caught&&tState!=='yelling'&&tState!=='spotted'&&now>=stunUntil;
+    var seeing=!isBack&&!over&&!caught&&tState!=='yelling'&&tState!=='spotted'&&now>=stunUntil&&now>=graceUntil;
+    sus=Math.max(0,sus-dt*0.04);
+    if(!isBack&&now>=stunUntil&&playerHidden){lastHideT=now;sus=Math.min(1,sus+dt*0.06);}
+    if(seeing&&standT>0.5&&!playerHidden){lastStandT=now;}
+    susFill.setAttribute('width',110*sus);
     if(riding&&!over&&!caught&&now>=stunUntil&&now>=ramCD){
       var rfx=290+tx,rfy=465+ty+wbob;
       if(Math.abs(pX-rfx)<70&&Math.abs(pY-rfy)<38){ram(now);}
@@ -894,7 +945,7 @@
     if(seeing&&standT>0.5&&!playerHidden&&now>=sightCD){
       sight+=dt;
       if(sight>=0.6){
-        sight=0;sightCD=now+3000;strikes++;updateStrikes();
+        sight=0;sightCD=now+3000;strikes++;updateStrikes();addSus(0.3);
         bubble.textContent='SIT DOWN!';bubbleUntil=now+1200;
         if(strikes>=3){startDean(now);return;}
       }
@@ -907,8 +958,155 @@
       }
     }else{hold=0;}
   }
+  var sus=0,lastStandT=-99999,lastHideT=-99999;
+  var KIDS=[{n:'Pete',x:105,y:467},{n:'Gina',x:215,y:467},{n:'Yuri',x:104,y:405},{n:'Penny',x:214,y:405},{n:'Theo',x:450,y:405}];
+  var blamed=[0,0,0,0,0],blameState='',blameT0=0,blameStart=0,blameMsg='',blameOK=false,blamePick=-1,blameTried=false,graceUntil=0;
+  var blameG=$('blame'),blLine=$('blLine'),blTime=$('blTime'),blNote=$('blNote'),susFill=$('susFill');
+  var blR=[],blB=[];
+  for(var bk=1;bk<=5;bk++){blR.push($('blR'+bk));blB.push($('blBtn'+bk));}
+  for(var bj=0;bj<5;bj++){(function(i){blB[i].addEventListener('pointerdown',function(e){e.stopPropagation();pickBlame(i,performance.now());});})(bj);}
+  function addSus(a){sus=Math.min(1,sus+a);}
+  function blameLeft(){return 5;}
+  function shiftTimers(d){
+    tT0+=d;nextTurn+=d;writeEnd+=d;waitUntil+=d;lastType+=d;bubbleUntil+=d;
+    dungHoldStart+=d;dungAt+=d;poopT0+=d;crouchStart+=d;crouchCD+=d;ramCD+=d;miniImmune+=d;sightCD+=d;scoreT0+=d;
+    if(throwT0>=0){throwT0+=d;}
+    if(flinchT0>=0){flinchT0+=d;}
+    if(stunUntil>0){stunUntil+=d;stunStart+=d;}
+    for(var i=0;i<flights.length;i++){flights[i].t0+=d;}
+    for(var j=0;j<floaters.length;j++){floaters[j].t0+=d;}
+    for(var q=0;q<kids.length;q++){kids[q].s+=d;kids[q].e+=d;}
+  }
+  function startBlame(msg,now){
+    blameTried=true;blameState='pick';blameT0=now;blameStart=now;blameMsg=msg;blamePick=-1;pooping=false;
+    endMini();alertG.setAttribute('visibility','hidden');
+    blLine.textContent='The teacher: \u201c'+msg+'\u201d  Quick \u2014 blame someone!';
+    for(var i=0;i<5;i++){blR[i].setAttribute('fill','#2e3a55');blR[i].setAttribute('opacity',1);}
+    blTime.setAttribute('width',710);
+    blNote.textContent='Click ANY student or press 1\u20135. He believes you 45% of the time\u2026 but something else might happen.';
+    blameG.setAttribute('visibility','visible');
+  }
+  var blameOutcome='';
+  function pickBlame(i,now){
+    if(blameState!=='pick'){return;}
+    var k=KIDS[i],r=Math.random();
+    blamePick=i;blameState='result';blameT0=now;
+    if(r<0.45){blameOutcome='ok';blLine.textContent='Hmm\u2026 '+k.n+'?! Fine. But I\u2019m watching you now.';blR[i].setAttribute('fill','#2e7d46');blNote.textContent='It worked! (but he\u2019s VERY suspicious now)';}
+    else if(r<0.55){blameOutcome='fight';blLine.textContent=k.n+' heard that\u2026 and is NOT happy!';blR[i].setAttribute('fill','#e07a3f');blNote.textContent='Uh oh\u2026';}
+    else{blameOutcome='fail';blLine.textContent='Not '+k.n+'! I know it was YOU!';blR[i].setAttribute('fill','#b3261e');blNote.textContent='He didn\u2019t buy it\u2026';}
+  }
+  function endBlame(now){
+    shiftTimers(now-blameStart);
+    blamed[blamePick]=1;kids[blamePick].muted=true;kids[blamePick].s=0;kids[blamePick].e=0;
+    blameState='';blameG.setAttribute('visibility','hidden');
+    blameTried=false;graceUntil=now+4000;hold=0;sight=0;seen=0;
+    sus=Math.min(1,Math.max(sus+0.1,0.85));
+    pop('Not me?!',KIDS[blamePick].x,KIDS[blamePick].y-80);
+    bubble.textContent='DETENTION, '+KIDS[blamePick].n.toUpperCase()+'!';bubbleUntil=now+1800;
+    lastT=now;lastE=now;lastS=now;
+  }
+  function updateBlame(now){
+    var el=now-blameT0;
+    if(blameState==='pick'){
+      blTime.setAttribute('width',Math.max(0,710*(1-el/4500)));
+      if(el>=4500){blameState='result';blameT0=now;blameOutcome='fail';blLine.textContent='Cat got your tongue?! Not a word?!';blNote.textContent='Too slow\u2026';}
+    }else if(blameState==='result'){
+      if(el>=(blameOutcome==='fight'?1500:2000)){
+        if(blameOutcome==='ok'){endBlame(now);}
+        else if(blameOutcome==='fight'){blameState='';blameG.setAttribute('visibility','hidden');startFight(blamePick,now,blameStart);}
+        else{blameState='';blameG.setAttribute('visibility','hidden');doCatch(blameMsg,now);}
+      }
+    }
+  }
+  var feudKid=-1,fightState='',fightT0=0,pauseStart=0,fProg=0,fAttacker=0,fTiles=[],fDone=[];
+  var fightG=$('fight'),fTitle=$('fTitle'),fHeadC=$('fHeadC'),fFist=$('fFist'),fTime=$('fTime'),fNote=$('fNote'),koG=$('ko'),koTxt=$('koTxt'),koScore=$('koScore');
+  var fTR=[],fTL=[],fTB=[];
+  for(var fk=1;fk<=8;fk++){fTR.push($('fTR'+fk));fTL.push($('fTL'+fk));fTB.push($('fT'+fk));}
+  for(var fj=0;fj<8;fj++){(function(i){fTB[i].addEventListener('pointerdown',function(e){e.stopPropagation();fightClick(i,performance.now());});})(fj);}
+  var FCOL=['#6a4fb3','#3e9c6a','#e0b13a','#d6628f','#2f9bb5'];
+  function fightHighlight(){
+    for(var k=0;k<8;k++){
+      var next=(k===fProg&&fightState==='play');
+      fTR[k].setAttribute('stroke',next?'#ffd60a':'#ff9d8f');
+      fTR[k].setAttribute('stroke-width',next?6:3);
+    }
+  }
+  function startFight(i,now,pauseFrom){
+    fightState='play';fightT0=now;pauseStart=pauseFrom;fAttacker=i;feudKid=i;fProg=0;fDone=[];
+    endMini();alertG.setAttribute('visibility','hidden');
+    var L=['A','S','W','D'],t=[];
+    for(var a=0;a<8;a++){t.push(L[Math.floor(Math.random()*4)]);}
+    fTiles=t;
+    for(var k=0;k<8;k++){fTL[k].textContent=t[k];fTR[k].setAttribute('fill','#3a2630');}
+    fTitle.textContent=KIDS[i].n.toUpperCase()+' SWINGS AT YOU!';
+    fHeadC.setAttribute('fill',FCOL[i]);
+    fNote.textContent='Press the letters in order, left to right (keyboard or click). Wrong letter = punched!';
+    fTime.setAttribute('width',710);fFist.setAttribute('transform','translate(0 0)');
+    for(var q=0;q<kids.length;q++){kids[q].b.setAttribute('transform','translate(0 -24)');}
+    blameState='';blameG.setAttribute('visibility','hidden');
+    fightG.setAttribute('visibility','visible');
+    fightHighlight();
+  }
+  function fightLose(now,idx){
+    if(idx>=0){fTR[idx].setAttribute('fill','#b3261e');}
+    fightState='lose';fightT0=now;
+    fTitle.textContent='PUNCHED!';fNote.textContent='Wrong letter\u2026';
+  }
+  function fightWin(now){
+    fightState='won';fightT0=now;
+    fTitle.textContent='DODGED!';fNote.textContent='You ducked! Everyone sits back down.';
+    for(var q=0;q<kids.length;q++){kids[q].b.removeAttribute('transform');}
+  }
+  function fightPress(L,now){
+    if(fightState!=='play'){return;}
+    if(L===fTiles[fProg]){
+      fDone[fProg]=true;fTR[fProg].setAttribute('fill','#2e7d46');fProg++;
+      if(fProg>=8){fightWin(now);}
+    }else{fightLose(now,fProg);}
+    fightHighlight();
+  }
+  function fightClick(i,now){
+    if(fightState!=='play'||fDone[i]){return;}
+    fightPress(fTiles[i],now);
+  }
+  function fightKey(k){
+    var K=k.toUpperCase();
+    if(fightState==='dead'&&K==='R'){restart();return;}
+    if(fightState!=='play'||K.length!==1||'ASWD'.indexOf(K)<0){return;}
+    fightPress(K,performance.now());
+  }
+  function fightResume(now){
+    shiftTimers(now-pauseStart);
+    fightState='';fightG.setAttribute('visibility','hidden');
+    blameTried=false;graceUntil=now+3000;hold=0;sight=0;seen=0;
+    sus=Math.min(1,Math.max(sus,0.85));
+    lastT=now;lastE=now;lastS=now;
+  }
+  function updateFight(now){
+    var el=now-fightT0;
+    if(fightState==='play'){
+      var f=Math.min(1,el/6000);
+      fTime.setAttribute('width',710*(1-f));
+      fFist.setAttribute('transform','translate('+(f*480)+' 0)');
+      if(el>=6000){fightLose(now,-1);}
+    }else if(fightState==='won'){
+      if(el>=1800){fightResume(now);}
+    }else if(fightState==='lose'){
+      if(el>=900){
+        fightState='dead';over=true;fightG.setAttribute('visibility','hidden');
+        koTxt.textContent=KIDS[fAttacker].n+' punched you out.';
+        koScore.textContent='Score: '+score;
+        koG.setAttribute('visibility','visible');
+      }
+    }
+  }
+  function blameKey(k){if(k.length===1&&'12345'.indexOf(k)>=0){pickBlame(+k-1,performance.now());}}
   function catchPlayer(msg,now){
-    if(now<stunUntil){return;}
+    if(now<stunUntil||now<graceUntil||blameState){return;}
+    if(!blameTried&&blameLeft()>0&&!over&&!caught&&!deanState){startBlame(msg,now);return;}
+    doCatch(msg,now);
+  }
+  function doCatch(msg,now){
     caught=true;pooping=false;tState='spotted';tT0=now;
     yellEl.textContent=msg;
     alertRect.setAttribute('y',152);alertRect.setAttribute('height',46);alertG.setAttribute('visibility','visible');
@@ -916,7 +1114,7 @@
   function updatePoop(now){
     if(pooping&&(!keys.e||over||caught||hasPoop)){pooping=false;}
     if(pooping){
-      if(!isBack&&now>=stunUntil){catchPlayer('POOPING IN MY CLASS?!',now);}
+      if(!isBack&&now>=stunUntil&&now>=graceUntil){catchPlayer('POOPING IN MY CLASS?!',now);}
       else if(now-poopT0>=2300){pooping=false;hasPoop=true;cowHeld=false;pop('*plop*',pX+20,pY-(standT>0.5?150:100)*pS);}
     }
     var prog=pooping?Math.min(1,(now-poopT0)/2300):0;
@@ -953,6 +1151,10 @@
     resetCow();stunUntil=0;starsG.setAttribute('visibility','hidden');
     tx=45;ty=0;tsc=1;wbob=0;route=[];
     strikes=0;sight=0;sightCD=0;hold=0;meltK=0;updateStrikes();
+    blamed=[0,0,0,0,0];blameState='';blameTried=false;graceUntil=0;sus=0;lastStandT=-99999;lastHideT=-99999;
+    blameG.setAttribute('visibility','hidden');susFill.setAttribute('width',0);
+    fightState='';feudKid=-1;fightG.setAttribute('visibility','hidden');koG.setAttribute('visibility','hidden');
+    for(var ki=0;ki<kids.length;ki++){kids[ki].muted=false;}
     mini=false;miniG.setAttribute('visibility','hidden');miniImmune=0;
     deanState='';deanG.setAttribute('visibility','hidden');dBtns.setAttribute('visibility','hidden');deanG.removeAttribute('transform');deanSplash.setAttribute('visibility','hidden');deanTut.setAttribute('visibility','hidden');deanOverG.setAttribute('visibility','hidden');
   }
@@ -976,12 +1178,18 @@
     return to;
   }
   function startActivity(now){
-    if(Math.random()>=0.45){tState='front';nextTurn=now+1500+Math.random()*2000;return;}
+    var walkP=Math.min(0.9,0.45+0.4*sus);
+    if(Math.random()>=walkP){tState='front';nextTurn=now+(1500+Math.random()*2000)*(1-0.4*sus);return;}
     var r=[],cur='H';
-    if(Math.random()<0.75){
-      var stops=['L1','C1n','M','R1'];
-      stops.sort(function(){return Math.random()-0.5;});
-      var n=2+(Math.random()<0.5?1:0);
+    if(sus>0.25||Math.random()<0.75){
+      var pri=[];
+      if(now-lastStandT<15000){pri.push('M');}
+      if(now-lastHideT<15000){pri.push('R1');}
+      if(sus>0.5){if(pri.indexOf('M')<0){pri.push('M');}if(pri.indexOf('R1')<0){pri.push('R1');}}
+      var rest=['L1','C1n','M','R1'].filter(function(x){return pri.indexOf(x)<0;});
+      rest.sort(function(){return Math.random()-0.5;});
+      var stops=pri.concat(rest);
+      var n=Math.min(4,2+(Math.random()<0.5?1:0)+(sus>0.6?1:0));
       for(var i=0;i<n;i++){cur=addPath(r,cur,stops[i],1300,stops[i]==='M');}
     }else{
       var ring=['F2','F3','R1','R2','Cb','L2','L1','F1','F2'];
@@ -993,7 +1201,7 @@
   }
   function nextWp(now){
     rIdx++;wPhase=0;
-    if(rIdx>=route.length){tState='front';nextTurn=now+1500+Math.random()*2000;tx=45;ty=0;wbob=0;}
+    if(rIdx>=route.length){tState='front';nextTurn=now+(1500+Math.random()*2000)*(1-0.4*sus);tx=45;ty=0;wbob=0;}
   }
   function setFacing(back){
     isBack=back;
@@ -1018,24 +1226,25 @@
       endStun(now);
     }
     if(tState==='front'){
-      seen=Math.max(0,Math.min(1.2,seen+((inCorner&&!over)?edt:-edt*1.5)));
+      seen=Math.max(0,Math.min(1.2,seen+((inCorner&&!over&&now>=graceUntil)?edt:-edt*1.5)));
       if(seen>0){alertRect.setAttribute('y',198-46*seen/1.2);alertRect.setAttribute('height',46*seen/1.2);alertG.setAttribute('visibility','visible');}
       else{alertG.setAttribute('visibility','hidden');}
-      if(seen>=1.2){tState='spotted';tT0=now;caught=true;yellEl.textContent='GET OUT OF THE COW CORNER!';}
+      if(seen>=1.2){seen=0;catchPlayer('GET OUT OF THE COW CORNER!',now);}
       else if(now>=nextTurn){tState='warnBoard';tT0=now;seen=0;}
     }else if(tState==='spotted'){
       if(el>=500){alertG.setAttribute('visibility','hidden');tState='yelling';tT0=now;}
     }else if(tState==='warnBoard'||tState==='warnFront'){
-      var wv=Math.min(1,el/900);
+      var wd=1000-450*sus,wv=Math.min(1,el/(wd-100));
       alertRect.setAttribute('y',198-46*wv);alertRect.setAttribute('height',46*wv);
       alertG.setAttribute('visibility','visible');
-      if(el>=1000){alertG.setAttribute('visibility','hidden');tState=(tState==='warnBoard')?'toBoard':'toFront';tT0=now;}
+      if(el>=wd){alertG.setAttribute('visibility','hidden');tState=(tState==='warnBoard')?'toBoard':'toFront';tT0=now;}
     }else if(tState==='toBoard'){
       var u=el/450;
       if(u>=1){
         tState='writing';tT0=now;setFacing(true);
+        if(feudKid>=0&&!over&&!caught&&!blameState&&!fightState){if(Math.random()<0.3){startFight(feudKid,now,now);}else{feudKid=-1;}}
         phrase=phrases[Math.floor(Math.random()*phrases.length)];
-        typed=0;lastType=now;wbText.textContent='';writeEnd=now+2200+Math.random()*2300;
+        typed=0;lastType=now;wbText.textContent='';writeEnd=now+(2200+Math.random()*2300)*(1-0.4*sus);
       }else{scx=Math.max(0.04,Math.abs(Math.cos(Math.PI*u)));setFacing(u>=0.5);}
     }else if(tState==='writing'){
       if(typed<phrase.length&&now-lastType>180){typed++;lastType=now;wbText.textContent=phrase.slice(0,typed);}
@@ -1053,18 +1262,18 @@
       if(v>=1){setFacing(false);if(caught){tState='yelling';tT0=now;}else{startActivity(now);}}
       else{scx=Math.max(0.04,Math.abs(Math.cos(Math.PI*v)));setFacing(v<0.5);}
     }else if(tState==='walk'){
-      seen=Math.max(0,Math.min(1.2,seen+((inCorner&&!over)?edt:-edt*1.5)));
+      seen=Math.max(0,Math.min(1.2,seen+((inCorner&&!over&&now>=graceUntil)?edt:-edt*1.5)));
       if(seen>0){alertRect.setAttribute('y',198-46*seen/1.2);alertRect.setAttribute('height',46*seen/1.2);alertG.setAttribute('visibility','visible');}
       else{alertG.setAttribute('visibility','hidden');}
       var fxT=290+tx,fyT=465+ty;
-      if(seen>=1.2){tState='spotted';tT0=now;caught=true;yellEl.textContent='GET OUT OF THE COW CORNER!';}
+      if(seen>=1.2){seen=0;catchPlayer('GET OUT OF THE COW CORNER!',now);}
       else{
         var wp=route[rIdx];
         if(wPhase===0){
           var ddx=wp.x-fxT,ddy=wp.y-fyT,dd=Math.sqrt(ddx*ddx+ddy*ddy),sp=100*edt;
           if(dd<=sp){
             tx=wp.x-290;ty=wp.y-465;wbob=0;
-            if(wp.desk&&playerHidden&&!mini&&now>=miniImmune){startMini(now,'desk');}
+            if(wp.desk&&playerHidden&&!mini&&now>=miniImmune&&now>=graceUntil){startMini(now,'desk');}
             if(wp.wait>0){wPhase=1;waitUntil=now+wp.wait;bubble.textContent='Hmm…';bubbleUntil=waitUntil;}
             else{nextWp(now);}
           }else{tx+=ddx/dd*sp;ty+=ddy/dd*sp;wbob=-Math.abs(Math.sin(now*0.012))*3;}
@@ -1105,6 +1314,8 @@
     if(e.repeat){return;}
     var k=e.key.toLowerCase();
     if(deanState){deanKey(k);return;}
+    if(blameState){blameKey(k);return;}
+    if(fightState){fightKey(k);return;}
     if(k==='q'){throwIt();}else if(k==='e'){makePoop();}else if(k==='r'&&over){restart();}else if(k==='f'){toggleCrouch();}
     else if(k===' '){spaceKey();}
     else if(k==='w'||k==='a'||k==='s'||k==='d'){keys[k]=true;}
@@ -1112,6 +1323,15 @@
   window.addEventListener('keyup',function(e){keys[e.key.toLowerCase()]=false;});
   window.addEventListener('message',function(e){
     var d=e.data;
+    if(fightState){
+      if(typeof d==='string'&&d.indexOf('kd:')===0){fightKey(d.slice(3));}
+      else if(d==='restart'){fightKey('r');}
+      return;
+    }
+    if(blameState){
+      if(typeof d==='string'&&d.indexOf('ans:')===0){blameKey(d.slice(4));}
+      return;
+    }
     if(deanState){
       if(d==='space'){deanKey(' ');}
       else if(d==='restart'){deanKey('r');}
