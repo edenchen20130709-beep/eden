@@ -4,10 +4,12 @@
 <style>
   html,body{margin:0;height:100%;overflow:hidden;background:#8e9196}
   svg{width:100%;height:100%;display:block;overflow:visible}
+  #askBtn{position:fixed;left:12px;bottom:12px;z-index:5;font:700 14px system-ui,sans-serif;color:#fff;background:#2e6bd6;border:2px solid #fff;border-radius:999px;padding:10px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.35);user-select:none;-webkit-user-select:none}
 </style>
 </head>
 <body>
-<svg viewBox="0 0 900 575" preserveAspectRatio="xMidYMid meet">
+<div id="askBtn" role="button">Ask to go to the bathroom</div>
+<svg viewBox="0 0 900 620" preserveAspectRatio="xMidYMid meet">
   <!-- back wall -->
   <rect x="-1000" y="-1000" width="2800" height="1340" fill="#b9bcc0"/>
   <!-- floor -->
@@ -18,6 +20,15 @@
     <line x1="-1000" y1="470" x2="1800" y2="470"/>
   </g>
 
+  <!-- classroom door (left wall) -->
+  <g id="door">
+    <rect x="4" y="146" width="78" height="196" rx="4" fill="#4a3826"/>
+    <rect x="10" y="152" width="66" height="190" fill="#8a6240"/>
+    <rect x="22" y="168" width="42" height="46" fill="#cfe8ff" stroke="#4a3826" stroke-width="3"/>
+    <circle cx="66" cy="260" r="5" fill="#d9b44a"/>
+    <rect x="12" y="122" width="62" height="20" rx="4" fill="#2e6bd6"/>
+    <text x="43" y="137" text-anchor="middle" font-size="12" font-weight="800" font-family="system-ui,sans-serif" fill="#fff">HALLWAY</text>
+  </g>
   <!-- right side wall, sign, cow corner -->
   <rect x="886" y="-1000" width="1200" height="1346" fill="#a3a6ab"/>
   <line x1="886" y1="-1000" x2="886" y2="345" stroke="#8d9095" stroke-width="3"/>
@@ -26,74 +37,6 @@
     <text y="-4" text-anchor="middle" font-size="14" font-weight="800" font-family="system-ui,sans-serif" fill="#c1403d">COW CORNER</text>
     <text y="14" text-anchor="middle" font-size="12" font-family="system-ui,sans-serif" fill="#444">keep out!</text>
   </g>
-  <g id="dung">
-    <ellipse cx="790" cy="424" rx="18" ry="6" fill="#3f4a1f"/>
-    <ellipse cx="790" cy="418" rx="14" ry="5.5" fill="#4f5b2a"/>
-    <ellipse cx="790" cy="412" rx="9" ry="4.5" fill="#5d6b32"/>
-    <path d="M787 408 Q792 402 789 398 Q795 403 794 408 Z" fill="#6e7d3c"/>
-    <g id="steam" opacity=".5" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round">
-      <path d="M782 398 q4 -6 0 -12"/>
-      <path d="M796 396 q4 -6 0 -12"/>
-    </g>
-  </g>
-  <g id="cow" transform="translate(832,400) scale(.9)">
-  <g id="cowNormal">
-    <ellipse cx="0" cy="2" rx="56" ry="7" fill="#000" opacity=".15"/>
-    <rect x="-36" y="-28" width="9" height="28" fill="#ece8e0"/>
-    <rect x="-20" y="-28" width="9" height="28" fill="#ece8e0"/>
-    <rect x="16" y="-28" width="9" height="28" fill="#ece8e0"/>
-    <rect x="30" y="-28" width="9" height="28" fill="#ece8e0"/>
-    <rect x="-36" y="-4" width="9" height="4" fill="#3b3b3b"/>
-    <rect x="-20" y="-4" width="9" height="4" fill="#3b3b3b"/>
-    <rect x="16" y="-4" width="9" height="4" fill="#3b3b3b"/>
-    <rect x="30" y="-4" width="9" height="4" fill="#3b3b3b"/>
-    <g id="cowTail">
-      <path d="M44 -54 Q56 -44 50 -22" stroke="#d8d3c8" stroke-width="4" fill="none" stroke-linecap="round"/>
-      <ellipse cx="50" cy="-17" rx="4" ry="7" fill="#2b2b2b"/>
-    </g>
-    <rect x="-44" y="-68" width="90" height="44" rx="18" fill="#f6f3ee"/>
-    <ellipse cx="-14" cy="-52" rx="13" ry="10" fill="#2b2b2b"/>
-    <ellipse cx="24" cy="-57" rx="15" ry="11" fill="#2b2b2b"/>
-    <ellipse cx="14" cy="-24" rx="9" ry="6" fill="#f2b6bf"/>
-    <g id="cowHead">
-      <path d="M-60 -62 Q-58 -74 -53 -66" fill="#e6d9a8"/>
-      <ellipse cx="-56" cy="-50" rx="17" ry="14" fill="#f6f3ee"/>
-      <ellipse cx="-66" cy="-44" rx="11" ry="8" fill="#f2b6bf"/>
-      <circle cx="-69" cy="-45" r="1.6" fill="#7a3b46"/>
-      <circle cx="-63" cy="-45" r="1.6" fill="#7a3b46"/>
-      <circle cx="-55" cy="-56" r="2.6" fill="#222"/>
-      <ellipse cx="-45" cy="-62" rx="6" ry="3.5" fill="#2b2b2b" transform="rotate(-25 -45 -62)"/>
-    </g>
-  </g>
-  <g id="cowPolish" visibility="hidden">
-    <ellipse cx="0" cy="2" rx="46" ry="6" fill="#000" opacity=".15"/>
-    <image href="__COW_GIF__" x="-58" y="-96" width="116" height="95" preserveAspectRatio="none" style="image-rendering:pixelated"/>
-  </g>
-  </g>
-  <g id="tinyCow" transform="translate(850,452) scale(.34)" style="cursor:pointer">
-    <rect x="-75" y="-110" width="150" height="120" fill="#000" fill-opacity="0"/>
-    <g id="tinyNormal">
-    <ellipse cx="0" cy="2" rx="50" ry="6" fill="#000" opacity=".15"/>
-    <rect x="-30" y="-28" width="9" height="28" fill="#ece8e0"/>
-    <rect x="-16" y="-28" width="9" height="28" fill="#ece8e0"/>
-    <rect x="14" y="-28" width="9" height="28" fill="#ece8e0"/>
-    <rect x="28" y="-28" width="9" height="28" fill="#ece8e0"/>
-    <rect x="-44" y="-68" width="90" height="44" rx="18" fill="#f6f3ee"/>
-    <ellipse cx="-14" cy="-52" rx="13" ry="10" fill="#2b2b2b"/>
-    <ellipse cx="24" cy="-57" rx="15" ry="11" fill="#2b2b2b"/>
-    <ellipse cx="-56" cy="-50" rx="17" ry="14" fill="#f6f3ee"/>
-    <ellipse cx="-66" cy="-44" rx="11" ry="8" fill="#f2b6bf"/>
-    <circle cx="-55" cy="-56" r="2.6" fill="#222"/>
-    <line x1="10" y1="-68" x2="10" y2="-108" stroke="#8a6b3f" stroke-width="3"/>
-    <rect x="10" y="-108" width="30" height="11" fill="#fff" stroke="#bbb" stroke-width="1"/>
-    <rect x="10" y="-97" width="30" height="11" fill="#dc143c"/>
-    </g>
-    <g id="tinyPolish" visibility="hidden">
-      <ellipse cx="0" cy="2" rx="46" ry="6" fill="#000" opacity=".15"/>
-      <image href="__COW_GIF__" x="-58" y="-96" width="116" height="95" preserveAspectRatio="none" style="image-rendering:pixelated"/>
-    </g>
-  </g>
-
   <!-- whiteboard (back of the room) -->
   <rect x="140" y="50" width="520" height="230" rx="6" fill="#9a9da2"/>
   <rect x="150" y="60" width="500" height="210" rx="3" fill="#fdfdfd"/>
@@ -183,7 +126,89 @@
   <circle cx="600" cy="375" r="10" fill="#d64545"/>
   <rect x="598" y="361" width="4" height="6" fill="#4a7c3a"/>
   </g>
+  <!-- front row of desks: three more students -->
+  <g id="frontRow">
+    <use href="#desk" transform="translate(50,478) scale(1.05)"/>
+    <use href="#desk" transform="translate(165,478) scale(1.05)"/>
+    <use href="#desk" transform="translate(560,478) scale(1.05)"/>
+    <g transform="translate(50,478) scale(1.05)"><g id="kb6"><use href="#kid" color="#c0392b" style="--hair:#3b2a20"/></g></g>
+    <g transform="translate(165,478) scale(1.05)"><g id="kb7"><use href="#kid" color="#e67e22" style="--hair:#1b1b1f"/></g></g>
+    <g transform="translate(560,478) scale(1.05)"><g id="kb8"><use href="#kid" color="#34495e" style="--hair:#d9b45a"/></g></g>
+  </g>
+  <!-- empty desks with a coat pile and a front panel: crouch behind them to hide -->
+  <g id="hideDesks">
+    <g transform="translate(395,478) scale(1.05)"><use href="#desk"/><rect x="4" y="22" width="92" height="40" fill="#8a5c30"/><path d="M16 6 Q12 -16 32 -26 Q52 -40 68 -24 Q90 -14 84 6 Z" fill="#5d4c8a"/><path d="M30 -20 Q50 -8 70 -20" stroke="#443768" stroke-width="3" fill="none"/></g>
+    <g transform="translate(670,478) scale(1.05)"><use href="#desk"/><rect x="4" y="22" width="92" height="40" fill="#8a5c30"/><path d="M16 6 Q12 -16 32 -26 Q52 -40 68 -24 Q90 -14 84 6 Z" fill="#5b7a3a"/><path d="M30 -20 Q50 -8 70 -20" stroke="#3f5827" stroke-width="3" fill="none"/></g>
+    <g transform="translate(780,478) scale(1.05)"><use href="#desk"/><rect x="4" y="22" width="92" height="40" fill="#8a5c30"/><path d="M16 6 Q12 -16 32 -26 Q52 -40 68 -24 Q90 -14 84 6 Z" fill="#b0562f"/><path d="M30 -20 Q50 -8 70 -20" stroke="#7d3b1e" stroke-width="3" fill="none"/></g>
+  </g>
 
+  <g id="dung" transform="translate(-60,172)">
+    <ellipse cx="790" cy="424" rx="18" ry="6" fill="#3f4a1f"/>
+    <ellipse cx="790" cy="418" rx="14" ry="5.5" fill="#4f5b2a"/>
+    <ellipse cx="790" cy="412" rx="9" ry="4.5" fill="#5d6b32"/>
+    <path d="M787 408 Q792 402 789 398 Q795 403 794 408 Z" fill="#6e7d3c"/>
+    <g id="steam" opacity=".5" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round">
+      <path d="M782 398 q4 -6 0 -12"/>
+      <path d="M796 396 q4 -6 0 -12"/>
+    </g>
+  </g>
+  <g id="cow" transform="translate(828,592) scale(1.1)">
+  <g id="cowNormal">
+    <ellipse cx="0" cy="2" rx="56" ry="7" fill="#000" opacity=".15"/>
+    <rect x="-36" y="-28" width="9" height="28" fill="#ece8e0"/>
+    <rect x="-20" y="-28" width="9" height="28" fill="#ece8e0"/>
+    <rect x="16" y="-28" width="9" height="28" fill="#ece8e0"/>
+    <rect x="30" y="-28" width="9" height="28" fill="#ece8e0"/>
+    <rect x="-36" y="-4" width="9" height="4" fill="#3b3b3b"/>
+    <rect x="-20" y="-4" width="9" height="4" fill="#3b3b3b"/>
+    <rect x="16" y="-4" width="9" height="4" fill="#3b3b3b"/>
+    <rect x="30" y="-4" width="9" height="4" fill="#3b3b3b"/>
+    <g id="cowTail">
+      <path d="M44 -54 Q56 -44 50 -22" stroke="#d8d3c8" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="50" cy="-17" rx="4" ry="7" fill="#2b2b2b"/>
+    </g>
+    <rect x="-44" y="-68" width="90" height="44" rx="18" fill="#f6f3ee"/>
+    <ellipse cx="-14" cy="-52" rx="13" ry="10" fill="#2b2b2b"/>
+    <ellipse cx="24" cy="-57" rx="15" ry="11" fill="#2b2b2b"/>
+    <ellipse cx="14" cy="-24" rx="9" ry="6" fill="#f2b6bf"/>
+    <g id="cowHead">
+      <path d="M-60 -62 Q-58 -74 -53 -66" fill="#e6d9a8"/>
+      <ellipse cx="-56" cy="-50" rx="17" ry="14" fill="#f6f3ee"/>
+      <ellipse cx="-66" cy="-44" rx="11" ry="8" fill="#f2b6bf"/>
+      <circle cx="-69" cy="-45" r="1.6" fill="#7a3b46"/>
+      <circle cx="-63" cy="-45" r="1.6" fill="#7a3b46"/>
+      <circle cx="-55" cy="-56" r="2.6" fill="#222"/>
+      <ellipse cx="-45" cy="-62" rx="6" ry="3.5" fill="#2b2b2b" transform="rotate(-25 -45 -62)"/>
+    </g>
+  </g>
+  <g id="cowPolish" visibility="hidden">
+    <ellipse cx="0" cy="2" rx="46" ry="6" fill="#000" opacity=".15"/>
+    <image href="__COW_GIF__" x="-58" y="-96" width="116" height="95" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+  </g>
+  </g>
+  <g id="tinyCow" transform="translate(672,596) scale(.34)" style="cursor:pointer">
+    <rect x="-75" y="-110" width="150" height="120" fill="#000" fill-opacity="0"/>
+    <g id="tinyNormal">
+    <ellipse cx="0" cy="2" rx="50" ry="6" fill="#000" opacity=".15"/>
+    <rect x="-30" y="-28" width="9" height="28" fill="#ece8e0"/>
+    <rect x="-16" y="-28" width="9" height="28" fill="#ece8e0"/>
+    <rect x="14" y="-28" width="9" height="28" fill="#ece8e0"/>
+    <rect x="28" y="-28" width="9" height="28" fill="#ece8e0"/>
+    <rect x="-44" y="-68" width="90" height="44" rx="18" fill="#f6f3ee"/>
+    <ellipse cx="-14" cy="-52" rx="13" ry="10" fill="#2b2b2b"/>
+    <ellipse cx="24" cy="-57" rx="15" ry="11" fill="#2b2b2b"/>
+    <ellipse cx="-56" cy="-50" rx="17" ry="14" fill="#f6f3ee"/>
+    <ellipse cx="-66" cy="-44" rx="11" ry="8" fill="#f2b6bf"/>
+    <circle cx="-55" cy="-56" r="2.6" fill="#222"/>
+    <line x1="10" y1="-68" x2="10" y2="-108" stroke="#8a6b3f" stroke-width="3"/>
+    <rect x="10" y="-108" width="30" height="11" fill="#fff" stroke="#bbb" stroke-width="1"/>
+    <rect x="10" y="-97" width="30" height="11" fill="#dc143c"/>
+    </g>
+    <g id="tinyPolish" visibility="hidden">
+      <ellipse cx="0" cy="2" rx="46" ry="6" fill="#000" opacity=".15"/>
+      <image href="__COW_GIF__" x="-58" y="-96" width="116" height="95" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    </g>
+  </g>
   <!-- student (seen from behind) -->
   <ellipse cx="486" cy="411" rx="12" ry="5" fill="#d9dbde"/>
   <ellipse cx="486" cy="409" rx="9" ry="3.2" fill="#e3c38a"/>
@@ -275,12 +300,16 @@
   <text id="yell" x="400" y="125" text-anchor="middle" font-size="44" font-weight="900" font-family="system-ui,sans-serif" fill="#e0312b" stroke="#fff" stroke-width="7" paint-order="stroke" visibility="hidden">WHO THREW THAT?!</text>
   <text id="bubble" x="290" y="150" text-anchor="middle" font-size="22" font-weight="700" font-family="system-ui,sans-serif" fill="#222" stroke="#fff" stroke-width="6" paint-order="stroke" visibility="hidden">Hey!</text>
   <g id="fx"></g>
+  <text id="doorHint" x="43" y="318" text-anchor="middle" font-size="16" font-weight="900" font-family="system-ui,sans-serif" fill="#fff" stroke="#222" stroke-width="4" paint-order="stroke" visibility="hidden">Press E</text>
   <g font-size="15" font-weight="800" font-family="system-ui,sans-serif" text-anchor="middle" fill="#222" stroke="#fff" stroke-width="4" paint-order="stroke">
     <text id="h1" x="105" y="355" visibility="hidden">HA HA!</text>
     <text id="h2" x="215" y="355" visibility="hidden">HA HA!</text>
     <text id="h3" x="105" y="308" visibility="hidden">HA HA!</text>
     <text id="h4" x="215" y="308" visibility="hidden">HA HA!</text>
     <text id="h5" x="450" y="308" visibility="hidden">HA HA!</text>
+    <text id="h6" x="102" y="426" visibility="hidden">HA HA!</text>
+    <text id="h7" x="217" y="426" visibility="hidden">HA HA!</text>
+    <text id="h8" x="612" y="426" visibility="hidden">HA HA!</text>
   </g>
 
   <g id="mini" visibility="hidden" font-family="system-ui,sans-serif" text-anchor="middle">
@@ -305,11 +334,14 @@
     <rect x="70" y="115" width="760" height="345" rx="18" fill="#161b26" stroke="#8fa8e0" stroke-width="3"/>
     <text x="450" y="162" font-size="30" font-weight="900" fill="#ffd60a">BLAME SOMEONE ELSE!</text>
     <text id="blLine" x="450" y="203" font-size="19" font-weight="700" fill="#ffb4ae"></text>
-    <g id="blBtn1" style="cursor:pointer"><rect id="blR1" x="95" y="228" width="130" height="135" rx="12" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="109" cy="242" r="11" fill="#8fa8e0"/><text x="109" y="247" font-size="13" font-weight="800" fill="#10131c">1</text><circle cx="160" cy="282" r="24" fill="#6a4fb3"/><circle cx="160" cy="276" r="14" fill="#e6b891"/><text x="160" y="332" font-size="14" font-weight="800" fill="#fff">Purple</text><text x="160" y="349" font-size="15" font-weight="800" fill="#fff">Pete</text><text x="160" y="360" font-size="10" fill="#9fb0d8">front left</text></g>
-    <g id="blBtn2" style="cursor:pointer"><rect id="blR2" x="240" y="228" width="130" height="135" rx="12" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="254" cy="242" r="11" fill="#8fa8e0"/><text x="254" y="247" font-size="13" font-weight="800" fill="#10131c">2</text><circle cx="305" cy="282" r="24" fill="#3e9c6a"/><circle cx="305" cy="276" r="14" fill="#e6b891"/><text x="305" y="332" font-size="14" font-weight="800" fill="#fff">Green</text><text x="305" y="349" font-size="15" font-weight="800" fill="#fff">Gina</text><text x="305" y="360" font-size="10" fill="#9fb0d8">front left</text></g>
-    <g id="blBtn3" style="cursor:pointer"><rect id="blR3" x="385" y="228" width="130" height="135" rx="12" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="399" cy="242" r="11" fill="#8fa8e0"/><text x="399" y="247" font-size="13" font-weight="800" fill="#10131c">3</text><circle cx="450" cy="282" r="24" fill="#e0b13a"/><circle cx="450" cy="276" r="14" fill="#e6b891"/><text x="450" y="332" font-size="14" font-weight="800" fill="#fff">Yellow</text><text x="450" y="349" font-size="15" font-weight="800" fill="#fff">Yuri</text><text x="450" y="360" font-size="10" fill="#9fb0d8">back left</text></g>
-    <g id="blBtn4" style="cursor:pointer"><rect id="blR4" x="530" y="228" width="130" height="135" rx="12" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="544" cy="242" r="11" fill="#8fa8e0"/><text x="544" y="247" font-size="13" font-weight="800" fill="#10131c">4</text><circle cx="595" cy="282" r="24" fill="#d6628f"/><circle cx="595" cy="276" r="14" fill="#e6b891"/><text x="595" y="332" font-size="14" font-weight="800" fill="#fff">Pink</text><text x="595" y="349" font-size="15" font-weight="800" fill="#fff">Penny</text><text x="595" y="360" font-size="10" fill="#9fb0d8">back left</text></g>
-    <g id="blBtn5" style="cursor:pointer"><rect id="blR5" x="675" y="228" width="130" height="135" rx="12" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="689" cy="242" r="11" fill="#8fa8e0"/><text x="689" y="247" font-size="13" font-weight="800" fill="#10131c">5</text><circle cx="740" cy="282" r="24" fill="#2f9bb5"/><circle cx="740" cy="276" r="14" fill="#e6b891"/><text x="740" y="332" font-size="14" font-weight="800" fill="#fff">Teal</text><text x="740" y="349" font-size="15" font-weight="800" fill="#fff">Theo</text><text x="740" y="360" font-size="10" fill="#9fb0d8">behind you</text></g>
+    <g id="blBtn1" style="cursor:pointer"><rect id="blR1" x="86" y="228" width="84" height="135" rx="10" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="99" cy="241" r="10" fill="#8fa8e0"/><text x="99" y="246" font-size="12" font-weight="800" fill="#10131c">1</text><circle cx="128" cy="286" r="21" fill="#6a4fb3"/><circle cx="128" cy="281" r="12" fill="#e6b891"/><text x="128" y="334" font-size="14" font-weight="800" fill="#fff">Pete</text><text x="128" y="352" font-size="10" fill="#9fb0d8">mid left</text></g>
+    <g id="blBtn2" style="cursor:pointer"><rect id="blR2" x="178" y="228" width="84" height="135" rx="10" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="191" cy="241" r="10" fill="#8fa8e0"/><text x="191" y="246" font-size="12" font-weight="800" fill="#10131c">2</text><circle cx="220" cy="286" r="21" fill="#3e9c6a"/><circle cx="220" cy="281" r="12" fill="#e6b891"/><text x="220" y="334" font-size="14" font-weight="800" fill="#fff">Gina</text><text x="220" y="352" font-size="10" fill="#9fb0d8">mid left</text></g>
+    <g id="blBtn3" style="cursor:pointer"><rect id="blR3" x="270" y="228" width="84" height="135" rx="10" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="283" cy="241" r="10" fill="#8fa8e0"/><text x="283" y="246" font-size="12" font-weight="800" fill="#10131c">3</text><circle cx="312" cy="286" r="21" fill="#e0b13a"/><circle cx="312" cy="281" r="12" fill="#e6b891"/><text x="312" y="334" font-size="14" font-weight="800" fill="#fff">Yuri</text><text x="312" y="352" font-size="10" fill="#9fb0d8">back left</text></g>
+    <g id="blBtn4" style="cursor:pointer"><rect id="blR4" x="362" y="228" width="84" height="135" rx="10" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="375" cy="241" r="10" fill="#8fa8e0"/><text x="375" y="246" font-size="12" font-weight="800" fill="#10131c">4</text><circle cx="404" cy="286" r="21" fill="#d6628f"/><circle cx="404" cy="281" r="12" fill="#e6b891"/><text x="404" y="334" font-size="14" font-weight="800" fill="#fff">Penny</text><text x="404" y="352" font-size="10" fill="#9fb0d8">back left</text></g>
+    <g id="blBtn5" style="cursor:pointer"><rect id="blR5" x="454" y="228" width="84" height="135" rx="10" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="467" cy="241" r="10" fill="#8fa8e0"/><text x="467" y="246" font-size="12" font-weight="800" fill="#10131c">5</text><circle cx="496" cy="286" r="21" fill="#2f9bb5"/><circle cx="496" cy="281" r="12" fill="#e6b891"/><text x="496" y="334" font-size="14" font-weight="800" fill="#fff">Theo</text><text x="496" y="352" font-size="10" fill="#9fb0d8">behind you</text></g>
+    <g id="blBtn6" style="cursor:pointer"><rect id="blR6" x="546" y="228" width="84" height="135" rx="10" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="559" cy="241" r="10" fill="#8fa8e0"/><text x="559" y="246" font-size="12" font-weight="800" fill="#10131c">6</text><circle cx="588" cy="286" r="21" fill="#c0392b"/><circle cx="588" cy="281" r="12" fill="#e6b891"/><text x="588" y="334" font-size="14" font-weight="800" fill="#fff">Rosa</text><text x="588" y="352" font-size="10" fill="#9fb0d8">front left</text></g>
+    <g id="blBtn7" style="cursor:pointer"><rect id="blR7" x="638" y="228" width="84" height="135" rx="10" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="651" cy="241" r="10" fill="#8fa8e0"/><text x="651" y="246" font-size="12" font-weight="800" fill="#10131c">7</text><circle cx="680" cy="286" r="21" fill="#e67e22"/><circle cx="680" cy="281" r="12" fill="#e6b891"/><text x="680" y="334" font-size="14" font-weight="800" fill="#fff">Max</text><text x="680" y="352" font-size="10" fill="#9fb0d8">front left</text></g>
+    <g id="blBtn8" style="cursor:pointer"><rect id="blR8" x="730" y="228" width="84" height="135" rx="10" fill="#2e3a55" stroke="#8fa8e0" stroke-width="3"/><circle cx="743" cy="241" r="10" fill="#8fa8e0"/><text x="743" y="246" font-size="12" font-weight="800" fill="#10131c">8</text><circle cx="772" cy="286" r="21" fill="#34495e"/><circle cx="772" cy="281" r="12" fill="#e6b891"/><text x="772" y="334" font-size="14" font-weight="800" fill="#fff">Dmitri</text><text x="772" y="352" font-size="10" fill="#9fb0d8">front right</text></g>
     <rect x="95" y="385" width="710" height="9" rx="4" fill="#3a3f47"/>
     <rect id="blTime" x="95" y="385" width="710" height="9" rx="4" fill="#ffd60a"/>
     <text id="blNote" x="450" y="425" font-size="15" fill="#cfd2d6"></text>
@@ -343,6 +375,164 @@
     <text id="koTxt" x="450" y="320" font-size="26" fill="#b9a5a5"></text>
     <text id="koScore" x="450" y="362" font-size="20" fill="#8d7f7f"></text>
     <text x="450" y="415" font-size="18" fill="#6f6565">Press R or tap anywhere to play again</text>
+  </g>
+  <g id="hall" visibility="hidden" font-family="system-ui,sans-serif" text-anchor="middle">
+    <rect x="-1000" y="-1000" width="2900" height="2900" fill="#2a2f38"/>
+    <polygon points="0,0 900,0 520,120 380,120" fill="#aab2bb"/>
+    <rect x="390" y="24" width="120" height="10" rx="2" fill="#fffbe0"/><rect x="402" y="54" width="96" height="8" rx="2" fill="#fffbe0"/><rect x="414" y="84" width="72" height="6" rx="2" fill="#fffbe0"/><rect x="424" y="108" width="52" height="5" rx="2" fill="#fffbe0"/>
+    <polygon points="0,0 380,120 380,205 110,620 0,620" fill="#c9cfd6"/>
+    <polygon points="900,0 520,120 520,205 790,620 900,620" fill="#c9cfd6"/>
+    <rect x="380" y="120" width="140" height="85" fill="#d6dbe0"/>
+    <polygon points="110,620 380,205 520,205 790,620" fill="#b9a98c"/>
+    <line x1="375" y1="213" x2="525" y2="213" stroke="#a89873" stroke-width="2"/><line x1="362" y1="232" x2="538" y2="232" stroke="#a89873" stroke-width="2"/><line x1="345" y1="259" x2="555" y2="259" stroke="#a89873" stroke-width="2"/><line x1="323" y1="292" x2="577" y2="292" stroke="#a89873" stroke-width="2"/><line x1="297" y1="333" x2="603" y2="333" stroke="#a89873" stroke-width="2"/><line x1="267" y1="379" x2="633" y2="379" stroke="#a89873" stroke-width="2"/><line x1="233" y1="431" x2="667" y2="431" stroke="#a89873" stroke-width="2"/><line x1="195" y1="489" x2="705" y2="489" stroke="#a89873" stroke-width="2"/><line x1="154" y1="552" x2="746" y2="552" stroke="#a89873" stroke-width="2"/>
+    <polygon points="110,620 140,574 69,170 31,174" fill="#3a6ea5" stroke="#1d3d63" stroke-width="2"/>
+    <polygon points="223,446 264,383 230,157 177,161" fill="#2f5d8e" stroke="#1d3d63" stroke-width="2"/>
+    <polygon points="269,375 310,313 289,152 237,156" fill="#3a6ea5" stroke="#1d3d63" stroke-width="2"/>
+    <polygon points="315,305 356,242 349,146 296,151" fill="#2f5d8e" stroke="#1d3d63" stroke-width="2"/>
+    <polygon points="790,620 750,558 817,169 869,174" fill="#3a6ea5" stroke="#1d3d63" stroke-width="2"/>
+    <polygon points="744,549 704,487 757,164 810,169" fill="#2f5d8e" stroke="#1d3d63" stroke-width="2"/>
+    <polygon points="698,479 658,417 698,159 750,163" fill="#3a6ea5" stroke="#1d3d63" stroke-width="2"/>
+    <polygon points="652,408 612,346 639,154 691,158" fill="#2f5d8e" stroke="#1d3d63" stroke-width="2"/>
+    <polygon points="606,338 566,276 579,149 632,153" fill="#3a6ea5" stroke="#1d3d63" stroke-width="2"/>
+    <polygon points="560,267 528,217 530,145 572,148" fill="#2f5d8e" stroke="#1d3d63" stroke-width="2"/>
+    <polygon points="142,570 218,454 172,170 75,181" fill="#8a6240" stroke="#4a3826" stroke-width="2"/>
+    <text x="186" y="362" text-anchor="middle" font-size="13" font-weight="800" fill="#fff" stroke="#1a1a1a" stroke-width="3" paint-order="stroke">CLASSROOM</text>
+    <circle cx="214" cy="442" r="5" fill="#d9b44a"/>
+    <polygon points="269,375 310,313 289,152 237,156" fill="#e0a43a" stroke="#7a5614" stroke-width="2"/>
+    <polygon points="262,362 298,308 284,200 249,203" fill="#eab958" stroke="#7a5614" stroke-width="1.5"/>
+    <rect x="243" y="166" width="46" height="14" rx="2" fill="#fff" stroke="#7a5614" stroke-width="1.5"/>
+    <text x="266" y="176.5" font-size="9" font-weight="900" fill="#c0392b">KITCHEN</text>
+    <circle cx="292" cy="296" r="3.5" fill="#fff" stroke="#7a5614"/>
+    <rect x="414" y="140" width="72" height="65" rx="3" fill="#8a6240" stroke="#4a3826" stroke-width="3"/>
+    <rect x="410" y="124" width="80" height="14" rx="3" fill="#2e8b57"/>
+    <text x="450" y="135" font-size="9" font-weight="800" fill="#fff">RESTROOM</text>
+    <circle cx="478" cy="178" r="3" fill="#d9b44a"/>
+    <g id="hmA">
+      <rect x="284" y="450" width="14" height="68" fill="#2b2d42"/><rect x="302" y="450" width="14" height="68" fill="#2b2d42"/>
+      <ellipse cx="291" cy="520" rx="13" ry="5" fill="#111"/><ellipse cx="309" cy="520" rx="13" ry="5" fill="#111"/>
+      <rect x="269" y="360" width="62" height="100" rx="12" fill="#3d5a80"/>
+      <rect x="273" y="364" width="54" height="92" rx="10" fill="#ff7a18"/>
+      <rect x="273" y="396" width="54" height="9" fill="#e6e6e6" opacity=".9"/><rect x="273" y="424" width="54" height="9" fill="#e6e6e6" opacity=".9"/>
+      <rect x="248" y="372" width="18" height="60" rx="8" fill="#3d5a80"/>
+      <rect x="234" y="392" width="32" height="40" fill="#d9b44a"/><rect x="238" y="397" width="24" height="30" fill="#fff"/>
+      <rect x="334" y="372" width="18" height="60" rx="8" fill="#3d5a80"/>
+      <circle cx="300" cy="335" r="26" fill="#f1c9a5"/>
+      <path d="M274 330 Q300 296 326 330 Z" fill="#1f2a44"/><rect x="270" y="328" width="60" height="6" rx="3" fill="#1f2a44"/>
+      <circle cx="291" cy="338" r="3" fill="#222"/><circle cx="309" cy="338" r="3" fill="#222"/>
+      <ellipse cx="300" cy="352" rx="8" ry="3" fill="#7a1f2b"/>
+      <circle cx="300" cy="376" r="6" fill="#ddd"/><line x1="300" y1="356" x2="300" y2="370" stroke="#ddd" stroke-width="2"/>
+    </g>
+    <g id="hmB">
+      <rect x="584" y="450" width="14" height="68" fill="#2b2d42"/><rect x="602" y="450" width="14" height="68" fill="#2b2d42"/>
+      <ellipse cx="591" cy="520" rx="13" ry="5" fill="#111"/><ellipse cx="609" cy="520" rx="13" ry="5" fill="#111"/>
+      <rect x="569" y="360" width="62" height="100" rx="12" fill="#3d5a80"/>
+      <rect x="573" y="364" width="54" height="92" rx="10" fill="#ff7a18"/>
+      <rect x="573" y="396" width="54" height="9" fill="#e6e6e6" opacity=".9"/><rect x="573" y="424" width="54" height="9" fill="#e6e6e6" opacity=".9"/>
+      <rect x="548" y="372" width="18" height="60" rx="8" fill="#3d5a80"/>
+      <rect x="534" y="392" width="32" height="40" fill="#d9b44a"/><rect x="538" y="397" width="24" height="30" fill="#fff"/>
+      <rect x="634" y="372" width="18" height="60" rx="8" fill="#3d5a80"/>
+      <circle cx="600" cy="335" r="26" fill="#c68a5e"/>
+      <path d="M574 330 Q600 296 626 330 Z" fill="#7a1f1f"/><rect x="570" y="328" width="60" height="6" rx="3" fill="#7a1f1f"/>
+      <circle cx="591" cy="338" r="3" fill="#222"/><circle cx="609" cy="338" r="3" fill="#222"/>
+      <ellipse cx="600" cy="352" rx="8" ry="3" fill="#7a1f2b"/>
+      <circle cx="600" cy="376" r="6" fill="#ddd"/><line x1="600" y1="356" x2="600" y2="370" stroke="#ddd" stroke-width="2"/>
+    </g>
+    <g id="hallPlayer">
+      <rect x="140" y="462" width="12" height="52" fill="#3a4a6b"/><rect x="156" y="462" width="12" height="52" fill="#3a4a6b"/>
+      <ellipse cx="146" cy="516" rx="11" ry="4" fill="#111"/><ellipse cx="162" cy="516" rx="11" ry="4" fill="#111"/>
+      <rect x="132" y="408" width="44" height="64" rx="13" fill="#e07a3f"/>
+      <circle cx="154" cy="388" r="20" fill="#e6b891"/><path d="M134 386 Q134 362 154 362 Q174 362 174 386 Q164 374 154 374 Q144 374 134 386Z" fill="#2a1d14"/>
+      <circle cx="147" cy="391" r="2.5" fill="#222"/><circle cx="161" cy="391" r="2.5" fill="#222"/>
+    </g>
+    <g id="hallPass" visibility="hidden">
+      <rect x="380" y="272" width="140" height="92" rx="8" fill="#fff" stroke="#2e6bd6" stroke-width="4"/>
+      <text x="450" y="310" font-size="22" font-weight="900" fill="#2e6bd6">HALL PASS</text>
+      <text x="450" y="338" font-size="14" fill="#555">to: the bathroom</text>
+    </g>
+  </g>
+  <g id="bath" visibility="hidden" font-family="system-ui,sans-serif" text-anchor="middle">
+    <rect x="-1000" y="-1000" width="2900" height="2900" fill="#243038"/>
+    <rect x="0" y="0" width="900" height="400" fill="#cfe3e8"/>
+    <g stroke="#b3ccd3" stroke-width="2"><line x1="0" y1="100" x2="900" y2="100"/><line x1="0" y1="200" x2="900" y2="200"/><line x1="0" y1="300" x2="900" y2="300"/></g>
+    <rect x="0" y="400" width="900" height="220" fill="#aebdc2"/>
+    <g stroke="#97a8ae" stroke-width="2"><line x1="0" y1="470" x2="900" y2="470"/><line x1="0" y1="550" x2="900" y2="550"/></g>
+    <rect x="20" y="170" width="76" height="236" rx="4" fill="#8a6240" stroke="#4a3826" stroke-width="5"/>
+    <rect x="30" y="184" width="56" height="22" rx="4" fill="#2e6bd6"/>
+    <text x="58" y="200" font-size="11" font-weight="800" fill="#fff">HALLWAY</text>
+    <circle cx="82" cy="300" r="5" fill="#d9b44a"/>
+    <g>
+      <rect x="140" y="150" width="140" height="255" fill="#7fa3b5" stroke="#5a7f91" stroke-width="3"/><rect x="152" y="172" width="116" height="233" fill="#6b8fa1"/><circle cx="256" cy="290" r="5" fill="#ddd"/>
+      <rect x="330" y="150" width="140" height="255" fill="#7fa3b5" stroke="#5a7f91" stroke-width="3"/><rect x="342" y="172" width="116" height="233" fill="#6b8fa1"/><circle cx="446" cy="290" r="5" fill="#ddd"/>
+      <rect x="520" y="150" width="140" height="255" fill="#7fa3b5" stroke="#5a7f91" stroke-width="3"/><rect x="532" y="172" width="116" height="233" fill="#6b8fa1"/><circle cx="636" cy="290" r="5" fill="#ddd"/>
+    </g>
+    <g>
+      <rect x="715" y="130" width="70" height="80" fill="#e8f4ff" stroke="#8fa8b8" stroke-width="4"/><rect x="715" y="250" width="70" height="26" rx="8" fill="#fff" stroke="#9fb3bd" stroke-width="3"/><rect x="747" y="236" width="6" height="14" fill="#9aa"/>
+      <rect x="805" y="130" width="70" height="80" fill="#e8f4ff" stroke="#8fa8b8" stroke-width="4"/><rect x="805" y="250" width="70" height="26" rx="8" fill="#fff" stroke="#9fb3bd" stroke-width="3"/><rect x="837" y="236" width="6" height="14" fill="#9aa"/>
+    </g>
+    <g id="bathPlayer">
+      <rect x="140" y="462" width="12" height="52" fill="#3a4a6b"/><rect x="156" y="462" width="12" height="52" fill="#3a4a6b"/>
+      <ellipse cx="146" cy="516" rx="11" ry="4" fill="#111"/><ellipse cx="162" cy="516" rx="11" ry="4" fill="#111"/>
+      <rect x="132" y="408" width="44" height="64" rx="13" fill="#e07a3f"/>
+      <circle cx="154" cy="388" r="20" fill="#e6b891"/><path d="M134 386 Q134 362 154 362 Q174 362 174 386 Q164 374 154 374 Q144 374 134 386Z" fill="#2a1d14"/>
+      <circle cx="147" cy="391" r="2.5" fill="#222"/><circle cx="161" cy="391" r="2.5" fill="#222"/>
+    </g>
+    <g id="bathBarG" visibility="hidden"><rect x="300" y="590" width="300" height="12" rx="6" fill="#3a3f47"/><rect id="bathBar" x="300" y="590" width="0" height="12" rx="6" fill="#2e8b57"/></g>
+  </g>
+  <g id="kitchen" visibility="hidden" font-family="system-ui,sans-serif" text-anchor="middle">
+    <rect x="-1000" y="-1000" width="2900" height="2900" fill="#2b2a2e"/>
+    <rect x="0" y="0" width="900" height="400" fill="#f3e6c4"/>
+    <g stroke="#e3d3aa" stroke-width="2"><line x1="0" y1="100" x2="900" y2="100"/><line x1="0" y1="200" x2="900" y2="200"/><line x1="0" y1="300" x2="900" y2="300"/></g>
+    <rect x="0" y="400" width="900" height="220" fill="#b7a58b"/>
+    <g stroke="#a29078" stroke-width="2"><line x1="0" y1="470" x2="900" y2="470"/><line x1="0" y1="550" x2="900" y2="550"/></g>
+    <rect x="20" y="170" width="76" height="236" rx="4" fill="#8a6240" stroke="#4a3826" stroke-width="5"/>
+    <rect x="30" y="184" width="56" height="22" rx="4" fill="#2e6bd6"/>
+    <text x="58" y="200" font-size="11" font-weight="800" fill="#fff">HALLWAY</text>
+    <circle cx="82" cy="300" r="5" fill="#d9b44a"/>
+    <rect x="150" y="90" width="150" height="110" fill="#cfe8ff" stroke="#8a6240" stroke-width="6"/>
+    <line x1="225" y1="90" x2="225" y2="200" stroke="#8a6240" stroke-width="5"/><line x1="150" y1="145" x2="300" y2="145" stroke="#8a6240" stroke-width="5"/>
+    <rect x="570" y="150" width="310" height="10" fill="#8a6240"/>
+    <rect x="585" y="118" width="26" height="32" rx="4" fill="#e05a47"/><rect x="625" y="124" width="26" height="26" rx="4" fill="#e6c93a"/><rect x="665" y="112" width="26" height="38" rx="4" fill="#7bc47f"/><rect x="705" y="122" width="26" height="28" rx="4" fill="#9b6fd3"/><rect x="745" y="116" width="26" height="34" rx="4" fill="#2ab3a6"/><rect x="785" y="124" width="26" height="26" rx="4" fill="#f08c3a"/><rect x="825" y="114" width="26" height="36" rx="4" fill="#d6628f"/>
+    <rect x="130" y="312" width="230" height="93" fill="#8a6240" stroke="#4a3826" stroke-width="3"/><rect x="124" y="298" width="242" height="16" rx="3" fill="#d9c9a8"/>
+    <rect x="552" y="312" width="130" height="93" fill="#8a6240" stroke="#4a3826" stroke-width="3"/><rect x="546" y="298" width="142" height="16" rx="3" fill="#d9c9a8"/>
+    <rect x="715" y="190" width="115" height="215" rx="6" fill="#e6edf1" stroke="#aab8c0" stroke-width="4"/><line x1="715" y1="270" x2="830" y2="270" stroke="#aab8c0" stroke-width="4"/><rect x="808" y="205" width="6" height="50" rx="3" fill="#8a97a0"/><rect x="808" y="285" width="6" height="60" rx="3" fill="#8a97a0"/>
+    <rect x="440" y="0" width="30" height="125" fill="#9aa1a8"/>
+    <rect x="388" y="118" width="134" height="28" rx="4" fill="#8d949b" stroke="#6f767c" stroke-width="2"/>
+    <text x="455" y="137" font-size="13" font-weight="900" fill="#fff">STOVE</text>
+    <rect x="380" y="272" width="150" height="133" rx="4" fill="#c9ced4" stroke="#7d858c" stroke-width="3"/>
+    <rect x="374" y="262" width="162" height="12" rx="3" fill="#3a3f47"/>
+    <ellipse cx="415" cy="262" rx="22" ry="5" fill="#15171a"/><ellipse cx="495" cy="262" rx="22" ry="5" fill="#15171a"/>
+    <ellipse cx="455" cy="261" rx="24" ry="5" fill="#e0501f"/>
+    <g fill="#444"><circle cx="400" cy="288" r="5"/><circle cx="430" cy="288" r="5"/><circle cx="480" cy="288" r="5"/><circle cx="510" cy="288" r="5"/></g>
+    <rect x="395" y="305" width="120" height="80" rx="4" fill="#aeb4ba" stroke="#7d858c" stroke-width="2"/><rect x="408" y="318" width="94" height="44" rx="3" fill="#2b2e33"/><rect x="420" y="372" width="70" height="5" rx="2.5" fill="#6f767c"/>
+    <g id="kPot">
+      <rect x="428" y="222" width="54" height="40" rx="5" fill="#5b6770" stroke="#33414a" stroke-width="2"/>
+      <rect x="424" y="218" width="62" height="8" rx="3" fill="#6f7d88" stroke="#33414a" stroke-width="2"/>
+      <ellipse id="kPotFill" cx="455" cy="222" rx="26" ry="5" fill="#7be07b"/>
+      <rect x="486" y="226" width="16" height="6" rx="3" fill="#33414a"/>
+      <g id="kBubbles"></g>
+      <g id="kSteam" opacity="0.25" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"><path d="M440 205 q-8 -14 0 -26 t0 -26"/><path d="M455 205 q-8 -14 0 -26 t0 -26"/><path d="M470 205 q-8 -14 0 -26 t0 -26"/></g>
+    </g>
+    <g id="kPlayer">
+      <rect x="140" y="462" width="12" height="52" fill="#3a4a6b"/><rect x="156" y="462" width="12" height="52" fill="#3a4a6b"/>
+      <ellipse cx="146" cy="516" rx="11" ry="4" fill="#111"/><ellipse cx="162" cy="516" rx="11" ry="4" fill="#111"/>
+      <rect x="132" y="408" width="44" height="64" rx="13" fill="#e07a3f"/>
+      <circle cx="154" cy="388" r="20" fill="#e6b891"/><path d="M134 386 Q134 362 154 362 Q174 362 174 386 Q164 374 154 374 Q144 374 134 386Z" fill="#2a1d14"/>
+      <circle cx="147" cy="391" r="2.5" fill="#222"/><circle cx="161" cy="391" r="2.5" fill="#222"/>
+    </g>
+    <g id="kBarG" display="none"><rect x="300" y="556" width="300" height="12" rx="6" fill="#3a3f47"/><rect id="kBar" x="300" y="556" width="0" height="12" rx="6" fill="#e0501f"/></g>
+  </g>
+  <g id="roomHud" visibility="hidden" font-family="system-ui,sans-serif" text-anchor="middle">
+    <text id="hallTxt" x="450" y="92" font-size="26" font-weight="900" fill="#fff" stroke="#1a1a1a" stroke-width="7" paint-order="stroke">THE HALLWAY</text>
+    <text id="hallPassTag" x="24" y="36" text-anchor="start" font-size="18" font-weight="900" fill="#7CFC9A" stroke="#000" stroke-width="5" paint-order="stroke"></text>
+    <text id="hallSub" x="450" y="604" font-size="20" font-weight="800" fill="#fff" stroke="#000" stroke-width="5" paint-order="stroke"></text>
+    <rect id="hallFlash" x="-1000" y="-1000" width="2900" height="2900" fill="#e0312b" opacity="0"/>
+  </g>
+  <g id="busted" visibility="hidden" font-family="system-ui,sans-serif" text-anchor="middle">
+    <rect x="-1000" y="-1000" width="2900" height="2900" fill="#000" opacity=".96"/>
+    <text x="450" y="255" font-size="96" font-weight="900" fill="#b3261e">BUSTED!</text>
+    <text x="450" y="310" font-size="26" fill="#cdbcbc">The hall monitors marched you back to class.</text>
+    <text id="bustedScore" x="450" y="352" font-size="20" fill="#9c8f8f"></text>
+    <text x="450" y="405" font-size="18" fill="#7d7272">Press R or tap anywhere to play again</text>
   </g>
   <g id="dean" visibility="hidden" font-family="system-ui,sans-serif">
     <rect x="-1000" y="-1000" width="2900" height="2900" fill="#1a110b"/>
@@ -419,7 +609,7 @@
   var tBehind=false,rowBack=$('rowBack'),aT=$('aT'),aF=$('aF');
   var strikes=0,sight=0,sightCD=0,hold=0,dungHoldStart=0,meltK=0,lastS=performance.now(),stEls=[$('st1'),$('st2'),$('st3')];
   var mini=false,miniT0=0,miniRedX=380,miniImmune=0,miniG=$('mini'),miniRed=$('miniRed'),miniMark=$('miniMark'),miniTime=$('miniTime'),miniTitle=$('miniTitle'),miniMX=250,miniType='poop';
-  var riding=false,cowRun=false,cowX=832,cowY=400,cowFlip=false,ramCD=0,stunUntil=0,stunStart=0;
+  var riding=false,cowRun=false,cowX=828,cowY=592,cowFlip=false,ramCD=0,stunUntil=0,stunStart=0;
   var cowEl=$('cow'),cowNext=cowEl.nextSibling,starsG=$('stars'),sA=$('sa'),sB=$('sb'),sC=$('sc');
   var polish=false,cowNormal=$('cowNormal'),cowPolish=$('cowPolish'),tinyCow=$('tinyCow'),tinyNormal=$('tinyNormal'),tinyPolish=$('tinyPolish');
   var dmBg=mk('rect',{rx:4,fill:'#000',opacity:.35,visibility:'hidden',width:60,height:8},fx);
@@ -447,7 +637,7 @@
   var tRed=$('tRed'),tRedBody=$('tRedBody'),tAngry=$('tAngry'),tMouth=$('tMouth'),yellEl=$('yell'),overG=$('over'),overScore=$('overScore');
   var poopLines=['EW!!','WHAT IS THAT?!','DISGUSTING!','MY FACE!!','Detention!!'];
   var poopHa=['EWWW!','HA HA!!','NOOO!','LOL!!'];
-  var kids=[1,2,3,4,5].map(function(n){return {b:$('kb'+n),t:$('h'+n),s:0,e:0,p:Math.random()*6};});
+  var kids=[1,2,3,4,5,6,7,8].map(function(n){return {b:$('kb'+n),t:$('h'+n),s:0,e:0,p:Math.random()*6};});
   function mk(tag,attrs,parent){var e=document.createElementNS(NS,tag);for(var k in attrs){e.setAttribute(k,attrs[k]);}parent.appendChild(e);return e;}
   function ease(t){return t*t*(3-2*t);}
   function mkPoop(parent,cow){
@@ -475,7 +665,7 @@
     if(!isBack&&now>=stunUntil&&now>=graceUntil){catchPlayer('WHO THREW THAT?!',now);return;}
     if(throwT0>=0&&!released&&now-throwT0<300){return;}
     throwT0=now;released=false;
-    kind=hasPoop?(cowHeld?'cow':'poop'):'hummus';hasPoop=false;cowHeld=false;
+    if(kBrew){kind='brew';curBrew=kBrew;kBrew=null;}else{kind=hasPoop?(cowHeld?'cow':'poop'):'hummus';}hasPoop=false;cowHeld=false;
     var pool=kind!=='hummus'?poopHa:ha;
     for(var i=0;i<kids.length;i++){
       var k=kids[i];
@@ -489,7 +679,7 @@
   function launch(x,y,now){
     var face=Math.random()<0.5;
     flights.push({x0:x,y0:y,lx:290+(Math.random()*16-8),ly:face?242:305+Math.random()*20,x1:290,y1:300,t0:now,dur:520,face:face,kind:kind,
-      el:kind==='hummus'?mk('circle',{r:8,fill:'#e3c38a',stroke:'#c9a063','stroke-width':2},fx):mkPoop(fx,kind==='cow')});
+      el:kind==='hummus'?mk('circle',{r:8,fill:'#e3c38a',stroke:'#c9a063','stroke-width':2},fx):(kind==='brew'?mkBrewIcon(fx,curBrew.color).g:mkPoop(fx,kind==='cow')),brew:(kind==='brew'?curBrew:null)});
   }
   function addSplat(x,y,face,c,dot){
     var g=mk('g',{},splats);
@@ -501,6 +691,7 @@
     while(splats.childNodes.length>14){slips.shift();splats.removeChild(splats.firstChild);}
   }
   function impact(f,now){
+    if(f.kind==='brew'){impactBrew(f,now);return;}
     var p=f.kind!=='hummus',cw=f.kind==='cow';
     if(cw){cowCount++;}else if(p){poopCount++;}else{count++;}
     updateCount();
@@ -517,9 +708,11 @@
   }
   function loop(){
     var now=performance.now();
+    syncAsk();
     if(deanState){updateDean(now);requestAnimationFrame(loop);return;}
     if(blameState){updateBlame(now);requestAnimationFrame(loop);return;}
     if(fightState){updateFight(now);requestAnimationFrame(loop);return;}
+    if(hallState){updateHall(now);requestAnimationFrame(loop);return;}
     updatePlayer(now);
     updatePoop(now);
     updateScore(now);
@@ -530,7 +723,7 @@
     hand.setAttribute('cx',hx);hand.setAttribute('cy',hy);
     held.setAttribute('cx',hx);held.setAttribute('cy',hy-6);
     var winding=throwT0>=0&&ms<300;
-    var cur=winding?kind:(hasPoop?(cowHeld?'cow':'poop'):'hummus');
+    var cur=winding?kind:(kBrew?'brew':(hasPoop?(cowHeld?'cow':'poop'):'hummus'));
     held.setAttribute('visibility',(winding&&kind==='hummus')?'visible':'hidden');
     var hgp=hg(hx,hy-6);
     heldPoop.setAttribute('transform','translate('+hgp.x+' '+hgp.y+') scale('+pS+')');
@@ -538,12 +731,14 @@
     heldDung.setAttribute('transform','translate('+hgp.x+' '+hgp.y+') scale('+(pS*1.5*(1-0.5*meltK))+')');
     heldDung.setAttribute('opacity',1-0.4*meltK);
     heldDung.setAttribute('visibility',cur==='cow'?'visible':'hidden');
+    heldBrew.g.setAttribute('transform','translate('+hgp.x+' '+hgp.y+') scale('+(pS*1.5)+')');
+    heldBrew.g.setAttribute('visibility',cur==='brew'?'visible':'hidden');
     if(throwT0>=0&&!released&&ms>=300){released=true;var hgl=hg(hx,hy);launch(hgl.x,hgl.y,now);}
     for(var i=flights.length-1;i>=0;i--){
       var f=flights[i],t=Math.min(1,Math.max(0,(now-f.t0)/f.dur));
       var tp=tScene(f.lx,f.ly);f.x1=tp.x;f.y1=tp.y;
       var fxp=f.x0+(f.x1-f.x0)*t,fyp=f.y0+(f.y1-f.y0)*t-280*t*(1-t);
-      if(f.kind!=='hummus'){f.el.setAttribute('transform','translate('+fxp+' '+fyp+') rotate('+(t*600)+') scale('+((f.kind==='cow'?1.7:1.1)-0.35*t)+')');}
+      if(f.kind!=='hummus'){f.el.setAttribute('transform','translate('+fxp+' '+fyp+') rotate('+(t*600)+') scale('+((f.kind==='cow'?1.7:(f.kind==='brew'?1.6:1.1))-0.35*t)+')');}
       else{f.el.setAttribute('cx',fxp);f.el.setAttribute('cy',fyp);f.el.setAttribute('r',9-3*t);}
       if(t>=1){fx.removeChild(f.el);flights.splice(i,1);impact(f,now);}
     }
@@ -565,6 +760,7 @@
     updateSight(now);
     updateMini(now);
     updatePolish(now);
+    updateUI(now);
     bubble.setAttribute('visibility',now<bubbleUntil?'visible':'hidden');
     for(var q=0;q<kids.length;q++){
       var kd=kids[q];
@@ -643,23 +839,23 @@
     cowPolish.setAttribute('visibility',on?'visible':'hidden');
     tinyNormal.setAttribute('visibility',on?'hidden':'visible');
     tinyPolish.setAttribute('visibility',on?'visible':'hidden');
-    if(on){pop('KROWA!',832,300);startMusic();}else{stopMusic();}
+    if(on){pop('KROWA!',828,500);startMusic();}else{stopMusic();}
   }
   function togglePolish(e){e.stopPropagation();if(deanState||over){return;}setPolish(!polish);}
   tinyCow.addEventListener('pointerdown',togglePolish);
   cowEl.addEventListener('pointerdown',togglePolish);
   function updatePolish(now){
-    tinyCow.setAttribute('transform','translate(850,452) scale(.34) rotate('+(polish?0:Math.sin(now*0.004)*5)+' 0 0)');
+    tinyCow.setAttribute('transform','translate(672,596) scale(.34) rotate('+(polish?0:Math.sin(now*0.004)*5)+' 0 0)');
   }
   function mount(){
-    riding=true;cowRun=false;pX=832;pY=400;cowX=832;cowY=400;cowFlip=false;
+    riding=true;cowRun=false;pX=828;pY=592;cowX=828;cowY=592;cowFlip=false;
     teacher.parentNode.insertBefore(cowEl,player);
     pop('Yeehaw!',pX,pY-150*pS);
   }
   function dismount(){riding=false;cowRun=true;}
   function resetCow(){
-    riding=false;cowRun=false;cowX=832;cowY=400;
-    cowEl.setAttribute('transform','translate(832,400) scale(.9)');
+    riding=false;cowRun=false;cowX=828;cowY=592;
+    cowEl.setAttribute('transform','translate(828,592) scale(1.1)');
     cowEl.parentNode.insertBefore(cowEl,cowNext);
   }
   function ram(now){
@@ -674,15 +870,23 @@
     stunUntil=0;
     starsG.setAttribute('visibility','hidden');
   }
+  var HIDES=[{x:395,y:478},{x:670,y:478},{x:780,y:478}];
+  function inHideZone(x,y){
+    if(x>=585&&x<=740&&y>=418&&y<=466){return true;}
+    for(var i=0;i<HIDES.length;i++){
+      if(x>=HIDES[i].x+18&&x<=HIDES[i].x+88&&y>=529&&y<=549){return true;}
+    }
+    return false;
+  }
   function toggleCrouch(){
     var now=performance.now();
     if(over||caught){return;}
     if(riding){dismount();return;}
-    if(standT>=1&&!crouching&&!cowRun&&Math.abs(pX-832)<85&&Math.abs(pY-400)<55){mount();return;}
+    if(standT>=1&&!crouching&&!cowRun&&Math.abs(pX-828)<95&&Math.abs(pY-592)<45){mount();return;}
     if(standT<1){return;}
     if(crouching){crouching=false;return;}
     if(now<crouchCD){pop('Too soon!',pX,pY-150*pS);return;}
-    if(!(pX>=585&&pX<=740&&pY>=418&&pY<=466)){pop('Hide behind the teacher’s desk!',pX,pY-150*pS);return;}
+    if(!inHideZone(pX,pY)){pop('Crouch behind a desk to hide!',pX,pY-150*pS);return;}
     crouching=true;crouchStart=now;
   }
   function updatePlayer(now){
@@ -700,7 +904,7 @@
     else if(standT>=1&&!over&&!caught&&!crouching){
       var vx=(keys.d?1:0)-(keys.a?1:0),vy=(keys.s?1:0)-(keys.w?1:0);
       if(vx||vy){var ln=Math.sqrt(vx*vx+vy*vy),sp=riding?1.6:1;pX+=vx/ln*170*sp*dt;pY+=vy/ln*120*sp*dt;moving=true;if(vx){cowFlip=vx>0;}}
-      pX=Math.max(20,Math.min(880,pX));pY=Math.max(350,Math.min(505,pY));
+      pX=Math.max(20,Math.min(880,pX));pY=Math.max(350,Math.min(596,pY));
     }
     bob=moving?-Math.abs(Math.sin(now*0.02))*3:0;
     pS=1+(pY-462)*0.0037;
@@ -711,16 +915,16 @@
     pLegs.setAttribute('visibility',(standT>0.05&&!riding)?'visible':'hidden');
     if(riding){cowX=pX;cowY=pY;}
     else if(cowRun){
-      var cdx=832-cowX,cdy=400-cowY,cdd=Math.sqrt(cdx*cdx+cdy*cdy),cst=380*dt;
+      var cdx=828-cowX,cdy=592-cowY,cdd=Math.sqrt(cdx*cdx+cdy*cdy),cst=380*dt;
       if(cdd<=cst){resetCow();}
       else{cowX+=cdx/cdd*cst;cowY+=cdy/cdd*cst;cowFlip=cdx>0;}
     }
     if(riding||cowRun){
-      var ccs=0.9*(1+(cowY-462)*0.0037)/0.7706;
+      var ccs=1.1*(1+(cowY-462)*0.0037)/1.481;
       var sg=polish?(cowFlip?1:-1):(cowFlip?-1:1);
       cowEl.setAttribute('transform','translate('+cowX+' '+cowY+') scale('+(sg*ccs)+' '+ccs+')');
     }
-    var deskHide=pX>=585&&pX<=740&&pY>=418&&pY<=466;
+    var deskHide=inHideZone(pX,pY);
     var dm=(crouchT>0.05&&deskHide)?2:(pY>466?0:1);
     if(dm!==depthMode){depthMode=dm;teacher.parentNode.insertBefore(player,dm===0?aF:(dm===1?aT:tDesk));if(riding||cowRun){teacher.parentNode.insertBefore(cowEl,player);}}
     var cv=crouching?'visible':'hidden';
@@ -732,10 +936,10 @@
       cbTxt.setAttribute('x',pX);cbTxt.setAttribute('y',358);
     }
     var hid=crouchT>0.6&&deskHide;playerHidden=hid;
-    var ic=pX>715&&pY<470&&standT>=1&&!hid;
-    if(ic&&!inCorner){pop('Moo!',832,320);}
+    var ic=pX>690&&pY>=556&&standT>=1&&!hid;
+    if(ic&&!inCorner){pop('Moo!',828,505);}
     inCorner=ic;
-    if(!dungReady&&now>=dungAt){dungReady=true;pop('*plop*',790,392);}
+    if(!dungReady&&now>=dungAt){dungReady=true;pop('*plop*',730,560);}
     dungEl.setAttribute('visibility',dungReady?'visible':'hidden');
     steamEl.setAttribute('opacity',0.35+0.3*Math.sin(now*0.005));
     cowTail.setAttribute('transform','rotate('+(Math.sin(now*0.004)*14)+' 44 -54)');
@@ -918,13 +1122,503 @@
     else if(deanState==='ask'&&k.length===1&&'1234'.indexOf(k)>=0){answerDean(+k-1,performance.now());}
     else if(deanState==='dead'&&k==='r'){restart();}
   }
+  var hasPass=false,passUntil=0,askCD=0,lastAskTxt='',lastAskDisp='';
+  var askBtn=document.getElementById('askBtn'),doorHint=$('doorHint');
+  var hallG=$('hall'),bathG=$('bath'),roomHud=$('roomHud'),hallTxt=$('hallTxt'),hallSub=$('hallSub'),hallPassTag=$('hallPassTag'),hallPassG=$('hallPass'),bathBarG=$('bathBarG'),bathBar=$('bathBar'),hallFlash=$('hallFlash'),hmA=$('hmA'),hmB=$('hmB'),hallPlayer=$('hallPlayer'),bathPlayer=$('bathPlayer'),bustedG=$('busted'),bustedScore=$('bustedScore');
+  var hallState='',hallT0=0,hallStart=0,outPass=false,rpX=130,rpY=520,bpX=140,bpY=520,nextCheck=0,chk=0,chkT0=0,chkMsgUntil=0,usingStall=-1,useT0=0,lastH=0;
+  var MON=[{y:380,min:300,max:470,dir:1,ox:300,off:-70,g:null},{y:500,min:430,max:575,dir:-1,ox:600,off:70,g:null}],STALLX=[210,400,590],hallOrder='';
+  MON[0].g=hmA;MON[1].g=hmB;
+
+  /* ---- kitchen and concoctions ---- */
+  var kitchenG=$('kitchen'),kPlayer=$('kPlayer'),kBarG=$('kBarG'),kBar=$('kBar'),kPotFill=$('kPotFill'),kBubG=$('kBubbles'),kSteam=$('kSteam');
+  var kFxG=mk('g',{},kitchenG);
+  var kpX=140,kpY=520,cooking=false,cookT0=0,kBrew=null,kPend=null,curBrew=null,kFl=[],STOVEX=455;
+  var BADJ=['Lukewarm','Fizzy','Spicy','Stinky','Cursed','Volcanic','Radioactive'];
+  var BBASE=['Pickle','Hummus','Cabbage','Gym Sock','Onion','Garlic','Cheese','Tuna','Beet','Ketchup'];
+  var BKIND=['Slime','Soup','Stew','Goo','Smoothie','Surprise','Punch'];
+  var BCOL=['#7be07b','#c76bff','#ff7a3d','#3fd0ff','#ffd93d','#ff5fa2','#9cff57'];
+  var BLINES=['WHAT IS IN THIS?!','It burns!','My eyebrows!','Is that PICKLE?!','Smells like socks!'];
+  var kBub=[];
+  (function(){for(var i=0;i<4;i++){kBub.push(mk('circle',{cx:441+i*9,cy:223,r:3,fill:'#fff',opacity:0.8},kBubG));}})();
+  function mkBrewIcon(parent,color){
+    var g=mk('g',{},parent);
+    mk('rect',{x:-3.5,y:-13,width:7,height:6,fill:'#cfd8dc',stroke:'#33414a','stroke-width':1},g);
+    var body=mk('path',{d:'M-3 -8 L-10 3 Q-11 9 -5 9 L5 9 Q11 9 10 3 L3 -8 Z',fill:color,stroke:'#33414a','stroke-width':1.4},g);
+    mk('circle',{cx:-2,cy:3,r:2.2,fill:'#fff',opacity:0.7},g);mk('circle',{cx:3,cy:5,r:1.6,fill:'#fff',opacity:0.7},g);
+    return {g:g,body:body};
+  }
+  var heldBrew=mkBrewIcon(fx,'#7be07b');heldBrew.g.setAttribute('visibility','hidden');
+  var brewTxt=mk('text',{'font-size':13,'font-weight':900,'font-family':'system-ui,sans-serif','text-anchor':'middle',fill:'#fff',stroke:'#5a1d8a','stroke-width':4,'paint-order':'stroke',visibility:'hidden'},fx);
+  function updateBrewHud(){
+    if(kBrew){brewTxt.textContent=kBrew.name+' (+'+kBrew.pts+')';brewTxt.setAttribute('x',pX);brewTxt.setAttribute('y',pY-175*pS);brewTxt.setAttribute('visibility','visible');}
+    else{brewTxt.setAttribute('visibility','hidden');}
+  }
+  function makeBrew(){
+    if(Math.random()<0.01){return {name:'DIARRHEA (1%)',pts:100,color:'#7a4a1c'};}
+    var ai=Math.floor(Math.random()*BADJ.length);
+    return {name:BADJ[ai]+' '+BBASE[Math.floor(Math.random()*BBASE.length)]+' '+BKIND[Math.floor(Math.random()*BKIND.length)],pts:10+5*ai,color:BCOL[Math.floor(Math.random()*BCOL.length)]};
+  }
+  function nearStove(){return Math.abs(kpX-STOVEX)<95&&kpY<=495;}
+  function nearKitchenDoor(){return rpY>=290&&rpY<=400&&rpX<=hallXL(rpY)+85;}
+  function kPop(txt,x,y,fill,size){
+    var e=mk('text',{x:x,y:y,'font-size':size||20,'font-weight':900,fill:fill||'#fff',stroke:'#000','stroke-width':5,'paint-order':'stroke'},kFxG);
+    e.textContent=txt;kFl.push({t0:performance.now(),y:y,el:e});
+  }
+  function clearKitchenFx(){for(var i=0;i<kFl.length;i++){kFxG.removeChild(kFl[i].el);}kFl.length=0;}
+  function resetKitchen(){
+    kBrew=null;kPend=null;curBrew=null;cooking=false;clearKitchenFx();
+    kBarG.setAttribute('display','none');
+    brewTxt.setAttribute('visibility','hidden');heldBrew.g.setAttribute('visibility','hidden');
+  }
+  function kitchenInteract(now){
+    if(cooking){return;}
+    if(kpX<=150){hallState='hall';rpX=hallXL(350)+70;rpY=350;nextCheck=now+3000;chk=0;lastH=now;showRoom('hall');return;}
+    if(nearStove()){
+      if(kBrew){kPop('Hands full! Throw it first!',STOVEX,330,'#fff',20);return;}
+      cooking=true;cookT0=now;kPend=makeBrew();
+    }
+  }
+  function updateKitchen(now,dt,vx,vy,ln){
+    var i;
+    hallTxt.textContent='THE KITCHEN';
+    if(cooking){
+      var u=Math.min(1,(now-cookT0)/2600);
+      kBarG.removeAttribute('display');kBar.setAttribute('width',300*u);
+      kPotFill.setAttribute('fill',BCOL[Math.floor(now/160)%BCOL.length]);
+      for(i=0;i<kBub.length;i++){kBub[i].setAttribute('cy',223-7*Math.abs(Math.sin(now*0.012+i*1.7)));kBub[i].setAttribute('r',2.5+2*Math.abs(Math.sin(now*0.01+i)));}
+      kSteam.setAttribute('opacity',0.5+0.3*Math.sin(now*0.01));
+      hallSub.textContent='Cooking up something awful\u2026';
+      if(u>=1){
+        cooking=false;kBarG.setAttribute('display','none');
+        kBrew=kPend;kPend=null;
+        heldBrew.body.setAttribute('fill',kBrew.color);kPotFill.setAttribute('fill',kBrew.color);
+        kPop(kBrew.name,STOVEX,196,kBrew.color,26);
+        if(kBrew.pts>=100){kPop('1% RARE DROP!!',STOVEX,160,'#ff4d4d',30);}
+        kPop('+'+kBrew.pts+' points when it lands!',STOVEX,228,'#ffe14d',20);
+      }
+    }else{
+      kBarG.setAttribute('display','none');
+      kSteam.setAttribute('opacity',0.25);
+      for(i=0;i<kBub.length;i++){kBub[i].setAttribute('cy',223);kBub[i].setAttribute('r',3);}
+      if(ln>0){kpX+=vx/ln*210*dt;kpY+=vy/ln*120*dt;}
+      kpX=Math.max(40,Math.min(860,kpX));kpY=Math.max(440,Math.min(570,kpY));
+      var sub='Walk with WASD \u2014 the stove is in the middle, the door is on the left';
+      if(kpX<=150){sub='Press E: back to the hallway';}
+      else if(nearStove()){sub=kBrew?'Press E: (hands full)':'Press E: cook a concoction';}
+      hallSub.textContent=sub;
+    }
+    var s2=1+(kpY-516)*0.004;
+    kPlayer.setAttribute('transform','translate('+kpX+' '+kpY+') scale('+s2+') translate(-150 -516)');
+    hudHint.textContent=kBrew?('Holding: '+kBrew.name+' (+'+kBrew.pts+') \u2014 take it to class, press Q!'):'E at the stove: cook a concoction';
+    for(i=kFl.length-1;i>=0;i--){
+      var w=(now-kFl[i].t0)/1100;
+      if(w>=1){kFxG.removeChild(kFl[i].el);kFl.splice(i,1);continue;}
+      kFl[i].el.setAttribute('y',kFl[i].y-36*w);
+      kFl[i].el.setAttribute('opacity',1-w*w);
+    }
+  }
+  function impactBrew(f,now){
+    var b=f.brew;
+    addScore(b.pts,f.x1-45,f.y1-10);
+    addSplat(f.lx,f.ly,f.face,b.color,'#2a2a3a');
+    flinchT0=now;addSus(0.2);
+    if(isBack&&now>=stunUntil&&now>=graceUntil){addSus(0.2);if(tState==='writing'){writeEnd=Math.min(writeEnd,now+500);}}
+    if(now>=stunUntil){bubble.textContent=BLINES[Math.floor(Math.random()*BLINES.length)];bubbleUntil=now+1300;}
+    var fl=mk('text',{x:f.x1+14,y:f.y1-18,'font-size':22,'font-weight':800,'font-family':'system-ui,sans-serif',fill:'#7a1fa8',stroke:'#fff','stroke-width':4,'paint-order':'stroke'},fx);
+    fl.textContent='KA-BLOOEY!';
+    floaters.push({t0:now,x:f.x1+14,y:f.y1-18,el:fl});
+  }
+  /* ---- students in the hallway and restroom, plus throwing in the restroom ---- */
+  var SHIRTC=['#3d9be0','#d6628f','#7bc47f','#9b6fd3','#e6c93a','#e05a47','#2ab3a6','#f08c3a'],HAIRC=['#1b1b1f','#7a3b1d','#c9a24a','#3b2a1a','#a0522d','#222222'],SKINC=['#e6b891','#c68a5e','#f1c9a5','#8d5a3b'],PANTC=['#3a4a6b','#4a4a52','#5b4a3a','#2f5d8e'];
+  var HLINES=['Hey!','Sup','Shh, monitors!','Nice hall pass','Gotta go!','lol','Is that hummus?','Don\u2019t tell','Class is boring','Hi!'];
+  var RRLINES=['Occupied!','Hurry up!','Ahh, finally','Anyone in here?','Don\u2019t look at me','Wash your hands!'];
+  var STU=[],bProj=[],bSplat=[],bFl=[],bFace=1,bLastThrow=0,bOrder='',hudScoreLast=-1;
+  var bSplatG=mk('g',{},bathG),bFxG=mk('g',{},bathG);
+  bathG.insertBefore(bSplatG,bathPlayer);
+  var roomHudG=$('roomHud');
+  var hudScore=mk('text',{x:876,y:36,'text-anchor':'end','font-size':20,'font-weight':900,fill:'#fff',stroke:'#000','stroke-width':5,'paint-order':'stroke'},roomHudG);
+  var hudHint=mk('text',{x:450,y:124,'font-size':17,'font-weight':800,fill:'#ffe14d',stroke:'#000','stroke-width':5,'paint-order':'stroke'},roomHudG);
+  var bAim=mk('path',{d:'M0 -9 L18 0 L0 9 L5 0 Z',fill:'#ffe14d',stroke:'#000','stroke-width':2.5,display:'none'},bFxG);
+  function mkKid(par,sh,hr,sk,pn){
+    var g=mk('g',{},par);
+    mk('rect',{x:-10,y:-54,width:12,height:52,fill:pn},g);mk('rect',{x:6,y:-54,width:12,height:52,fill:pn},g);
+    mk('ellipse',{cx:-4,cy:-1,rx:11,ry:4,fill:'#111'},g);mk('ellipse',{cx:12,cy:-1,rx:11,ry:4,fill:'#111'},g);
+    mk('rect',{x:-18,y:-108,width:44,height:64,rx:13,fill:sh},g);
+    mk('circle',{cx:4,cy:-128,r:20,fill:sk},g);
+    mk('path',{d:'M-16 -130 Q-16 -154 4 -154 Q24 -154 24 -130 Q14 -142 4 -142 Q-6 -142 -16 -130Z',fill:hr},g);
+    mk('circle',{cx:-3,cy:-125,r:2.5,fill:'#222'},g);mk('circle',{cx:11,cy:-125,r:2.5,fill:'#222'},g);
+    var t=mk('text',{x:4,y:-170,'font-size':22,'font-weight':800,fill:'#222',stroke:'#fff','stroke-width':6,'paint-order':'stroke',display:'none'},g);
+    return {g:g,t:t,n:g.childNodes.length};
+  }
+  (function(){
+    for(var si=0;si<8;si++){
+      var a=mkKid(hallG,SHIRTC[si],HAIRC[(si*3+1)%6],SKINC[(si*2)%4],PANTC[si%4]);
+      var b=mkKid(bathG,SHIRTC[si],HAIRC[(si*3+1)%6],SKINC[(si*2)%4],PANTC[si%4]);
+      a.g.setAttribute('display','none');b.g.setAttribute('display','none');
+      STU.push({i:si,goer:si<4,loc:'away',st:'wait',t:0,x:0,y:0,bx:0,by:0,tx:0,ty:0,spd:70,sz:0.94+((si*37)%11)/100,slot:-1,sayUntil:0,sayTxt:'',ph:si*1.7,mv:false,gh:a.g,ht:a.t,bg:b.g,bt:b.t,bn:b.n});
+    }
+  })();
+  function stuClean(s){while(s.bg.childNodes.length>s.bn){s.bg.removeChild(s.bg.lastChild);}}
+  function say(s,txt,now,ms){s.sayTxt=txt;s.sayUntil=now+(ms||1500);}
+  function pickWalk(s){var y=270+Math.random()*320,xl=hallXL(y)+36,xr=hallXR(y)-36;s.tx=xl+(xr-xl)*(0.05+0.9*Math.random());s.ty=y;s.st='walk';s.spd=40+Math.random()*30;}
+  function resetStudents(now){
+    for(var i=0;i<STU.length;i++){
+      var s=STU[i];stuClean(s);s.sayUntil=0;s.slot=-1;
+      if(s.goer){s.loc='away';s.st='wait';s.t=now+700+i*2300+Math.random()*1500;}
+      else{s.loc='hall';s.y=290+Math.random()*290;var w=hallXR(s.y)-hallXL(s.y)-90;s.x=(hallXL(s.y)+hallXR(s.y))/2+(Math.random()-0.5)*w;pickWalk(s);}
+    }
+    var g=STU[0];g.loc='bath';g.st='stall';g.slot=1;g.t=now+3500;g.bx=STALLX[1];g.by=448;
+  }
+  function clearBathFx(){
+    for(var i=0;i<bProj.length;i++){bFxG.removeChild(bProj[i].el);}bProj.length=0;
+    for(var j=0;j<bSplat.length;j++){bSplatG.removeChild(bSplat[j].g);}bSplat.length=0;
+    for(var k=0;k<bFl.length;k++){bFxG.removeChild(bFl[k].el);}bFl.length=0;
+  }
+  function moveTo(s,hall,tx,ty,sp,dt){
+    var px=hall?s.x:s.bx,py=hall?s.y:s.by,dx=tx-px,dy=ty-py,d=Math.sqrt(dx*dx+dy*dy);
+    if(d<5){return true;}
+    var st=Math.min(d,sp*dt);px+=dx/d*st;py+=dy/d*st;
+    if(hall){s.x=px;s.y=py;}else{s.bx=px;s.by=py;}
+    s.mv=true;return d-st<5;
+  }
+  function occupied(q){
+    if(usingStall===q){return true;}
+    for(var i=0;i<STU.length;i++){var s=STU[i];if(s.loc==='bath'&&s.slot===q&&(s.st==='stall'||s.st==='toStall')){return true;}}
+    return false;
+  }
+  function bPop(txt,x,y,fill,size){
+    var e=mk('text',{x:x,y:y,'font-size':size||20,'font-weight':900,fill:fill||'#fff',stroke:'#000','stroke-width':5,'paint-order':'stroke'},bFxG);
+    e.textContent=txt;bFl.push({t0:performance.now(),y:y,el:e});
+  }
+  function bathScore(n,x,y){
+    score+=n;scoreT0=performance.now();scoreDur=900+Math.min(20,n)*90;
+    scoreBase.textContent='Score: '+score;scoreRb.textContent='Score: '+score;
+    count++;updateCount();bPop('+'+n,x,y,'#ffe14d',28);
+  }
+  function stuHallList(list){
+    for(var i=0;i<STU.length;i++){var s=STU[i];if(s.loc==='hall'){list.push({e:s.gh,y:s.y,n:'s'+i});}}
+  }
+  function orderBath(){
+    var list=[{e:bathPlayer,y:bpY,n:'p'}];
+    for(var i=0;i<STU.length;i++){var s=STU[i];if(s.loc==='bath'&&s.st!=='stall'){list.push({e:s.bg,y:s.by,n:'s'+i});}}
+    list.sort(function(u,v){return u.y-v.y;});
+    var key=list.map(function(o){return o.n;}).join(',');
+    if(key!==bOrder){bOrder=key;for(var j=0;j<list.length;j++){bathG.insertBefore(list[j].e,bathBarG);}}
+  }
+  function updateStudents(now,dt){
+    var i,s,q;
+    for(i=0;i<STU.length;i++){
+      s=STU[i];s.mv=false;
+      if(s.loc==='away'){
+        if(now>=s.t){s.loc='hall';s.x=hallXL(520)+34;s.y=505+Math.random()*30;s.st='toRR';s.spd=62+Math.random()*20;if(Math.random()<0.4){say(s,'Gotta go!',now,1400);}}
+      }else if(s.loc==='hall'){
+        if(s.st==='toRR'){
+          if(moveTo(s,true,450,246,s.spd,dt)){s.loc='bath';s.st='bIn';s.bx=146;s.by=480+Math.random()*70;s.sayUntil=0;}
+        }else if(s.st==='toClass'){
+          if(moveTo(s,true,hallXL(520)+34,520,s.spd,dt)){s.loc='away';s.st='wait';s.t=now+5000+Math.random()*9000;s.sayUntil=0;}
+        }else if(s.st==='walk'){
+          if(moveTo(s,true,s.tx,s.ty,s.spd,dt)){s.st='idle';s.t=now+1200+Math.random()*2600;if(Math.random()<0.5){say(s,HLINES[Math.floor(Math.random()*HLINES.length)],now,1600);}}
+        }else if(s.st==='idle'){
+          if(now>=s.t){pickWalk(s);}
+        }
+        s.y=Math.max(238,Math.min(598,s.y));
+        s.x=Math.max(hallXL(s.y)+22,Math.min(hallXR(s.y)-22,s.x));
+      }else if(s.loc==='bath'){
+        if(s.st==='bIn'){
+          var free=[];for(q=0;q<STALLX.length;q++){if(!occupied(q)){free.push(q);}}
+          if(free.length&&Math.random()<0.65){s.slot=free[Math.floor(Math.random()*free.length)];s.tx=STALLX[s.slot];s.ty=448;s.st='toStall';}
+          else{s.slot=-1;s.tx=Math.random()<0.5?750:840;s.ty=452;s.st='toSink';}
+          s.spd=120+Math.random()*30;
+          if(Math.random()<0.35){say(s,RRLINES[Math.floor(Math.random()*RRLINES.length)],now,1700);}
+        }else if(s.st==='toStall'){
+          if(usingStall===s.slot){s.slot=-1;s.tx=750;s.ty=452;s.st='toSink';}
+          else if(moveTo(s,false,s.tx,s.ty,s.spd,dt)){s.st='stall';s.t=now+2500+Math.random()*2500;s.sayUntil=0;}
+        }else if(s.st==='stall'){
+          if(now>=s.t){bPop('*flush*',STALLX[s.slot],310,'#bfe9ff',20);s.slot=-1;s.st='bOut';s.spd=130;}
+        }else if(s.st==='toSink'){
+          if(moveTo(s,false,s.tx,s.ty,s.spd,dt)){s.st='wash';s.t=now+1800+Math.random()*1200;}
+        }else if(s.st==='wash'){
+          if(now>=s.t){s.st='bOut';s.spd=130;}
+        }else if(s.st==='bOut'){
+          if(moveTo(s,false,146,Math.max(470,Math.min(560,s.by)),s.spd,dt)){s.loc='hall';s.x=450;s.y=250;s.st='toClass';s.spd=60+Math.random()*20;s.sayUntil=0;}
+        }
+        s.bx=Math.max(40,Math.min(860,s.bx));s.by=Math.max(440,Math.min(570,s.by));
+      }
+      var bob=s.mv?-Math.abs(Math.sin(now*0.014+s.ph))*4:0;
+      if(s.loc==='hall'){
+        var hs=(1-0.65*hallT(s.y))*s.sz;
+        s.gh.removeAttribute('display');
+        s.gh.setAttribute('transform','translate('+s.x+' '+(s.y+bob*hs)+') scale('+hs+')');
+      }else{s.gh.setAttribute('display','none');}
+      if(s.loc==='bath'&&s.st!=='stall'){
+        var s2=(1+(s.by-516)*0.004)*s.sz,wb=(s.st==='wash')?Math.sin(now*0.02)*3:bob;
+        s.bg.removeAttribute('display');
+        s.bg.setAttribute('transform','translate('+s.bx+' '+(s.by+wb)+') scale('+s2+')');
+      }else{s.bg.setAttribute('display','none');}
+      if(now<s.sayUntil){
+        s.ht.textContent=s.sayTxt;s.bt.textContent=s.sayTxt;
+        s.ht.removeAttribute('display');s.bt.removeAttribute('display');
+      }else{s.ht.setAttribute('display','none');s.bt.setAttribute('display','none');}
+    }
+  }
+  function bathThrow(now){
+    if(hallState!=='bath'||usingStall>=0||now-bLastThrow<380){return;}
+    bLastThrow=now;
+    var ks=['hummus','tp','towel'],kd=ks[Math.floor(Math.random()*ks.length)];
+    var ss=1+(bpY-516)*0.004,el=mk('g',{},bFxG);
+    if(kd==='hummus'){mk('circle',{r:8,fill:'#e3c38a',stroke:'#c9a063','stroke-width':2},el);}
+    else if(kd==='tp'){mk('circle',{r:9,fill:'#fff',stroke:'#aaa','stroke-width':2},el);mk('circle',{r:3.5,fill:'#d8d8d8'},el);mk('rect',{x:-4,y:8,width:8,height:14,fill:'#fff',stroke:'#ccc','stroke-width':1},el);}
+    else{mk('circle',{r:8,fill:'#b5c4cc',stroke:'#8fa3ad','stroke-width':2},el);mk('circle',{cx:2,cy:-2,r:3,fill:'#9db0ba'},el);}
+    bProj.push({x:bpX+bFace*30*ss,y:bpY,h0:84*ss,age:0,vx:bFace*520,kind:kd,el:el});
+  }
+  function floorSplat(x,y,kd){
+    var g=mk('g',{},bSplatG),c=kd==='hummus'?'#e3c38a':(kd==='tp'?'#f6f6f6':'#9fb3bd');
+    mk('ellipse',{cx:x,cy:y,rx:15,ry:5.5,fill:c,opacity:0.95},g);
+    mk('ellipse',{cx:x+9,cy:y-2,rx:4,ry:2,fill:c},g);
+    if(kd==='tp'){mk('path',{d:'M'+x+' '+y+' q 20 -8 34 2 t 36 -3',fill:'none',stroke:'#fff','stroke-width':4,'stroke-linecap':'round'},g);}
+    bSplat.push({g:g,t0:performance.now()});
+    while(bSplat.length>16){bSplatG.removeChild(bSplat.shift().g);}
+  }
+  function hitStudent(s,p,now){
+    var ss2=(1+(s.by-516)*0.004)*s.sz,col=p.kind==='hummus'?'#e3c38a':(p.kind==='tp'?'#f4f4f4':'#9fb3bd');
+    if(s.bg.childNodes.length<s.bn+8){
+      var sx=-6+Math.random()*20,sy=-98+Math.random()*34;
+      mk('circle',{cx:sx,cy:sy,r:7+Math.random()*3,fill:col,stroke:'rgba(0,0,0,.25)','stroke-width':1},s.bg);
+      mk('circle',{cx:sx+8,cy:sy+6,r:3,fill:col},s.bg);
+    }
+    var ow=['EW!!','HEY!','My shirt!','Who did that?!','GROSS!'];
+    say(s,ow[Math.floor(Math.random()*ow.length)],now,1400);
+    s.st='bOut';s.spd=230;s.slot=-1;
+    bathScore(3,s.bx,s.by-135*ss2);
+  }
+  function updateBathFx(now,dt){
+    var i,j,s;
+    if(hudScoreLast!==score){hudScoreLast=score;hudScore.textContent='Score: '+score;}
+    var inB=hallState==='bath'&&usingStall<0;
+    hudHint.textContent=inB?(bFace>0?'Q: throw stuff   aiming RIGHT >>':'<<   aiming LEFT   Q: throw stuff'):'';
+    if(hallState==='bath'){
+      orderBath();
+      if(inB){
+        var sa=1+(bpY-516)*0.004;
+        bAim.removeAttribute('display');
+        bAim.setAttribute('transform','translate('+(bpX+bFace*(44*sa+Math.sin(now*0.012)*3))+' '+(bpY-80*sa)+') scale('+(bFace*sa)+' '+sa+')');
+      }else{bAim.setAttribute('display','none');}
+    }else{bAim.setAttribute('display','none');}
+    for(i=bProj.length-1;i>=0;i--){
+      var p=bProj[i];
+      p.age+=dt;p.x+=p.vx*dt;
+      var hg=p.h0+34*p.age-140*p.age*p.age,ss=1+(p.y-516)*0.004,hit=null;
+      for(j=0;j<STU.length;j++){
+        s=STU[j];
+        if(s.loc==='bath'&&s.st!=='stall'&&Math.abs(s.bx-p.x)<26*s.sz&&Math.abs(s.by-p.y)<24&&hg>-4&&hg<125*s.sz){hit=s;break;}
+      }
+      if(hit){bFxG.removeChild(p.el);bProj.splice(i,1);hitStudent(hit,p,now);continue;}
+      if(hg<=0||p.x<36||p.x>864){
+        floorSplat(Math.max(36,Math.min(864,p.x)),p.y,p.kind);
+        bFxG.removeChild(p.el);bProj.splice(i,1);continue;
+      }
+      p.el.setAttribute('transform','translate('+p.x+' '+(p.y-hg)+') rotate('+(p.age*720*(p.vx>0?1:-1))+') scale('+ss+')');
+    }
+    for(i=bSplat.length-1;i>=0;i--){
+      var ag=now-bSplat[i].t0-7000;
+      if(ag<=0){continue;}
+      if(ag>=1500){bSplatG.removeChild(bSplat[i].g);bSplat.splice(i,1);continue;}
+      bSplat[i].g.setAttribute('opacity',1-ag/1500);
+    }
+    for(i=bFl.length-1;i>=0;i--){
+      var u=(now-bFl[i].t0)/900;
+      if(u>=1){bFxG.removeChild(bFl[i].el);bFl.splice(i,1);continue;}
+      bFl[i].el.setAttribute('y',bFl[i].y-40*u);
+      bFl[i].el.setAttribute('opacity',1-u*u);
+    }
+  }
+  function hallT(y){return Math.max(0,Math.min(1,(620-y)/415));}
+  function hallXL(y){return 110+270*hallT(y);}
+  function hallXR(y){return 790-270*hallT(y);}
+  function nearClassDoor(){return rpY>=430&&rpX<=hallXL(rpY)+85;}
+  function nearRestroomDoor(){return rpY<=272;}
+  askBtn.addEventListener('pointerdown',function(e){e.preventDefault();e.stopPropagation();askBathroom();});
+  function nearDoor(){return pX<=105&&pY<=375;}
+  function askBathroom(){
+    var now=performance.now();
+    if(over||caught||deanState||blameState||fightState||hallState||riding||hasPass||now<askCD){return;}
+    hasPass=true;passUntil=now+25000;addSus(0.05);
+    bubble.textContent='Fine. Go. Be quick!';bubbleUntil=now+2200;
+    pop('HALL PASS GRANTED!',pX,pY-150*pS);
+  }
+  function syncAsk(){
+    var hide=(over||deanState||blameState||fightState||hallState)?'none':'block';
+    if(hide!==lastAskDisp){askBtn.style.display=hide;lastAskDisp=hide;}
+  }
+  function updateUI(now){
+    updateBrewHud();
+    if(hasPass&&now>=passUntil){hasPass=false;askCD=now+15000;pop('Hall pass expired!',pX,pY-150*pS);}
+    var txt,dim=false;
+    if(hasPass){txt='Hall pass \u2713 \u2014 go to the door! ('+Math.ceil((passUntil-now)/1000)+'s)';dim=true;}
+    else if(now<askCD){txt='Ask again in '+Math.ceil((askCD-now)/1000)+'s';dim=true;}
+    else{txt='Ask to go to the bathroom';}
+    if(txt!==lastAskTxt){askBtn.textContent=txt;askBtn.style.opacity=dim?0.6:1;lastAskTxt=txt;}
+    doorHint.setAttribute('visibility',(standT>=1&&nearDoor()&&!riding)?'visible':'hidden');
+  }
+  function useDoor(now){
+    if(hasPoop){hasPoop=false;cowHeld=false;}
+    startHall(now,hasPass&&now<passUntil);
+  }
+  function showRoom(which){
+    hallPassG.setAttribute('visibility','hidden');bathBarG.setAttribute('visibility','hidden');bathPlayer.removeAttribute('visibility');
+    hallG.setAttribute('visibility',which==='hall'?'visible':'hidden');
+    bathG.setAttribute('visibility',which==='bath'?'visible':'hidden');
+    kitchenG.setAttribute('visibility',which==='kitchen'?'visible':'hidden');
+    roomHud.setAttribute('visibility',(which==='hall'||which==='bath'||which==='kitchen')?'visible':'hidden');
+  }
+  function startHall(now,withPass){
+    endMini();pooping=false;
+    outPass=withPass;
+    if(withPass){hasPass=false;askCD=now+25000;}
+    hallStart=now;lastH=now;
+    alertG.setAttribute('visibility','hidden');
+    hallState='hall';rpX=hallXL(520)+70;rpY=520;nextCheck=now+3000;chk=0;chkMsgUntil=0;usingStall=-1;
+    hallFlash.setAttribute('opacity',0);hallPassG.setAttribute('visibility','hidden');
+    MON[0].y=380;MON[0].dir=1;MON[1].y=500;MON[1].dir=-1;resetStudents(now);clearBathFx();cooking=false;clearKitchenFx();
+    showRoom('hall');
+  }
+  function hallReturn(now){
+    shiftTimers(now-hallStart);
+    hallState='';showRoom('');outPass=false;keys={};
+    standGoal=0;standT=0;pX=450;pY=462;crouching=false;crouchT=0;
+    graceUntil=now+3000;sight=0;hold=0;seen=0;addSus(0.1);
+    bubble.textContent='Took you long enough.';bubbleUntil=now+1800;
+    lastT=now;lastE=now;lastS=now;
+  }
+  function hallDead(now){
+    hallState='dead';over=true;showRoom('');
+    bustedScore.textContent='Score: '+score;
+    bustedG.setAttribute('visibility','visible');
+  }
+  function hallKey(k){
+    if(hallState==='dead'){if(k==='r'){restart();}return;}
+    if(k==='q'){bathThrow(performance.now());return;}
+    if(k==='w'||k==='a'||k==='s'||k==='d'){keys[k]=true;return;}
+    if(k==='e'){hallInteract(performance.now());}
+  }
+  function hallInteract(now){
+    if(hallState==='kitchen'){kitchenInteract(now);return;}
+    if(hallState==='hall'){
+      if(nearClassDoor()){hallReturn(now);}
+      else if(nearRestroomDoor()){hallState='bath';bpX=140;bpY=520;usingStall=-1;lastH=now;showRoom('bath');}
+      else if(nearKitchenDoor()){hallState='kitchen';kpX=140;kpY=520;cooking=false;lastH=now;showRoom('kitchen');}
+    }else if(hallState==='bath'){
+      if(usingStall>=0){return;}
+      if(bpX<=150){hallState='hall';rpX=450;rpY=252;nextCheck=now+3000;chk=0;lastH=now;showRoom('hall');}
+      else{
+        for(var q=0;q<STALLX.length;q++){
+          if(Math.abs(bpX-STALLX[q])<80&&bpY<=480){if(occupied(q)){bPop('Occupied!',STALLX[q],330,'#fff',22);}else{usingStall=q;useT0=now;}break;}
+        }
+      }
+    }
+  }
+  function placeMonitors(jit){
+    for(var m=0;m<2;m++){
+      var mo=MON[m],mt=hallT(mo.y),k=1-0.65*mt;
+      var mx=(hallXL(mo.y)+hallXR(mo.y))/2+mo.off*k+(m===0?jit:-jit);
+      mo.g.setAttribute('transform','translate('+mx+' '+mo.y+') scale('+(1.2*k)+') translate(-'+mo.ox+' -520)');
+    }
+  }
+  function orderHall(){
+    var list=[{e:hmA,y:MON[0].y,n:'a'},{e:hmB,y:MON[1].y,n:'b'},{e:hallPlayer,y:rpY,n:'p'}];stuHallList(list);
+    list.sort(function(u,v){return u.y-v.y;});
+    var key=list.map(function(o){return o.n;}).join('');
+    if(key!==hallOrder){
+      hallOrder=key;
+      for(var i=0;i<list.length;i++){hallG.insertBefore(list[i].e,hallPassG);}
+    }
+  }
+  function updateHall(now){
+    var dt=Math.min(0.05,(now-lastH)/1000);lastH=now;
+    if(hallState==='dead'){return;}
+    if(hallState==='yell'){
+      var el=now-hallT0;
+      placeMonitors(Math.sin(now*0.08)*6);
+      hallFlash.setAttribute('opacity',0.22+0.12*Math.sin(now*0.02));
+      if(el>=1100){hallTxt.textContent='GET BACK TO CLASS, NOW!';}
+      if(el>=2600){hallDead(now);}
+      return;
+    }
+    var vx=(keys.d?1:0)-(keys.a?1:0),vy=(keys.s?1:0)-(keys.w?1:0),ln=Math.sqrt(vx*vx+vy*vy);
+    updateStudents(now,dt);updateBathFx(now,dt);
+    hallPassTag.textContent=outPass?'HALL PASS \u2713':'NO HALL PASS!';
+    hallPassTag.setAttribute('fill',outPass?'#7CFC9A':'#ff8a80');
+    if(hallState==='hall'){
+      if(ln>0){rpX+=vx/ln*190*dt;rpY+=vy/ln*170*dt;}
+      rpY=Math.max(235,Math.min(598,rpY));
+      var hs=1-0.65*hallT(rpY),mg=26*hs;
+      rpX=Math.max(hallXL(rpY)+mg,Math.min(hallXR(rpY)-mg,rpX));
+      hallPlayer.setAttribute('transform','translate('+rpX+' '+rpY+') scale('+hs+') translate(-150 -516)');
+      if(chk===0){
+        for(var m=0;m<2;m++){
+          var mo=MON[m];
+          mo.y+=mo.dir*38*dt;
+          if(mo.y>mo.max){mo.y=mo.max;mo.dir=-1;}
+          if(mo.y<mo.min){mo.y=mo.min;mo.dir=1;}
+        }
+      }
+      placeMonitors(0);
+      orderHall();
+      if(chk===0){
+        if(now>=nextCheck){
+          nextCheck=now+3000;
+          if(Math.random()<0.2){
+            chk=1;chkT0=now;
+            hallTxt.textContent='Hall monitor: \u201cHall pass, please!\u201d';
+            if(outPass){hallPassG.setAttribute('visibility','visible');}
+          }
+        }
+        if(chkMsgUntil>0&&now>=chkMsgUntil){chkMsgUntil=0;}
+        if(chkMsgUntil===0){hallTxt.textContent='THE HALLWAY';}
+      }else if(now-chkT0>=1500){
+        if(outPass){
+          chk=0;nextCheck=now+3000;hallPassG.setAttribute('visibility','hidden');
+          hallTxt.textContent='Hall monitor: \u201cPass checked. Carry on.\u201d';chkMsgUntil=now+1600;
+        }else{
+          chk=0;hallState='yell';hallT0=now;
+          hallTxt.textContent='HEY! WHERE\u2019S YOUR HALL PASS?!';
+        }
+      }
+      var sub='Walk with WASD \u2014 classroom door on the left, restroom at the far end';
+      if(nearClassDoor()){sub='Press E: back to class';}
+      else if(nearRestroomDoor()){sub='Press E: enter the restroom';}
+      else if(nearKitchenDoor()){sub='Press E: enter the kitchen';}
+      hallSub.textContent=sub;
+    }else if(hallState==='kitchen'){
+      updateKitchen(now,dt,vx,vy,ln);
+    }else if(hallState==='bath'){
+      hallTxt.textContent='THE RESTROOM';
+      if(usingStall>=0){
+        var ue=now-useT0;
+        bathBarG.setAttribute('visibility','visible');bathBar.setAttribute('width',300*Math.min(1,ue/2000));
+        bathPlayer.setAttribute('visibility','hidden');
+        hallSub.textContent='Using the stall\u2026';
+        if(ue>=2000){usingStall=-1;bathBarG.setAttribute('visibility','hidden');bathPlayer.removeAttribute('visibility');pop('Much better!',bpX,420);}
+      }else{
+        if(ln>0){bpX+=vx/ln*210*dt;bpY+=vy/ln*120*dt;}
+        if(vx!==0){bFace=vx>0?1:-1;}
+        bpX=Math.max(40,Math.min(860,bpX));bpY=Math.max(440,Math.min(570,bpY));
+        var s2=1+(bpY-516)*0.004;
+        bathPlayer.setAttribute('transform','translate('+bpX+' '+bpY+') scale('+s2+') translate(-150 -516)');
+        var sub2='Walk with WASD \u2014 the hallway door is on the left';
+        if(bpX<=150){sub2='Press E: back to the hallway';}
+        else{for(var q=0;q<STALLX.length;q++){if(Math.abs(bpX-STALLX[q])<80&&bpY<=480){sub2='Press E: use the stall';}}}
+        hallSub.textContent=sub2;
+      }
+    }
+  }
   function updateStrikes(){for(var i=0;i<3;i++){stEls[i].setAttribute('fill',i<strikes?'#e0312b':'none');}}
   function updateSight(now){
     var dt=Math.min(0.05,(now-lastS)/1000);lastS=now;
     var seeing=!isBack&&!over&&!caught&&tState!=='yelling'&&tState!=='spotted'&&now>=stunUntil&&now>=graceUntil;
     sus=Math.max(0,sus-dt*0.04);
-    if(!isBack&&now>=stunUntil&&playerHidden){lastHideT=now;sus=Math.min(1,sus+dt*0.06);}
-    if(seeing&&standT>0.5&&!playerHidden){lastStandT=now;}
+    if(!isBack&&now>=stunUntil&&playerHidden){lastHideT=now;lastHideX=pX;sus=Math.min(1,sus+dt*0.06);}
+    if(seeing&&standT>0.5&&!playerHidden&&now>=passUntil){lastStandT=now;}
     susFill.setAttribute('width',110*sus);
     if(riding&&!over&&!caught&&now>=stunUntil&&now>=ramCD){
       var rfx=290+tx,rfy=465+ty+wbob;
@@ -942,7 +1636,7 @@
       dmFill.setAttribute('x',bx);dmFill.setAttribute('y',by);dmFill.setAttribute('width',bw*(1-meltK));dmFill.setAttribute('height',bh);
       dmTxt.setAttribute('x',pX);dmTxt.setAttribute('y',by-4);
     }
-    if(seeing&&standT>0.5&&!playerHidden&&now>=sightCD){
+    if(seeing&&standT>0.5&&!playerHidden&&now>=sightCD&&now>=passUntil){
       sight+=dt;
       if(sight>=0.6){
         sight=0;sightCD=now+3000;strikes++;updateStrikes();addSus(0.3);
@@ -958,13 +1652,13 @@
       }
     }else{hold=0;}
   }
-  var sus=0,lastStandT=-99999,lastHideT=-99999;
-  var KIDS=[{n:'Pete',x:105,y:467},{n:'Gina',x:215,y:467},{n:'Yuri',x:104,y:405},{n:'Penny',x:214,y:405},{n:'Theo',x:450,y:405}];
-  var blamed=[0,0,0,0,0],blameState='',blameT0=0,blameStart=0,blameMsg='',blameOK=false,blamePick=-1,blameTried=false,graceUntil=0;
+  var sus=0,lastStandT=-99999,lastHideT=-99999,lastHideX=450;
+  var KIDS=[{n:'Pete',x:105,y:467},{n:'Gina',x:215,y:467},{n:'Yuri',x:104,y:405},{n:'Penny',x:214,y:405},{n:'Theo',x:450,y:405},{n:'Rosa',x:102,y:543},{n:'Max',x:217,y:543},{n:'Dmitri',x:612,y:543}];
+  var blamed=[0,0,0,0,0,0,0,0],blameState='',blameT0=0,blameStart=0,blameMsg='',blameOK=false,blamePick=-1,blameTried=false,graceUntil=0;
   var blameG=$('blame'),blLine=$('blLine'),blTime=$('blTime'),blNote=$('blNote'),susFill=$('susFill');
   var blR=[],blB=[];
-  for(var bk=1;bk<=5;bk++){blR.push($('blR'+bk));blB.push($('blBtn'+bk));}
-  for(var bj=0;bj<5;bj++){(function(i){blB[i].addEventListener('pointerdown',function(e){e.stopPropagation();pickBlame(i,performance.now());});})(bj);}
+  for(var bk=1;bk<=8;bk++){blR.push($('blR'+bk));blB.push($('blBtn'+bk));}
+  for(var bj=0;bj<8;bj++){(function(i){blB[i].addEventListener('pointerdown',function(e){e.stopPropagation();pickBlame(i,performance.now());});})(bj);}
   function addSus(a){sus=Math.min(1,sus+a);}
   function blameLeft(){return 5;}
   function shiftTimers(d){
@@ -981,9 +1675,9 @@
     blameTried=true;blameState='pick';blameT0=now;blameStart=now;blameMsg=msg;blamePick=-1;pooping=false;
     endMini();alertG.setAttribute('visibility','hidden');
     blLine.textContent='The teacher: \u201c'+msg+'\u201d  Quick \u2014 blame someone!';
-    for(var i=0;i<5;i++){blR[i].setAttribute('fill','#2e3a55');blR[i].setAttribute('opacity',1);}
+    for(var i=0;i<8;i++){blR[i].setAttribute('fill','#2e3a55');blR[i].setAttribute('opacity',1);}
     blTime.setAttribute('width',710);
-    blNote.textContent='Click ANY student or press 1\u20135. He believes you 45% of the time\u2026 but something else might happen.';
+    blNote.textContent='Click ANY student or press 1\u20138. He believes you 45% of the time\u2026 but something else might happen.';
     blameG.setAttribute('visibility','visible');
   }
   var blameOutcome='';
@@ -1023,7 +1717,7 @@
   var fTR=[],fTL=[],fTB=[];
   for(var fk=1;fk<=8;fk++){fTR.push($('fTR'+fk));fTL.push($('fTL'+fk));fTB.push($('fT'+fk));}
   for(var fj=0;fj<8;fj++){(function(i){fTB[i].addEventListener('pointerdown',function(e){e.stopPropagation();fightClick(i,performance.now());});})(fj);}
-  var FCOL=['#6a4fb3','#3e9c6a','#e0b13a','#d6628f','#2f9bb5'];
+  var FCOL=['#6a4fb3','#3e9c6a','#e0b13a','#d6628f','#2f9bb5','#c0392b','#e67e22','#34495e'];
   function fightHighlight(){
     for(var k=0;k<8;k++){
       var next=(k===fProg&&fightState==='play');
@@ -1100,7 +1794,7 @@
       }
     }
   }
-  function blameKey(k){if(k.length===1&&'12345'.indexOf(k)>=0){pickBlame(+k-1,performance.now());}}
+  function blameKey(k){if(k.length===1&&'12345678'.indexOf(k)>=0){pickBlame(+k-1,performance.now());}}
   function catchPlayer(msg,now){
     if(now<stunUntil||now<graceUntil||blameState){return;}
     if(!blameTried&&blameLeft()>0&&!over&&!caught&&!deanState){startBlame(msg,now);return;}
@@ -1151,15 +1845,16 @@
     resetCow();stunUntil=0;starsG.setAttribute('visibility','hidden');
     tx=45;ty=0;tsc=1;wbob=0;route=[];
     strikes=0;sight=0;sightCD=0;hold=0;meltK=0;updateStrikes();
-    blamed=[0,0,0,0,0];blameState='';blameTried=false;graceUntil=0;sus=0;lastStandT=-99999;lastHideT=-99999;
+    blamed=[0,0,0,0,0,0,0,0];blameState='';blameTried=false;graceUntil=0;sus=0;lastStandT=-99999;lastHideT=-99999;
     blameG.setAttribute('visibility','hidden');susFill.setAttribute('width',0);
     fightState='';feudKid=-1;fightG.setAttribute('visibility','hidden');koG.setAttribute('visibility','hidden');
+    resetStudents(performance.now());clearBathFx();resetKitchen();hallState='';showRoom('');bustedG.setAttribute('visibility','hidden');hasPass=false;passUntil=0;askCD=0;outPass=false;usingStall=-1;
     for(var ki=0;ki<kids.length;ki++){kids[ki].muted=false;}
     mini=false;miniG.setAttribute('visibility','hidden');miniImmune=0;
     deanState='';deanG.setAttribute('visibility','hidden');dBtns.setAttribute('visibility','hidden');deanG.removeAttribute('transform');deanSplash.setAttribute('visibility','hidden');deanTut.setAttribute('visibility','hidden');deanOverG.setAttribute('visibility','hidden');
   }
-  var NODES={H:[335,465],F1:[30,495],F2:[335,495],F3:[530,495],R1:[530,440],R2:[530,346],Cb:[335,346],L2:[30,346],L1:[30,440],C1n:[335,385],C2n:[335,425],M:[335,448]};
-  var EDGES=[['F1','F2'],['F2','F3'],['F3','R1'],['R1','R2'],['R2','Cb'],['Cb','L2'],['L2','L1'],['L1','F1'],['Cb','C1n'],['C1n','C2n'],['C2n','M'],['M','H'],['H','F2']];
+  var NODES={H:[335,465],F1:[30,565],F2:[335,565],F3:[530,565],F4:[610,565],F5:[690,565],R1:[530,440],R2:[530,346],Cb:[335,346],L2:[30,346],L1:[30,440],C1n:[335,385],C2n:[335,425],M:[335,448]};
+  var EDGES=[['F1','F2'],['F2','F3'],['F3','F4'],['F4','F5'],['F3','R1'],['R1','R2'],['R2','Cb'],['Cb','L2'],['L2','L1'],['L1','F1'],['Cb','C1n'],['C1n','C2n'],['C2n','M'],['M','H'],['H','F2']];
   function pathTo(a,b){
     var prev={},q=[a],vis={};vis[a]=true;
     while(q.length){
@@ -1174,8 +1869,13 @@
   }
   function addPath(r,from,to,wait,me){
     var p=pathTo(from,to);
-    for(var i=1;i<p.length;i++){var n=NODES[p[i]],last=(i===p.length-1);r.push({x:n[0],y:n[1],wait:last?wait:0,me:last&&!!me,desk:last&&to==='R1'&&wait>0});}
+    for(var i=1;i<p.length;i++){var n=NODES[p[i]],last=(i===p.length-1);r.push({x:n[0],y:n[1],wait:last?wait:0,me:last&&!!me,desk:last&&wait>0&&(to==='R1'||to==='F2'||to==='F4'||to==='F5'),hr:(to==='R1'?999:150)});}
     return to;
+  }
+  function hideNode(x){
+    var c=[['R1',660],['F2',447],['F5',760]],best='R1',bd=1e9;
+    for(var i=0;i<c.length;i++){var d=Math.abs(c[i][1]-x);if(d<bd){bd=d;best=c[i][0];}}
+    return best;
   }
   function startActivity(now){
     var walkP=Math.min(0.9,0.45+0.4*sus);
@@ -1184,9 +1884,9 @@
     if(sus>0.25||Math.random()<0.75){
       var pri=[];
       if(now-lastStandT<15000){pri.push('M');}
-      if(now-lastHideT<15000){pri.push('R1');}
+      if(now-lastHideT<15000){pri.push(hideNode(lastHideX));}
       if(sus>0.5){if(pri.indexOf('M')<0){pri.push('M');}if(pri.indexOf('R1')<0){pri.push('R1');}}
-      var rest=['L1','C1n','M','R1'].filter(function(x){return pri.indexOf(x)<0;});
+      var rest=['L1','C1n','M','R1','F2','F4','F5'].filter(function(x){return pri.indexOf(x)<0;});
       rest.sort(function(){return Math.random()-0.5;});
       var stops=pri.concat(rest);
       var n=Math.min(4,2+(Math.random()<0.5?1:0)+(sus>0.6?1:0));
@@ -1273,7 +1973,7 @@
           var ddx=wp.x-fxT,ddy=wp.y-fyT,dd=Math.sqrt(ddx*ddx+ddy*ddy),sp=100*edt;
           if(dd<=sp){
             tx=wp.x-290;ty=wp.y-465;wbob=0;
-            if(wp.desk&&playerHidden&&!mini&&now>=miniImmune&&now>=graceUntil){startMini(now,'desk');}
+            if(wp.desk&&playerHidden&&Math.abs(pX-wp.x)<wp.hr&&!mini&&now>=miniImmune&&now>=graceUntil){startMini(now,'desk');}
             if(wp.wait>0){wPhase=1;waitUntil=now+wp.wait;bubble.textContent='Hmm…';bubbleUntil=waitUntil;}
             else{nextWp(now);}
           }else{tx+=ddx/dd*sp;ty+=ddy/dd*sp;wbob=-Math.abs(Math.sin(now*0.012))*3;}
@@ -1301,8 +2001,10 @@
     alertG.setAttribute('transform',base);bubble.setAttribute('transform',base);
   }
   function makePoop(){
-    if(hasPoop||over||caught||riding){return;}
-    if(standT>=1&&dungReady&&Math.abs(pX-790)<(crouching?75:55)&&Math.abs(pY-418)<(crouching?48:40)){
+    if(over||caught||riding){return;}
+    if(standT>=1&&nearDoor()){useDoor(performance.now());return;}
+    if(hasPoop||kBrew){return;}
+    if(standT>=1&&dungReady&&Math.abs(pX-730)<(crouching?85:55)&&Math.abs(pY-590)<(crouching?66:40)){
       hasPoop=true;cowHeld=true;dungReady=false;dungAt=performance.now()+8000;dungHoldStart=performance.now();
       pop('Cow dung!',pX,pY-150*pS);return;
     }
@@ -1316,6 +2018,7 @@
     if(deanState){deanKey(k);return;}
     if(blameState){blameKey(k);return;}
     if(fightState){fightKey(k);return;}
+    if(hallState){hallKey(k);return;}
     if(k==='q'){throwIt();}else if(k==='e'){makePoop();}else if(k==='r'&&over){restart();}else if(k==='f'){toggleCrouch();}
     else if(k===' '){spaceKey();}
     else if(k==='w'||k==='a'||k==='s'||k==='d'){keys[k]=true;}
@@ -1323,6 +2026,14 @@
   window.addEventListener('keyup',function(e){keys[e.key.toLowerCase()]=false;});
   window.addEventListener('message',function(e){
     var d=e.data;
+    if(hallState){
+      if(d==='restart'){hallKey('r');}
+      else if(d==='poop'){hallKey('e');}
+      else if(d==='throw'){hallKey('q');}
+      else if(typeof d==='string'&&d.indexOf('kd:')===0){hallKey(d.slice(3));}
+      else if(typeof d==='string'&&d.indexOf('ku:')===0){keys[d.slice(3)]=false;}
+      return;
+    }
     if(fightState){
       if(typeof d==='string'&&d.indexOf('kd:')===0){fightKey(d.slice(3));}
       else if(d==='restart'){fightKey('r');}
