@@ -754,6 +754,7 @@
     var now=performance.now();
     syncAsk();
     trackBest();
+    lbWatch();
     updateSettingsUi();
     if(menuOn){updateMenu(now);requestAnimationFrame(loop);return;}
     if(paused){requestAnimationFrame(loop);return;}
@@ -2358,11 +2359,17 @@
     if(npt-noPoopAt>1500){noPoopAt=npt;pop('Poop is made in the bathroom!',pX,pY-150*pS);}
   }
   window.addEventListener('keydown',function(e){
+    if(lbSubOpen&&document.activeElement===lbInput){
+      if(e.key==='Enter'){e.preventDefault();lbSubmit();}else if(e.key==='Escape'){e.preventDefault();lbCloseSubmit();}
+      return;
+    }
     if(e.key===' '){e.preventDefault();}
     if(e.repeat){return;}
     var k=e.key.toLowerCase();
     if(menuOn){menuKey(k);return;}
     if(guideOpen){guideKey(k);return;}
+    if(lbOpen){lbKey(k);return;}
+    if(lbSubOpen){return;}
     if(shopOpen){shopKey(k);return;}
     if(k==='escape'){if(paused){closeSettings();}else{openSettings();}return;}
     if(paused){return;}
@@ -2379,8 +2386,9 @@
   window.addEventListener('keyup',function(e){keys[e.key.toLowerCase()]=false;});
   window.addEventListener('message',function(e){
     var d=e.data;
-    if(typeof d==='string'&&d.indexOf('key:')===0){var mk2=d.slice(4);if(menuOn){menuKey(mk2);}else if(guideOpen){guideKey(mk2);}else if(shopOpen){shopKey(mk2);}else if(mk2==='escape'){if(paused){closeSettings();}else{openSettings();}}else if(!paused&&over&&mk2==='m'){showMenu();}return;}
+    if(typeof d==='string'&&d.indexOf('key:')===0){var mk2=d.slice(4);if(menuOn){menuKey(mk2);}else if(guideOpen){guideKey(mk2);}else if(lbOpen){lbKey(mk2);}else if(shopOpen){shopKey(mk2);}else if(mk2==='escape'){if(paused){closeSettings();}else{openSettings();}}else if(!paused&&over&&mk2==='m'){showMenu();}return;}
     if(menuOn){if(d==='space'||d==='restart'||d==='throw'){menuKey('enter');}return;}
+    if(lbOpen||lbSubOpen){return;}
     if(shopOpen){if(typeof d==='string'&&d.indexOf('ans:')===0){shopKey(d.slice(4));}else if(d==='poop'||d==='space'){shopKey('e');}return;}
     if(paused){return;}
     if(hallState){
@@ -2412,7 +2420,7 @@
     else if(typeof d==='string'&&d.indexOf('ku:')===0){keys[d.slice(3)]=false;}
     else if(typeof d==='string'&&d.indexOf('ans:')===0){useGadget(+d.slice(4));}
   });
-  window.addEventListener('pointerdown',function(){window.focus();if(over&&!menuOn&&!paused){restart();}});
+  window.addEventListener('pointerdown',function(){window.focus();if(over&&!menuOn&&!paused&&!lbOpen&&!lbSubOpen){restart();}});
   /* ---- main menu ---- */
   var menuOn=true,menuHow=false,bestScore=0;
   try{bestScore=parseInt(localStorage.getItem('classroomChaosBest'),10)||0;}catch(e){}
@@ -2437,10 +2445,11 @@
     g.addEventListener('pointerdown',function(e){e.preventDefault();e.stopPropagation();cb();});
     return g;
   }
-  mkMenuBtn(menuMain,300,330,300,64,'PLAY','#2fbf71',function(){startGame();});
-  mkMenuBtn(menuMain,300,414,300,64,'HOW TO PLAY','#3a6df0',function(){openGuide();});
-  var menuBest=mk('text',{x:450,y:530,'font-size':22,'font-weight':800,fill:'#ffe14d'},menuMain);
-  var mtF=mk('text',{x:450,y:584,'font-size':15,fill:'#8e97c0'},menuMain);mtF.textContent='Enter / Space = play   \u2022   H = how to play';
+  mkMenuBtn(menuMain,300,312,300,60,'PLAY','#2fbf71',function(){startGame();});
+  mkMenuBtn(menuMain,300,384,300,60,'HOW TO PLAY','#3a6df0',function(){openGuide();});
+  mkMenuBtn(menuMain,300,456,300,60,'LEADERBOARD','#e0a43a',function(){lbOpenScreen();});
+  var menuBest=mk('text',{x:450,y:552,'font-size':22,'font-weight':800,fill:'#ffe14d'},menuMain);
+  var mtF=mk('text',{x:450,y:584,'font-size':15,fill:'#8e97c0'},menuMain);mtF.textContent='Enter / Space = play   \u2022   H = how to play   \u2022   L = leaderboard';
   var menuCowSrc=$('tinyPolish').getElementsByTagName('image')[0].getAttribute('href');
   var menuCow=mk('image',{x:650,y:318,width:200,height:164,preserveAspectRatio:'none',style:'image-rendering:pixelated'},menuMain);
   menuCow.setAttribute('href',menuCowSrc);
@@ -2487,9 +2496,11 @@
   }
   function menuKey(k){
     if(guideOpen){guideKey(k);return;}
+    if(lbOpen){lbKey(k);return;}
     if(menuHow){if(k==='h'||k==='escape'||k==='enter'||k===' '||k==='backspace'){setHow(false);}return;}
     if(k==='enter'||k===' '||k==='r'||k==='p'){startGame();}
     else if(k==='h'){openGuide();}
+    else if(k==='l'){lbOpenScreen();}
   }
   function trackBest(){
     if(score>bestScore){bestScore=score;try{localStorage.setItem('classroomChaosBest',String(bestScore));}catch(e){}}
@@ -2643,7 +2654,7 @@
     ]},
     {t:'EXTRAS AND TIPS',i:[
       ['h','EXTRAS'],
-      ['b','Your best score shows on the main menu (saved in the browser when it allows).'],
+      ['b','Your best score shows on the main menu (saved in the browser when it allows). After a game over you can post your score with a nickname on the school LEADERBOARD, which you can open from the main menu (or press L).'],
       ['b','Gear button or Esc: pause, turn sound on or off, or go back to the main menu. The game stays frozen until you resume.'],
       ['b','Press H on the main menu, or the book button in the game, to read this guide again.'],
       ['h','TIPS'],
@@ -2915,6 +2926,168 @@
   function shopKey(k){
     if(k==='escape'||k==='e'||k==='enter'||k===' '||k==='b'){closeShop();}
     else if(k.length===1&&k>='1'&&k<='5'){buyGadget(+k-1);}
+  }
+  /* ---- online leaderboard (Firebase Realtime Database over plain fetch) ---- */
+  var LB_URL='https://crowdelldungsimulator-default-rtdb.firebaseio.com';  /* <-- paste your Firebase Realtime Database URL between the quotes, e.g. https://my-game-default-rtdb.firebaseio.com */
+  var LB_MAX=20000,lbOpen=false,lbSubOpen=false,lbRows=[],lbStatus='',lbBusy=false,lbMine=null,lbPrevOver=false,lbPending=0,lbDoneThisGame=false,lbMem={},lbLoadId=0;
+  function lbGet(k){try{return localStorage.getItem(k);}catch(e){return lbMem[k]||null;}}
+  function lbSet(k,v){try{localStorage.setItem(k,v);}catch(e){lbMem[k]=v;}}
+  function lbLocalRows(){var a=[];try{a=JSON.parse(lbGet('cc_local')||'[]');}catch(e){a=[];}return Array.isArray(a)?a:[];}
+  function lbRecordLocal(sc){
+    var a=lbLocalRows();a.push({n:(lbGet('cc_name')||'You'),s:sc,t:Date.now()});
+    a.sort(function(x,y){return y.s-x.s;});a=a.slice(0,10);lbSet('cc_local',JSON.stringify(a));
+  }
+  function lbRenameLocal(sc,name){var a=lbLocalRows();for(var i=0;i<a.length;i++){if(a[i].s===sc&&a[i].n==='You'){a[i].n=name;break;}}lbSet('cc_local',JSON.stringify(a));}
+  var LB_BAD=['fuck','shit','bitch','cunt','nigg','fagg','dick','pussy','whore','slut','rape','nazi','porn','retard','penis','vagina','nude','rapist','hitler'];
+  var LB_BADW=['ass','tit','tits','sex','cum','kys','fag','hoe'];
+  function lbNameOk(n){
+    var low=n.toLowerCase().replace(/0/g,'o').replace(/1/g,'i').replace(/3/g,'e').replace(/4/g,'a').replace(/5/g,'s').replace(/7/g,'t').replace(/@/g,'a').replace(/\$/g,'s');
+    var squash=low.replace(/[^a-z]/g,'');
+    for(var i=0;i<LB_BAD.length;i++){if(squash.indexOf(LB_BAD[i])>=0){return false;}}
+    var words=low.split(/[^a-z]+/);
+    for(var j=0;j<words.length;j++){if(LB_BADW.indexOf(words[j])>=0){return false;}}
+    return true;
+  }
+  function lbFetch(path,opts,ms){
+    opts=opts||{};
+    var ctl=(typeof AbortController!=='undefined')?new AbortController():null;
+    var tm=setTimeout(function(){if(ctl){ctl.abort();}},ms||7000);
+    if(ctl){opts.signal=ctl.signal;}
+    return fetch(LB_URL.replace(/\/+$/,'')+path,opts).then(function(r){
+      clearTimeout(tm);
+      if(!r.ok){throw new Error('HTTP '+r.status);}
+      return r.json();
+    },function(e){clearTimeout(tm);throw e;});
+  }
+  /* --- leaderboard screen --- */
+  var lbG=mk('g',{display:'none','font-family':'system-ui,sans-serif','text-anchor':'middle'},rootSvg);
+  var lbDim=mk('rect',{x:-1000,y:-1000,width:2900,height:2620,fill:'#000',opacity:0.82},lbG);
+  lbDim.addEventListener('pointerdown',function(e){e.stopPropagation();});
+  mk('rect',{x:120,y:30,width:660,height:560,rx:22,fill:'#1b2140',stroke:'#ffe14d','stroke-width':4},lbG);
+  var lbT=mk('text',{x:450,y:84,'font-size':34,'font-weight':900,fill:'#ffe14d'},lbG);lbT.textContent='LEADERBOARD';
+  var lbSt=mk('text',{x:450,y:112,'font-size':14,'font-weight':700,fill:'#aab2d5'},lbG);
+  var lbHead=mk('g',{},lbG);
+  (function(){
+    var h1=mk('text',{x:168,y:146,'font-size':14,'font-weight':900,'text-anchor':'start',fill:'#8e97c0'},lbHead);h1.textContent='#';
+    var h2=mk('text',{x:226,y:146,'font-size':14,'font-weight':900,'text-anchor':'start',fill:'#8e97c0'},lbHead);h2.textContent='NICKNAME';
+    var h3=mk('text',{x:732,y:146,'font-size':14,'font-weight':900,'text-anchor':'end',fill:'#8e97c0'},lbHead);h3.textContent='SCORE';
+  })();
+  var lbBody=mk('g',{},lbG);
+  mkMenuBtn(lbG,230,532,190,46,'REFRESH','#3a6df0',function(){lbLoad();},22);
+  mkMenuBtn(lbG,480,532,190,46,'BACK','#d9534f',function(){lbCloseScreen();},22);
+  function lbRender(){
+    while(lbBody.firstChild){lbBody.removeChild(lbBody.firstChild);}
+    lbSt.textContent=lbStatus;
+    if(!lbRows.length){
+      var e=mk('text',{x:450,y:300,'font-size':20,'font-weight':700,fill:'#c8cfe8'},lbBody);
+      e.textContent=lbBusy?'Loading...':'No scores yet. Be the first!';
+      return;
+    }
+    for(var i=0;i<lbRows.length&&i<10;i++){
+      var r=lbRows[i],y=176+i*34,mine=lbMine&&r.n===lbMine.n&&r.s===lbMine.s;
+      if(mine){mk('rect',{x:140,y:y-4,width:620,height:30,rx:8,fill:'#2e5d3c'},lbBody);}
+      else if(i%2===0){mk('rect',{x:140,y:y-4,width:620,height:30,rx:8,fill:'#232a52'},lbBody);}
+      var medal=i===0?'#ffd23f':(i===1?'#cfd6e6':(i===2?'#e29a5b':'#e6e9f7'));
+      var a=mk('text',{x:168,y:y+18,'font-size':19,'font-weight':900,'text-anchor':'start',fill:medal},lbBody);a.textContent=String(i+1);
+      var b=mk('text',{x:226,y:y+18,'font-size':19,'font-weight':800,'text-anchor':'start',fill:mine?'#ffffff':'#e6e9f7'},lbBody);b.textContent=r.n+(mine?'  (you!)':'');
+      var c=mk('text',{x:732,y:y+18,'font-size':19,'font-weight':900,'text-anchor':'end',fill:'#ffe14d'},lbBody);c.textContent=String(r.s);
+    }
+  }
+  function lbLoad(){
+    var id=++lbLoadId;
+    if(!LB_URL){
+      lbStatus='The online leaderboard is not set up yet. Showing scores from this device.';
+      lbRows=lbLocalRows();lbBusy=false;lbRender();return;
+    }
+    lbBusy=true;lbStatus='Loading...';lbRows=[];lbRender();
+    lbFetch('/scores.json?orderBy=%22s%22&limitToLast=100').then(function(d){
+      if(id!==lbLoadId){return;}
+      var arr=[],k;
+      for(k in (d||{})){var v=d[k];if(v&&typeof v.n==='string'&&typeof v.s==='number'){arr.push({n:v.n,s:v.s,t:v.t||0});}}
+      arr.sort(function(x,y){return y.s-x.s||x.t-y.t;});
+      var seen={},out=[];
+      for(var i=0;i<arr.length&&out.length<10;i++){var key=arr[i].n.toLowerCase();if(seen[key]){continue;}seen[key]=1;out.push(arr[i]);}
+      lbRows=out;lbBusy=false;lbStatus='Online \u2022 top scores from your school';lbRender();
+    }).catch(function(){
+      if(id!==lbLoadId){return;}
+      lbBusy=false;lbRows=lbLocalRows();lbStatus='Could not reach the online leaderboard. Showing scores from this device.';lbRender();
+    });
+  }
+  function lbOpenScreen(){
+    if(lbOpen){return;}
+    lbOpen=true;lbG.removeAttribute('display');lbLoad();
+  }
+  function lbCloseScreen(){
+    if(!lbOpen){return;}
+    lbOpen=false;lbG.setAttribute('display','none');lbMine=null;
+  }
+  function lbKey(k){
+    if(k==='escape'||k==='enter'||k==='b'||k==='l'){lbCloseScreen();}
+    else if(k==='r'){lbLoad();}
+  }
+  /* --- submit panel after a game over --- */
+  var lbInput=document.createElement('input');
+  lbInput.type='text';lbInput.maxLength=12;lbInput.placeholder='Nickname';lbInput.setAttribute('autocomplete','off');lbInput.spellcheck=false;
+  lbInput.style.cssText='position:fixed;display:none;z-index:50;box-sizing:border-box;text-align:center;font-family:system-ui,sans-serif;font-weight:800;border:3px solid #ffe14d;border-radius:12px;background:#10162b;color:#fff;outline:none;padding:0 8px;';
+  document.body.appendChild(lbInput);
+  var subG=mk('g',{display:'none','font-family':'system-ui,sans-serif','text-anchor':'middle'},rootSvg);
+  var subDim=mk('rect',{x:-1000,y:-1000,width:2900,height:2620,fill:'#000',opacity:0.72},subG);
+  subDim.addEventListener('pointerdown',function(e){e.stopPropagation();});
+  mk('rect',{x:215,y:110,width:470,height:400,rx:22,fill:'#1b2140',stroke:'#ffe14d','stroke-width':4},subG);
+  var sbT=mk('text',{x:450,y:162,'font-size':34,'font-weight':900,fill:'#ff5d5d'},subG);sbT.textContent='GAME OVER';
+  var sbS=mk('text',{x:450,y:200,'font-size':24,'font-weight':900,fill:'#ffe14d'},subG);
+  var sbQ=mk('text',{x:450,y:232,'font-size':17,'font-weight':700,fill:'#c8cfe8'},subG);sbQ.textContent='Post your score on the school leaderboard?';
+  var sbN=mk('text',{x:450,y:266,'font-size':14,'font-weight':700,fill:'#ff8fab'},subG);sbN.textContent='Use a nickname, not your real name.';
+  var sbErr=mk('text',{x:450,y:350,'font-size':15,'font-weight':800,fill:'#ff8fab'},subG);
+  mkMenuBtn(subG,290,372,150,50,'SUBMIT','#2fbf71',function(){lbSubmit();},22);
+  mkMenuBtn(subG,460,372,150,50,'SKIP','#6b7390',function(){lbCloseSubmit();},22);
+  var sbF=mk('text',{x:450,y:458,'font-size':13,fill:'#8e97c0'},subG);sbF.textContent='Enter = submit   \u2022   Esc = skip';
+  function lbPlace(){
+    var r=rootSvg.getBoundingClientRect(),sc=Math.min(r.width/900,r.height/620),cx=r.left+r.width/2,cy=r.top+r.height/2;
+    var w=280*sc,h=48*sc;
+    lbInput.style.width=w+'px';lbInput.style.height=h+'px';lbInput.style.fontSize=(24*sc)+'px';
+    lbInput.style.left=(cx-w/2)+'px';lbInput.style.top=(cy+(306-310)*sc-h/2+4*sc)+'px';
+  }
+  window.addEventListener('resize',function(){if(lbSubOpen){lbPlace();}});
+  function lbOpenSubmit(){
+    if(lbSubOpen){return;}
+    lbSubOpen=true;lbPending=Math.min(score,LB_MAX);
+    sbS.textContent='Your score: '+lbPending;sbErr.textContent='';
+    lbInput.value=lbGet('cc_name')||'';
+    subG.removeAttribute('display');lbPlace();lbInput.style.display='block';
+    setTimeout(function(){try{lbInput.focus();lbInput.select();}catch(e){}},60);
+  }
+  function lbCloseSubmit(){
+    if(!lbSubOpen){return;}
+    lbSubOpen=false;subG.setAttribute('display','none');lbInput.style.display='none';
+    try{lbInput.blur();window.focus();}catch(e){}
+  }
+  function lbSubmit(){
+    if(lbBusy||!lbSubOpen){return;}
+    var name=lbInput.value.replace(/\s+/g,' ').trim();
+    if(name.length<2){sbErr.textContent='Nickname needs at least 2 characters.';return;}
+    if(!/^[A-Za-z0-9 _\-]+$/.test(name)){sbErr.textContent='Use only letters, numbers, spaces, _ and -';return;}
+    if(!lbNameOk(name)){sbErr.textContent='That nickname isn\u2019t allowed. Try another!';return;}
+    if(lbDoneThisGame){sbErr.textContent='Score already submitted.';return;}
+    lbBusy=true;sbErr.textContent='Sending...';
+    lbSet('cc_name',name);
+    var sc=lbPending;
+    lbFetch('/scores.json',{method:'POST',body:JSON.stringify({n:name,s:sc,t:Date.now()})}).then(function(){
+      lbBusy=false;lbDoneThisGame=true;lbMine={n:name,s:sc};lbRenameLocal(sc,name);
+      lbCloseSubmit();lbOpenScreen();
+    }).catch(function(){
+      lbBusy=false;sbErr.textContent='Could not reach the leaderboard. Try again, or Skip.';
+    });
+  }
+  function lbWatch(){
+    if(over&&!lbPrevOver&&!menuOn){
+      lbPrevOver=true;lbDoneThisGame=false;
+      if(score>=1){
+        lbRecordLocal(Math.min(score,LB_MAX));
+        if(LB_URL){setTimeout(function(){if(over&&!menuOn&&!lbSubOpen&&!lbOpen&&!paused){lbOpenSubmit();}},1000);}
+      }
+    }
+    if(!over){lbPrevOver=false;}
   }
   function updateSettingsUi(){
     updateInvHud();
